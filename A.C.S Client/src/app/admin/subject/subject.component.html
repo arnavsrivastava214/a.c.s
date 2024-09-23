@@ -1,0 +1,186 @@
+<div class="container-fluid">
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <div class="display-6 px-3">Subject</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+
+
+
+
+        <div class="col-lg-12">
+            
+            <div class="ibox ">
+                <div class="ibox-title">
+                    <h5>All class assing subject </h5>
+                    <button (click)="sort()" class="btn btn-success">Sort Table</button>
+                    <div class="ibox-tools">
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addModal"
+                            data-backdrop="static" data-keyboard="false" fdprocessedid="3ugb9" (click)="addChild()"
+                            style="margin-left: 82rem; margin-bottom: 10px; width: 70px;">Add</button>
+                    </div>
+                </div>
+
+                <div class="ibox-content table-responsive">
+                    <input type="text" class="form-control form-control-sm m-b-xs" id="filter"
+                        placeholder="Search in table" fdprocessedid="v959ur" #box (input)="getsearchedValues(box)">
+                    <table class="footable table table-stripped table-bordered no-paging footable-loaded" data-page-size="10" data-filter="#filter" data-limit-navigation="5"  >
+
+                        <thead>
+                            <tr>
+                                <th class="footable-sortable">s. no. <span class="footable-sort-indicator"></span>
+                                </th>
+                                <th class="footable-sortable">Assigned Class<span
+                                        class="footable-sort-indicator"></span></th>
+
+                                <th class="footable-sortable">Edit<span class="footable-sort-indicator"></span>
+                                </th>
+                                <th class="footable-sortable">Delete<span class="footable-sort-indicator"></span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="data_tr">
+
+                        <tbody>
+                            <tr *ngFor="let student of copyArray let idx = index">
+                                
+                                <td>{{student.id}}</td>
+                                <td>{{student.assign_class}}</td>
+                                <td><button class="btn btn-primary" (click)="editValue(student)">Edit</button></td>
+                                <td><button class="btn btn-danger" (click)="deleteValue(student, idx)"> Delete</button></td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="myModal" class="modal" *ngIf="showModal">
+
+        <!-- Modal content -->
+        <div class="modal-content" [formGroup]="studentMarks">
+            <span class="close" (click)="showModal = false">&times;</span>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group" >
+                                <label> Class</label>
+                                <select class="select2_demo_2 form-control select2-hidden-accessible" required=""
+                                    name="class" tabindex="-1" aria-hidden="true"  formControlName="assign_class">
+                                    <option value="NURSERY">NURSERY</option>
+                                    <option value="1">1</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select><span
+                                    class="select2 select2-container select2-container--default select2-container--below"
+                                    dir="ltr" style="width: 419px;"><span class="selection"><span
+                                            class="select2-selection select2-selection--single" role="combobox"
+                                            aria-autocomplete="list" aria-haspopup="true" aria-expanded="false"
+                                            tabindex="0" aria-labelledby="select2-class-gp-container"><span
+                                                class="select2-selection__rendered" id="select2-class-gp-container"
+                                                title="NURSERY">NURSERY</span><span class="select2-selection__arrow"
+                                                role="presentation"><b
+                                                    role="presentation"></b></span></span></span><span
+                                        class="dropdown-wrapper" aria-hidden="true"></span></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group"> <label>Subject<span class="required" aria-required="true">
+                                    </span></label>
+                                <div class="input-group"> <span class="input-group-addon input-circle-left"> <i
+                                            class="fa fa-book" aria-hidden="true"></i> </span>
+                                    <input type="text" class="form-control" placeholder="subject" style="border-radius: 5px; border: 1px solid green;"formControlName="subject">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>Ist unit m.m<span class="required" aria-required="true">
+                                    </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="number" class="form-control input-circle-right" name="iunit_min_m[]"
+                                        placeholder="Ist unit min marks" value="" required="" fdprocessedid="35x9n"
+                                        style="border-radius: 5px; border: 1px solid green;" formControlName="Ist_unit_min_marks">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>Ist unit max m<span class="required" aria-required="true">
+                                    </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-book"></i>
+
+                                    </span>
+                                    <input type="number" class="form-control input-circle-right" name="iunit_max_m[]"
+                                        placeholder="Ist unit max marks" value="" required="" fdprocessedid="zbci6b"
+                                        style="border-radius: 5px; border: 1px solid green;"formControlName="Ist_unit_max_marks">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>IInd unit Max m<span class="required" aria-required="true">
+                                    </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="number" class="form-control input-circle-right" name="iiunit_min_m[]"
+                                        placeholder="IInd unit min marks" value="" required="" fdprocessedid="336jyf"
+                                        style="border-radius: 5px; border:red 1px solid;" formControlName="IInd_unit_min_marks">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label>IInd Unit Max m<span class="required" aria-required="true">
+                                    </span></label>
+                                <div class="input-group">
+                                    <span class="input-group-addon input-circle-left">
+                                        <i class="fa fa-book" aria-hidden="true"></i>
+                                    </span>
+                                    <input type="number" class="form-control input-circle-right" name="iiunit_max_m[]"
+                                        placeholder="IInd unit max marks" value="" required="" fdprocessedid="32hhq"
+                                        style="border-radius: 5px; border: 1px solid green;" formControlName="IInd_unit_max_marks">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="table" id="new_pump"></div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" fdprocessedid="lrm57" (click)="getMarksValue()">Save</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" fdprocessedid="87sxy"
+                            (click)="closeModal()">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

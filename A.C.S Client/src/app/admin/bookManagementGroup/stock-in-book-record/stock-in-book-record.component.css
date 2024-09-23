@@ -1,0 +1,21 @@
+.container {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  h5 {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  
+  .table-bordered {
+    border-collapse: collapse;
+  }
+  
+  .table-bordered th,
+  .table-bordered td {
+    border: 1px solid #dee2e6;
+  }
+
+  

@@ -1,0 +1,50 @@
+<div class="container-fluid">
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <div class="display-6 px-3">Subject</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"
+                    (change)="colParticulardate()">
+                <label class="form-check-label" for="inlineRadio1">Collection Particular Date </label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+                    (change)="collAdmissionWise()">
+                <label class="form-check-label" for="inlineRadio2">Collection Admission Wise</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"
+                    (change)="collBetweenTwoDates()">
+                <label class="form-check-label" for="inlineRadio2">Collection Between Two Dates</label>
+            </div>
+
+
+            <div *ngIf="collectionParticularDate" class="d-flex  my-4">
+                <input type="date" class="form-control" id="enter_date" placeholder="Enter Date" style="width: 300px;">
+                <button
+                    style="background-color: #1ab394; color: white; border-radius: 5px; border: none; width: 70px;">Search</button>
+            </div>
+            <div *ngIf="collectionAdmissionWise" class="d-flex my-4">
+                <input type="number" class="form-control" id="enter_date" placeholder="Enter Admission Number"
+                    style="width: 300px;">
+                <button
+                    style="background-color: #1ab394; color: white; border-radius: 5px; border: none; width: 70px;">Search</button>
+            </div>
+            <div *ngIf="collectionBetweenTwoDates" class="d-flex my-4">
+                <input placeholder=" Start Date" class="textbox-n" type="text" onfocus="(this.type='Date')"onblur="(this.type='text')" class="form-control" style="width: 300px;" />
+                <input placeholder=" End Date" class="textbox-n" type="text" onfocus="(this.type='Date')"onblur="(this.type='text')" class="form-control" style="width: 300px;" />
+                <button
+                    style="background-color: #1ab394; color: white; border-radius: 5px; border: none; width: 70px;">Search</button>
+            </div>
+        </div>

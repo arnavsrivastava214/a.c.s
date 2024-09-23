@@ -1,0 +1,130 @@
+<div class="container-fluid">
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <div class="display-6 px-3">Subject</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                  <li class="breadcrumb-item">Home</li>
+                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                </ol>
+              </nav>
+        </div>
+       </div>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="container mt-4">
+                <form [formGroup]="bookPurchaseForm" (ngSubmit)="onSubmit()">
+                  <div class="row g-3">
+                    <!-- Vendor ID -->
+                    <div class="col-md-3">
+                      <label for="vendorId" class="form-label">Vendor ID</label>
+                      <select formControlName="vendorId" class="form-select" id="vendorId">
+                        <option>Select</option>
+                        <option *ngFor="let vendor of vendors">{{ vendor.name }}</option>
+                      </select>
+                    </div>
+              
+                    <!-- Invoice No -->
+                    <div class="col-md-3">
+                      <label for="invoiceNo" class="form-label">Invoice No</label>
+                      <input formControlName="invoiceNo" type="text" class="form-control" id="invoiceNo" placeholder="Invoice No">
+                    </div>
+              
+                    <!-- Invoice Date -->
+                    <div class="col-md-3">
+                      <label for="invoiceDate" class="form-label">Invoice Date</label>
+                      <input formControlName="invoiceDate" type="date" class="form-control" id="invoiceDate">
+                    </div>
+                  </div>
+              
+                  <hr />
+              
+                  <div class="row g-3">
+                    <!-- Book Code -->
+                    <div class="col-md-2">
+                      <input formControlName="bookCode" type="text" class="form-control" placeholder="Book Code">
+                    </div>
+                    <!-- Book Name -->
+                    <div class="col-md-2">
+                      <input formControlName="bookName" type="text" class="form-control" placeholder="Book Name">
+                    </div>
+                    <!-- Book Publisher -->
+                    <div class="col-md-2">
+                      <input formControlName="bookPublisher" type="text" class="form-control" placeholder="Book Pub.">
+                    </div>
+                    <!-- Class -->
+                    <div class="col-md-1">
+                      <select formControlName="class_Assign" class="form-select">
+                        <option>Select</option>
+                        <option *ngFor="let classItem of classes">{{ classItem }}</option>
+                      </select>
+                    </div>
+                    <!-- Quantity -->
+                    <div class="col-md-1">
+                      <input formControlName="quantity" type="number" class="form-control" placeholder="QTY">
+                    </div>
+                    <!-- MRP Rate -->
+                    <div class="col-md-2">
+                      <input formControlName="mrpRate" type="number" class="form-control" placeholder="MRP Rate (Per Book)">
+                    </div>
+                    <!-- Discount -->
+                    <div class="col-md-2">
+                      <input formControlName="discount" type="number" class="form-control" placeholder="Discount (Per Book in %)">
+                    </div>
+                    <!-- Total Purchasing Amount -->
+                    <div class="col-md-2">
+                      <input formControlName="totalPurchasingAmount" type="number" class="form-control" placeholder="Total Purchasing Amount">
+                    </div>
+                    <!-- Total Amount -->
+                    <div class="col-md-2">
+                      <input formControlName="totalAmount" type="number" class="form-control" placeholder="Total Amount">
+                    </div>
+                    <!-- Add Button -->
+                    <div class="col-md-1 d-flex align-items-end">
+                      <button type="button" class="btn btn-success">+</button>
+                    </div>
+                  </div>
+              
+                  <div class="mt-3">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                </form>
+               
+                
+                </div>
+              
+                <!-- Table for Status of Books Purchased -->
+                <div class="mt-5">
+                  <h5>Status Of Books Purchased</h5>
+                  <input type="text" class="form-control" placeholder="Search in Table"
+                  aria-label="Recipient's username" aria-describedby="basic-addon2"  [(ngModel)]="inputValues" (input)="getsearchedValues()">
+              <div class="input-group-append">
+                  <table class="table table-bordered">
+                    <thead class="table-light">
+                      <tr>
+                        <th>#</th>
+                        <th>Vendor Name</th>
+                        <th>quantity</th>
+                        <th>Invoice Date</th>
+                        <th>Delete</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let book of copyArray; let i = index">
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.bookName }}</td>
+                        <td>{{ book.quantity }}</td>
+                        <td>{{ book.invoiceDate | date }}</td> 
+                        <td>{{ book.vendorName }}</td>
+                        <td><button class="btn btn-danger" (click)="deleteValue(book,i)">Delete</button></td>
+                        <td><button class="btn btn-primary" (click)="editValue(book)">Edit</button></td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

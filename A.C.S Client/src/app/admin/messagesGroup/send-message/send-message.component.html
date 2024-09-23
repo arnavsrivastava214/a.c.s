@@ -1,0 +1,156 @@
+<div class="container-fluid">
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <div class="display-6 px-3">Subject</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                  <li class="breadcrumb-item">Home</li>
+                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                </ol>
+              </nav>
+        </div>
+       </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <div class="row">
+                   <div class="col-sm-12">
+                   <div class="col-sm-4 col-xs-12 col-md-3">
+                        <div class="radio radio-info radio-inline">
+                          <input type="radio" id="single" value="option1" name="radioInline" checked="">
+                          <label for="single"> Send to single student  </label>
+                      </div>
+                   </div>
+                   <div class="col-sm-4 col-xs-12 col-md-3">
+                        <div class="radio radio-info radio-inline">
+                          <input type="radio" id="class" value="option2" name="radioInline">
+                          <label for="class"> Send to whole class  </label>
+                      </div>
+                   </div>
+                   <div class="col-sm-4 col-xs-12 col-md-3">
+                       <div class="radio radio-info radio-inline">
+                          <input type="radio" id="all" value="option3" name="radioInline">
+                          <label for="all"> Send to all  </label>
+                      </div>
+                   </div>
+                </div>
+                  </div>
+                   <div class="ibox float-e-margins" style="margin-top:30px;">
+                      <div class="ibox-title">
+                        <h5 id="heading">Send to single student</h5>
+                        <div class="col-sm-13" style="color: red" align="right">Message Length : <span id="count">0</span> Characters
+                        </div>
+                      </div>
+                      <div class="ibox-content" id="tab1">
+                        <div class="col-sm-7">
+                            <textarea maxlength="800" class="form-control" id="messagebody_single" placeholder="Message Body" rows="7" style="resize: none;" onkeyup="onInput('messagebody_single');" disabled=""></textarea>
+                            <br>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="col-sm-10">
+                              <div class="input-group" id="main_div">
+                                <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control" type="text" id="enter_class" onchange="if(this.value === ''){ $('#info').css('display','none'); }" fdprocessedid="e464lx"><option value="">Select Class</option><option value="PG">PG</option><option value="play_group">PLAY GROUP</option><option value="NURSERY">NURSERY</option><option value="KG">KG</option><option value="UKG">UKG</option><option value="LKG">LKG</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="STAFF">STAFF</option><option value="PERSONAL">PERSONAL</option></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-10" style="margin-top:10px;">
+                              <div class="input-group" id="main_div">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span><select class="form-control" type="text" id="msg1" onchange="search_msg($('option:selected',this).attr('messagebody'),'single');" fdprocessedid="iw0vp"><option value="">Select Message</option></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-10" style="margin-top:10px;">
+                              <div class="input-group m-b">
+                                <span class="input-group-addon"><i class="fa fa-search"></i></span> <input type="text" placeholder="Name" class="form-control" id="txt_name" fdprocessedid="7xuzkk">
+                              </div>
+                            </div>
+                            <div class="col-sm-10">
+                              <button type="button" class="btn btn-block btn-primary" id="btn_search" onclick="singleStudentSearch($('#enter_class').val(),$('#txt_name').val())" fdprocessedid="g9t0ph">Search</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="tab2" style="display: none;">
+                        <div class="col-sm-7">
+                            <textarea maxlength="800" class="form-control" placeholder="Message Body" id="messagebody_class" rows="7" style="resize: none;" onkeyup="onInput('messagebody_class');" disabled=""></textarea>
+                            <br>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="col-sm-10">
+                              <div class="input-group" id="main_div">
+                                <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control" type="text" maxlength="2" id="select_class"><option value="">Select Class</option><option value="PG">PG</option><option value="play_group">PLAY GROUP</option><option value="NURSERY">NURSERY</option><option value="KG">KG</option><option value="UKG">UKG</option><option value="LKG">LKG</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="STAFF">STAFF</option><option value="PERSONAL">PERSONAL</option></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-10" style="margin-top:10px;">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span><select class="form-control" onchange="search_msg($('option:selected',this).attr('messagebody'),'whole');" id="msg_title"><option value="">Select Message</option></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-10" style="margin-top:10px;">
+                              <button type="button" class="btn btn-block btn-primary" onclick="sendMessageToWholeClass();">Send Message</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="ibox-content" id="tab3" style="display: none;">
+                        <div class="col-sm-7">
+                            <textarea maxlength="800" class="form-control" placeholder="Message Body" id="messagebody_whole" rows="7" style="resize: none;" onkeyup="onInput('messagebody_whole');" disabled=""></textarea>
+                            <br>
+                        </div>
+                        <div class="row">
+                          <div class="col-lg-5">
+                            <div class="col-sm-10">
+                              <div class="input-group" id="main_div">
+                                <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control" onchange="search_msg($('option:selected',this).attr('messagebody'),'all');" id="msg_all"><option value="">Select Message</option></select>
+                              </div>
+                            </div>
+                            <div class="col-sm-10" style="margin-top:10px;">
+                              <button type="button" class="btn btn-block btn-primary" onclick="sendToAll()">Send Message</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="wrapper wrapper-content animated fadeInRight" style="display: none;padding-top: 10px;" id="info">
+                        <div class="row">
+                            <div class="col-sm-12" style="padding:0 5px">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Information</h5>
+                                    <p>
+                                        <span style="float: right;" id="date"></span>
+                                    </p>
+                                </div>
+                                <div class="ibox-content table-responsive">
+                                    <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table">
+                                      <table class="footable table table-stripped table-bordered footable-loaded" data-page-size="10" data-filter="#filter">
+                                        <thead>
+                                        <tr>
+                                            <th class="footable-sortable">#<span class="footable-sort-indicator"></span></th>
+                                            <th class="footable-sortable">ADM NO.<span class="footable-sort-indicator"></span></th>
+                                            <th class="footable-sortable">STUDENT NAME<span class="footable-sort-indicator"></span></th>
+                                            <th class="footable-sortable">CLASS<span class="footable-sort-indicator"></span></th>
+                                            <th class="footable-sortable">CONTACT NO.<span class="footable-sort-indicator"></span></th>
+                                            <th class="footable-sortable">ACTION<span class="footable-sort-indicator"></span></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="data_tbody">
+                                        </tbody>
+                                    </table>
+                                    <div class="col-sm-12" style="padding:0 0 0 0;">
+                                      <div class="pull-right">
+                                          <ul class="pagination"></ul>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                  </div>
+                </div>
+                
+                
+                </div>
+                    </div>
+        </div>
+    </div>
+</div>
