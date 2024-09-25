@@ -14,32 +14,17 @@
         <div class="col-sm-12  ">
             <div class="col-sm-6 d-flex" style="padding-top: 10px;">
                 <div class="input-group"><span class="input-group-addon"></span><input list="admission_nos"
-                        class="form-control" type="text" placeholder="Enter Admission Number" style="height: 35px;">
+                        class="form-control" type="text" placeholder="Enter Admission Number" [(ngModel)]="id" list="browsers" style="height: 35px;">
                     <span class="input-group-btn"> <button type="button" class="btn btn-primary"
-                            style="min-width: 72px; color: white;background-color: #18a689;  height:36px;" (click)="show = true">Search
+                            style="min-width: 72px; color: white;background-color: #18a689;  height:36px;" (click)="getStudentId()">Search
                         </button> </span>
                 </div>
-                <datalist id="admission_nos">
-                    <option value="#161"></option>
-                    <option value="#42"></option>
-                    <option value="#44"></option>
-                    <option value="#137"></option>
-                    <option value="#134"></option>
-                    <option value="#87"></option>
-                    <option value="#119"></option>
-                    <option value="#129"></option>
-                    <option value="#132"></option>
-                    <option value="#83"></option>
-                    <option value="#80"></option>
-                    <option value="#85"></option>
-                    <option value="#93"></option>
-                    <option value="#94"></option>
-                    <option value="#141"></option>
-                    <option value="#140"></option>
-                    <option value="#138"></option>
-                    <option value="#84"></option>
-                    <option value="#125"></option>
-                    <option value="#90"> </option>
+                <datalist id="browsers" >
+                    <option value="01"></option>
+                    <option value="02"></option>
+                    <option value="03"></option>
+                    <option value="04"></option>
+                    <option value="05"></option>
                 </datalist>
                 <div class="from-control">
                     <small
@@ -51,7 +36,7 @@
             </div>
 
 
-            <div class="panel panel-info" *ngIf="show">
+            <div class="panel panel-info" *ngIf="show" [formGroup]="performanceForm" >
                 <div class="panel-heading" align="center">Student Record </div>
                 <div method="post" action="../model/academic_record_model_temp.php" id="form_stu_records">
                     <div class="panel-body table-responsive" id="bodyContent">
@@ -84,15 +69,15 @@
                         </style>
 
 
-                        <table class="table table bordered" rules="all" [formGroup]="performanceForm">
+                        <table class="table table bordered" rules="all" *ngFor="let students of studentRecords">
                             <tbody>
-                                <tr>
+                                <tr >
                                     <th colspan="2" style="text-align:center !important;">Name :</th>
-                                    <td colspan="3" style="text-align:center !important;">DEEPANSHU</td>
+                                    <td colspan="3" style="text-align:center !important;">{{students.name}}</td>
                                     <th colspan="2" style="text-align:center !important;">Class :</th>
-                                    <td colspan="3" style="text-align:center !important;">LKG</td>
+                                    <td colspan="3" style="text-align:center !important;">{{students.class}}</td>
                                     <th colspan="2" style="text-align:center !important;">Addmission No :</th>
-                                    <td colspan="3" style="text-align:center !important;">#134</td>
+                                    <td colspan="3" style="text-align:center !important;">{{students.admission_number}}</td>
                                 </tr>
                                 <tr>
                                     <th rowspan="3">
@@ -149,7 +134,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="drw_1_2Term" name="drw_1_2Term" class="form-control"
+                                    <td colspan="3"><select id="drw_1_2Term" formControlName="drw_1_2Term" name="drw_1_2Term" class="form-control"
                                             fdprocessedid="67nbx">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -160,7 +145,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="drw_2_1Term" name="drw_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="drw_2_1Term"  formControlName="drw_2_1Term" name="drw_2_1Term" class="form-control"
                                             fdprocessedid="86fshk">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -171,7 +156,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="drw_2_2Term" name="drw_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="drw_2_2Term"  formControlName="drw_2_2Term" name="drw_2_2Term" class="form-control"
                                             fdprocessedid="epq5fi">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -182,7 +167,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="2"><select id="drw_consolidate" name="drw_consolidate"
+                                    <td colspan="2"><select id="drw_consolidate"  formControlName="drw_consolidate"  name="drw_consolidate"
                                             class="form-control" fdprocessedid="rnbrk7">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -196,7 +181,7 @@
                                 </tr>
                                 <tr>
                                     <th>Home Work</th>
-                                    <td colspan="3"><select id="hw_1_1Term" name="hw_1_1Term" class="form-control"
+                                    <td colspan="3"><select id="hw_1_1Term" formControlName="hw_1_1Term" name="hw_1_1Term" class="form-control"
                                             fdprocessedid="sr0bh">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -214,7 +199,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="3"><select id="hw_2_1Term" name="hw_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="hw_2_1Term" formControlName="hw_2_1Term" name="hw_2_1Term" class="form-control"
                                             fdprocessedid="g70wvh">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -223,7 +208,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="3"><select id="hw_2_2Term" name="hw_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="hw_2_2Term" formControlName="hw_2_2Term" name="hw_2_2Term" class="form-control"
                                             fdprocessedid="fl4wxb">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -232,7 +217,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="2"><select id="hw_consolidate" name="hw_consolidate"
+                                    <td colspan="2"><select id="hw_consolidate" formControlName="hw_consolidate" name="hw_consolidate"
                                             class="form-control" fdprocessedid="m9ld59">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -244,7 +229,7 @@
                                 </tr>
                                 <tr>
                                     <th>School Uniform</th>
-                                    <td colspan="3"><select id="su_1_1Term" name="su_1_1Term" class="form-control"
+                                    <td colspan="3"><select id="su_1_1Term" formControlName="su_1_1Term" name="su_1_1Term" class="form-control"
                                             fdprocessedid="sx2pt">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -253,7 +238,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="3"><select id="su_1_2Term" name="su_1_2Term" class="form-control"
+                                    <td colspan="3"><select id="su_1_2Term" formControlName="su_1_2Term" name="su_1_2Term" class="form-control"
                                             fdprocessedid="nxbl7q">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -262,7 +247,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="3"><select id="su_2_1Term" name="su_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="su_2_1Term" formControlName="su_2_1Term" name="su_2_1Term" class="form-control"
                                             fdprocessedid="6hpj9k">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -271,7 +256,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="3"><select id="su_2_2Term" name="su_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="su_2_2Term" formControlName="su_2_2Term" name="su_2_2Term" class="form-control"
                                             fdprocessedid="d73yer">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -280,7 +265,7 @@
                                             <option value="B">B</option>
                                             <option value="C">C</option>
                                         </select></td>
-                                    <td colspan="2"><select id="su_consolidate" name="su_consolidate"
+                                    <td colspan="2"><select id="su_consolidate" formControlName="su_consolidate" name="su_consolidate"
                                             class="form-control" fdprocessedid="q6kipg">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -292,7 +277,7 @@
                                 </tr>
                                 <tr>
                                     <th>P.T. &amp; Music</th>
-                                    <td colspan="3"><select id="pt_1_1Term" name="pt_1_1Term" class="form-control"
+                                    <td colspan="3"><select id="pt_1_1Term" formControlName="pt_1_1Term" name="pt_1_1Term" class="form-control"
                                             fdprocessedid="3jqdfn">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -303,7 +288,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pt_1_2Term" name="pt_1_2Term" class="form-control"
+                                    <td colspan="3"><select id="pt_1_2Term"  formControlName="pt_1_2Term" name="pt_1_2Term" class="form-control"
                                             fdprocessedid="o1ogp6">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -314,7 +299,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pt_2_1Term" name="pt_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="pt_2_1Term"  formControlName="pt_2_1Term" name="pt_2_1Term" class="form-control"
                                             fdprocessedid="vdzj7">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -325,7 +310,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pt_2_2Term" name="pt_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="pt_2_2Term" formControlName="pt_2_2Term" name="pt_2_2Term" class="form-control"
                                             fdprocessedid="beitm">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -336,7 +321,7 @@
                                             <option value="ML">ML</option>
                                             <option value="AB">AB</option>
                                         </select></td>
-                                    <td colspan="2"><select id="pt_consolidate" name="pt_consolidate"
+                                    <td colspan="2"><select id="pt_consolidate" formControlName="pt_consolidate" name="pt_consolidate"
                                             class="form-control" fdprocessedid="4rmng">
                                             <option value="">Select</option>
                                             <option value="A+">A+</option>
@@ -351,48 +336,48 @@
                                 <tr>
                                     <th>Percentage</th>
                                     <td colspan="3"><input type="text" class="form-control rowinput" id="per_1_1Term"
-                                            name="per_1_1Term" value="" readonly="true" fdprocessedid="0stmj"></td>
+                                            name="per_1_1Term" formControlName="per_1_1Term" value="" readonly="true" fdprocessedid="0stmj"></td>
                                     <td colspan="3"><input type="text" class="form-control rowinput" id="per_1_2Term"
-                                            name="per_1_2Term" value="" readonly="true" fdprocessedid="se6x6u"></td>
+                                            name="per_1_2Term" value="" formControlName="per_1_2Term" readonly="true" fdprocessedid="se6x6u"></td>
                                     <td colspan="3"><input type="text" class="form-control rowinput" id="per_2_1Term"
-                                            name="per_2_1Term" value="" readonly="true" fdprocessedid="2yjwlf"></td>
+                                            name="per_2_1Term" value="" formControlName="per_2_1Term" readonly="true" fdprocessedid="2yjwlf"></td>
                                     <td colspan="3"><input type="text" class="form-control rowinput" id="per_2_2Term"
-                                            name="per_2_2Term" value="" readonly="true" fdprocessedid="gkvoff"></td>
+                                            name="per_2_2Term" value="" formControlName="per_2_2Term" readonly="true" fdprocessedid="gkvoff"></td>
                                     <td colspan="2"><input type="text" class="form-control rowinput"
-                                            id="per_consolidate" name="per_consolidate" value="" readonly="true"
+                                            id="per_consolidate" name="per_consolidate" value="" formControlName="per_consolidate" readonly="true"
                                             fdprocessedid="03ed3i"></td>
                                 </tr>
                                 <tr>
                                     <th>Division</th>
-                                    <td colspan="3"><select id="dis_1_1Term" name="dis_1_1Term" class="form-control"
+                                    <td colspan="3"><select id="dis_1_1Term" formControlName="dis_1_1Term" name="dis_1_1Term" class="form-control"
                                             fdprocessedid="0w77o">
                                             <option value="">Select</option>
                                             <option value="I">I</option>
                                             <option value="II">II</option>
                                             <option value="III">III</option>
                                         </select></td>
-                                    <td colspan="3"><select id="dis_1_2Term" name="dis_1_2Term" class="form-control"
+                                    <td colspan="3"><select id="dis_1_2Term" formControlName="dis_1_2Term" name="dis_1_2Term" class="form-control"
                                             fdprocessedid="6ge8r">
                                             <option value="">Select</option>
                                             <option value="I">I</option>
                                             <option value="II">II</option>
                                             <option value="III">III</option>
                                         </select></td>
-                                    <td colspan="3"><select id="dis_2_1Term" name="dis_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="dis_2_1Term" formControlName="dis_2_1Term" name="dis_2_1Term" class="form-control"
                                             fdprocessedid="143799">
                                             <option value="">Select</option>
                                             <option value="I">I</option>
                                             <option value="II">II</option>
                                             <option value="III">III</option>
                                         </select></td>
-                                    <td colspan="3"><select id="dis_2_2Term" name="dis_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="dis_2_2Term" formControlName="dis_2_2Term" name="dis_2_2Term" class="form-control"
                                             fdprocessedid="oibx0n">
                                             <option value="">Select</option>
                                             <option value="I">I</option>
                                             <option value="II">II</option>
                                             <option value="III">III</option>
                                         </select></td>
-                                    <td colspan="2"><select id="dis_consolidate" name="dis_consolidate"
+                                    <td colspan="2"><select id="dis_consolidate" formControlName="dis_consolidate" name="dis_consolidate"
                                             class="form-control" fdprocessedid="w0l8u9">
                                             <option value="">Select</option>
                                             <option value="I">I</option>
@@ -402,7 +387,7 @@
                                 </tr>
                                 <tr>
                                     <th>Position</th>
-                                    <td colspan="3"><select id="pos_1_1Term" name="pos_1_1Term" class="form-control"
+                                    <td colspan="3"><select id="pos_1_1Term" formControlName="pos_1_1Term" name="pos_1_1Term" class="form-control"
                                             fdprocessedid="mmgyrd">
                                             <option value="">Select</option>
                                             <option value="1">1</option>
@@ -411,7 +396,7 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pos_1_2Term" name="pos_1_2Term" class="form-control"
+                                    <td colspan="3"><select id="pos_1_2Term" formControlName="pos_1_2Term" name="pos_1_2Term" class="form-control"
                                             fdprocessedid="klnvo">
                                             <option value="">Select</option>
                                             <option value="1">1</option>
@@ -420,7 +405,7 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pos_2_1Term" name="pos_2_1Term" class="form-control"
+                                    <td colspan="3"><select id="pos_2_1Term" formControlName="pos_2_1Term" name="pos_2_1Term" class="form-control"
                                             fdprocessedid="0n4ww">
                                             <option value="">Select</option>
                                             <option value="1">1</option>
@@ -429,7 +414,7 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select></td>
-                                    <td colspan="3"><select id="pos_2_2Term" name="pos_2_2Term" class="form-control"
+                                    <td colspan="3"><select id="pos_2_2Term" formControlName="pos_2_2Term" name="pos_2_2Term" class="form-control"
                                             fdprocessedid="ay1jps">
                                             <option value="">Select</option>
                                             <option value="1">1</option>
@@ -438,7 +423,7 @@
                                             <option value="4">4</option>
                                             <option value="5">5</option>
                                         </select></td>
-                                    <td colspan="2"><select id="pos_consolidate" name="pos_consolidate"
+                                    <td colspan="2"><select id="pos_consolidate" formControlName="pos_consolidate" name="pos_consolidate"
                                             class="form-control" fdprocessedid="0j8prw">
                                             <option value="">Select</option>
                                             <option value="1">1</option>
@@ -456,21 +441,24 @@
                                 <tr>
                                     <th>Attendance</th>
                                     <td colspan="3"><input type="text" class="form-control rowinput" id="attd_1_1Term"
-                                            name="attd_1_1Term" value="" fdprocessedid="kw00o"></td>
-                                    <td colspan="3"><input type="text" class="form-control rowinput" id="attd_1_2Term"
-                                            name="attd_1_2Term" value="" fdprocessedid="qh5jom"></td>
-                                    <td colspan="3"><input type="text" class="form-control rowinput" id="attd_2_1Term"
-                                            name="attd_2_1Term" value="" fdprocessedid="xa2mir"></td>
-                                    <td colspan="3"><input type="text" class="form-control rowinput" id="attd_2_2Term"
-                                            name="attd_2_2Term" value="" fdprocessedid="7finlk"></td>
+                                            name="attd_1_1Term" formControlName="attd_1_1Term" value="" fdprocessedid="kw00o"></td>
+                                    <td colspan="3">
+                                        <input type="text" class="form-control rowinput" id="attd_1_2Term"
+                                            name="attd_1_2Term" formControlName="attd_1_2Term" value="" fdprocessedid="qh5jom"></td>
+                                    <td colspan="3">
+                                        <input type="text" class="form-control rowinput" id="attd_2_1Term"
+                                            name="attd_2_1Term" formControlName="attd_2_1Term" value="" fdprocessedid="xa2mir"></td>
+                                    <td colspan="3">
+                                        <input type="text" class="form-control rowinput" id="attd_2_2Term"
+                                            name="attd_2_2Term" formControlName="attd_2_2Term" value="" fdprocessedid="7finlk"></td>
                                     <td colspan="2"><input type="text" class="form-control rowinput"
-                                            id="attd_consolidate" name="attd_consolidate" value="" readonly="true"
+                                            id="attd_consolidate" formControlName="attd_consolidate" name="attd_consolidate" value="" readonly="true"
                                             style="background-color: #a7a7a7;" fdprocessedid="jwft7u"></td>
                                 </tr>
                                 <tr>
                                     <td style="font-weight:bold; text-align:left;">&nbsp;&nbsp;REMARKS</td>
                                     <td colspan="4"><select id="remarks1" name="remarks1" class="form-control"
-                                            fdprocessedid="n0aww">
+                                            fdprocessedid="n0aww" formControlName="remarks1">
                                             <option value="">Select One</option>
                                             <option value="Can do better">Can do better</option>
                                             <option value="Needs attention">Needs attention</option>
@@ -478,7 +466,7 @@
                                             <option value="Satisfactory">Satisfactory</option>
                                         </select></td>
                                     <td colspan="4"><select id="remarks2" name="remarks2" class="form-control"
-                                            fdprocessedid="ji8k1l">
+                                            fdprocessedid="ji8k1l" formControlName="remarks2">
                                             <option value="">Select One</option>
                                             <option value="Can do better">Can do better</option>
                                             <option value="Needs attention">Needs attention</option>
@@ -486,7 +474,7 @@
                                             <option value="Satisfactory">Satisfactory</option>
                                         </select></td>
                                     <td colspan="3"><select id="remarks3" name="remarks3" class="form-control"
-                                            fdprocessedid="1bu9co">
+                                            fdprocessedid="1bu9co" formControlName="remarks3">
                                             <option value="">Select One</option>
                                             <option value="Can do better">Can do better</option>
                                             <option value="Needs attention">Needs attention</option>
@@ -494,7 +482,7 @@
                                             <option value="Satisfactory">Satisfactory</option>
                                         </select></td>
                                     <td colspan="3"><select id="remarks4" name="remarks4" class="form-control"
-                                            fdprocessedid="0z3ifc">
+                                            fdprocessedid="0z3ifc" formControlName="remarks4">
                                             <option value="">Select One</option>
                                             <option value="Promoted with grace">Promoted with grace</option>
                                             <option value="Promoted on medical ground">Promoted on medical ground
@@ -512,11 +500,11 @@
                                 <tr>
                                     <td><span class="label label-primary" style="float:left;">Section</span><input
                                             type="text" class="form-control" name="section" value=""
-                                            placeholder="Section" fdprocessedid="fe0bpb"></td>
+                                            placeholder="Section" formControlName="section" fdprocessedid="fe0bpb"></td>
                                     <td>&nbsp;&nbsp;</td>
                                     <td><span class="label label-primary" style="float:left;">Roll No</span><input
                                             type="text" class="form-control" value="" name="rollNo"
-                                            placeholder="Roll No" fdprocessedid="buok8w"></td>
+                                            placeholder="Roll No" formControlName="rollNo" fdprocessedid="buok8w"></td>
                                 </tr>
                             </tbody>
                         </table>
