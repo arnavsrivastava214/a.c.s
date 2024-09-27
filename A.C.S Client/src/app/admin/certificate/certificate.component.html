@@ -4,13 +4,196 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
-    <div class="row">
-        <div class="col-sm-12"></div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-lg-4" style="padding-top: 10px;">
+                <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
+                        list="admission_nos" class="form-control" type="text" id="admission_id"
+                        placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionId"> <span
+                        class="input-group-btn">
+                        <button
+                            style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"
+                            (click)="getAdmisssonId()">Search
+                        </button> </span>
+                </div>
+                <datalist id="admission_nos" id="browsers">
+                    <option value="01"></option>
+                    <option value="02"></option>
+                    <option value="03"></option>
+                    <option value="04"></option>
+                    <option value="05"></option>
+
+                </datalist>
+            </div>
+        </div>
+
+        <ul class="nav nav-tabs d-none d-sm-flex my-3" role="tablist" *ngIf="showContent">
+            <!-- Highlights Tab -->
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="TabControl-Highlights" data-bs-toggle="tab" href="#tab-highlights"
+                    role="tab" tabindex="0" aria-controls="tab-highlights" aria-selected="true">
+                    Bonfied
+                </a>
+            </li>
+
+            <!-- Specs Tab -->
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="TabControl-Specs" data-bs-toggle="tab" href="#tab-specs" role="tab"
+                    tabindex="-1" aria-controls="tab-specs" aria-selected="false">
+                    Income Tax </a>
+            </li>
+        </ul>
+
+
+        <div class="tab-content container-fluid" *ngFor="let student of displayCredential">
+            <!-- Highlights Tab Pane -->
+            <div class="tab-pane fade show active" id="tab-highlights" role="tabpanel"
+                aria-labelledby="TabControl-Highlights">
+                <a href="#pdp-highlights" class="panel-title d-block d-sm-none" data-bs-toggle="collapse">
+                    Highlights
+                </a>
+                <div class="collapse show" id="pdp-highlights">
+
+                    <div class="panel-body">
+                        <div class="col-lg-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-content" style="display: block;">
+                                    <div id="wizard" role="application" class="wizard clearfix">
+                                        <div class="content clearfix">
+                                            <h1 id="wizard-h-0" tabindex="-1" class="title current text-center m-t-md"
+                                                style="font-size: 40px;">
+                                                <img src="../assets/img/namelogo.png" style="height: 20%;width: 100%;">
+                                            </h1>
+                                            <hr>
+                                            <div class="step-content body current" id="bonafied_Dtl" role="tabpanel"
+                                                aria-labelledby="wizard-h-0" aria-hidden="false"
+                                                style="display: block;">
+                                                <div class="m-t-md" style="text-align:center;">
+                                                    <p>
+                                                        <span><b
+                                                                style="font-size: 16px;border-bottom: 2px solid black;color: black;">Certificate</b></span>
+                                                    </p>
+                                                    <!-- <p style="text-align: right;margin-top: -25px;">Date: 26-09-2024</p> -->
+                                                    <div class="ibox-content table-responsive">
+                                                        <span><b
+                                                                style="font-size: 16px;border-bottom: 2px solid black;color: black;">To
+                                                                whom so ever it may concern</b></span><br><br><br>
+                                                        <p style="font-size: 20px;text-align: left;" id="bonafied_data">
+                                                            Certified that <b>Mast./Miss. {{student.name}}</b>,is a
+                                                            bonafide student
+                                                            of this school and he/she is presently studying in class
+                                                            <b>{{student.class}}</b>,during current academic session
+                                                            <b>{{student.session}}</b>. <br><br>
+                                                        <p>Details of <b>Mast./Miss. {{student.name}}</b>,as per school
+                                                            records are
+                                                            as follows: <br><br><i>Father's Name</i> : <b>Mr.
+                                                                {{student.father_name
+                                                                }}
+                                                                KUMAR</b><br><br><i>Mother's Name</i> : <b>Mrs.
+                                                                {{student.mother_name}}
+                                                                MAURYA</b><br><br><i>Date of Birth</i> :
+                                                            <b>{{student.date_of_birth}}</b><br><br><i>Address</i> :
+                                                            <b>{{student.permanent_address
+                                                                }}</b><br><br>
+                                                        </p>
+                                                        <p>As far as in our information <b>Mast./Miss.
+                                                                {{student.name}}</b>,bears a
+                                                            good moral character,I wish him/her every success in
+                                                            life.</p>
+                                                        <br><br><br><br><br><b></b>
+                                                        <p style="text-align: right;"><b>Principal I/C</b></p>
+                                                        <p style="text-align: right;">
+                                                            <button type="button" class="btn btn-primary">
+                                                                Print</button>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="tab-specs" role="tabpanel" aria-labelledby="TabControl-Specs">
+                <a href="#pdp-specs" class="panel-title d-block d-sm-none" data-bs-toggle="collapse">
+                    Product Specs
+                </a>
+                <div class="collapse" id="pdp-specs">
+                    <img src="../assets/img/namelogo.png" style="height: 20%;width: 100%;">
+                    <div class="col-lg-12" style="padding-top: 10px;">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-content" style="display: block;">
+                                <div id="wizard" role="application" class="wizard clearfix">
+                                    <div class="content clearfix">
+                                        <h1 id="wizard-h-0" tabindex="-1" class="title current text-center m-t-md"
+                                            style="font-size: 40px;"></h1>
+                                        <hr>
+                                        <div class="step-content body current" id="detail_tax" role="tabpanel"
+                                            aria-labelledby="wizard-h-0" aria-hidden="false" style="display: block;">
+                                            <div class="m-t-md" style="text-align:center;">
+                                                <p>
+                                                    <span><b
+                                                            style="font-size: 16px;border-bottom: 2px solid black;color: black;">Certificate</b></span>
+                                                </p>
+                                                <div class="ibox-content table-responsive">
+                                                    <span><b
+                                                            style="font-size: 16px;border-bottom: 2px solid black;color: black;">To
+                                                            whom so ever it may concern</b></span><br><br><br>
+                                                    <p style="font-size: 20px;text-align: center;" id="inc_tax_data">
+                                                        <span>Certified that the parents of </span><b>Mast./Miss.
+                                                            {{student.name}} </b><span>D/o, S/o <b>{{student.father_name
+                                                                }}</b> /
+                                                            <b>Mrs. {{student.mother_name}}</b><br></span> studying in
+                                                        class
+                                                        <b>{{student.class}}</b> has paid the total outstanding amount
+                                                        of fee (
+                                                        April <b>2024</b> to March <b>25</b>) <b id="total_amt">
+                                                            Rs.6870 /- only,</b> <br>which is inclusive of the
+                                                        amount of Tuition fee for academic session {{student.session}}
+                                                        Rs. <b id="total_tution_fee"> 3600 </b>/-
+                                                        only<br><br><br><br><br><b></b>
+                                                    <p style="text-align: right;"><b>Accountant/
+                                                            Office-In-Charge</b></p>
+                                                    <p style="text-align: right;">
+                                                        <button type="button" class="btn btn-primary"> Print</button>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal" *ngIf="showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="showModal = false">&times;</span>
+        <h2><b>
+                Data Not Found
+            </b></h2>
+        <button class="btn btn-danger" (click)="showModal = false" style="width: 100px;">Close</button>
+    </div>
+
 </div>

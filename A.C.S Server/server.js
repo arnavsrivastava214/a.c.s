@@ -14,6 +14,7 @@ app.use("/api/auth",require("./controller/auth.js"));
 app.use("/api/bookrecords",require("./controller/StockInBookRecord.js"));
 app.use("/api/subjectdetails", require("./controller/subject.js"))
 app.use("/api/academicrecords", require("./controller/academic_records.js"))
+app.use("/api/studentrecords", require("./controller/certificate.js"))
 
 
 

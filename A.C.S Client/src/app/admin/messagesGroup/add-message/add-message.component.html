@@ -1,1 +1,70 @@
-<h1> This works </h1>
+<div class="container-fluid">
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <div class="display-6 px-3">Subject</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="ibox-title">
+                <h5>Add Message From Here</h5>
+                <div class="col-sm-13" style="color: red" align="right">Message Length : <span id="count">0</span>
+                    Characters
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+        <div class="col-sm-6 ">
+            <div class="input-group " style="margin-top:20px;">
+                <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control"
+                    type="text" >
+                    <option messagebody="" value="">Select Message</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-sm-6 ">
+            <div data-toggle="buttons-checkbox" class="btn-group btn-block" style="margin-top:20px;"
+            >
+                <button class="btn btn-warning" style="min-width:100%"> Add</button>
+                <button class="btn btn-primary" style="min-width:100%" > <span class="hidden-xs">
+                        Update</span></button>
+                <button class="btn btn-danger" style="min-width:100%" >
+                        Delete</button>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12" id="div_messagebody">
+        <div class="col-sm-12" style="margin-top:20px;">
+            <textarea maxlength="800" class="form-control" id="messagebody" rows="7" style="resize: none;" type="text"
+                disabled=""></textarea>
+            <br>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+</div>

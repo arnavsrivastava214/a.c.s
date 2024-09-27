@@ -4,13 +4,148 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12 my-5">
+
+
+
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <title>Dashboard</title>
+
+                <style>
+                    hr {
+                        border-top: 1px solid #bababa;
+                    }
+                </style>
+
+
+                <style type="text/css">
+                    table.footable {
+                        font-size: 12px;
+                    }
+
+                    table.footable tr td {
+                        vertical-align: middle;
+                    }
+                </style>
+                <h1 id="wizard-h-0" tabindex="-1" class="title current text-center m-t-md" style="font-size: 40px;"><img
+                        src="../assets/img/namelogo.png" style="height: 22%;width: 100%;"></h1>
+                <hr>
+
+
+                <div class="row d-flex" style="padding-top: 10px;">
+                    <div class="col-sm-12 form-group " id="data_1">
+                        <div class="d-flex">
+                            <div class="col-sm-7">
+                                <div class="input-daterange input-group" id="datepicker">
+                                    <span class="input-group-addon" style="background-color: #fff;"><i
+                                            class="fa fa-calendar"></i></span>
+                                    <input class="input-sm form-control" name="stDate" id="start_date" value=""
+                                        type="date" placeholder="Start Date" style="height: 33px;" readonly=""
+                                        required="" fdprocessedid="l4vsxc">
+                                    <span class="input-group-addon"
+                                        style="background-color: #fff; margin-left: 10px;">to</span>
+                                    <input class="input-sm form-control" name="endDate" id="end_date" type="date"
+                                        placeholder="End Date" style="height: 33px; margin-left: 10px;" value=""
+                                        readonly="" required="" fdprocessedid="drtefm">
+                                    <button class="btn btn-primary"
+                                        style="min-width: 72px; height: 34px;">Search</button>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="content clearfix">
+
+
+        <div class="step-content body current" id="wizard-p-0" role="tabpanel" aria-labelledby="wizard-h-0"
+            aria-hidden="false" style="display: block;">
+
+
+            <div class="m-t-md">
+
+                <div class="col-sm-12">
+                    <div class="col-sm-7">
+                        <h3>Colllection Between Two Dates</h3>
+                    </div>
+                    <div class="col-sm-5"><span style="float: left; font-size:15px; " id="class_text"> StartDate -
+                            EndDate : - 2024-09-12</span></div>
+                </div>
+                <br>
+                <br>
+
+
+                <div class="ibox-content table-responsive">
+                    <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
+                        fdprocessedid="mfwtf">
+                    <table class="footable table table-stripped table-bordered footable-loaded" data-page-size="10"
+                        data-filter="#filter" data-limit-navigation="5">
+                        <thead>
+                            <tr>
+                                <th class="footable-sortable">#<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">ADM. NO.<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">BILL No.<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">BILL DATE<span class="footable-sort-indicator"></span>
+                                </th>
+                                <th class="footable-sortable">CLASS<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">B.CODE<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">B.NAME<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">QTY<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">RATE<span class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable">AMOUNT<span class="footable-sort-indicator"></span></th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="data_tr">
+                        </tbody>
+                        <tfoot style="font-size:14px;">
+                            <tr>
+                                <td colspan="10">
+
+
+                                    <button type="button" disabled="" class="btn btn-primary pull-right">
+                                        Total Amount : <span class="badge badge-light"> Rs.0</span>
+                                    </button>
+
+
+                                    <button type="button" disabled="" class="btn btn-warning pull-right">
+                                        Total Quantity : <span class="badge badge-light"> Rs.0</span>
+                                    </button>
+
+                                </td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="col-sm-12" style="padding:0 0 0 0;">
+                        <!-- <div class="pull-left">
+                        <button type="button" class="btn btn-outline btn-primary  dim pull-right" onclick="total_data($('#enter_class').val());"><i class="fa fa-print"></i>  Print All</button>
+                      </div> -->
+                        <div class="pull-right">
+                            <ul class="pagination"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

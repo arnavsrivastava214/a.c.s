@@ -4,13 +4,45 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12">
+
+
+            <body>
+                <table align="center" width="100%" id="tab" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th align="center" class="headert header">ID</th>
+                            <th align="center" class="headert header">REQUEST</th>
+                            <th align="center" class="headert header">RESPONSE</th>
+                            <th class="headert header" align="center">CREDIT BEFORE</th>
+                            <th class="headert header" align="center">MESSAGE LENGTH</th>
+                            <th align="center" class="headert header">CREDIT AFTER</th>
+                            <th align="center" class="headert header">TIME</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <script>
+                    $(document).ready(function () {
+                        $('table').tablesorter();
+                    });
+                    function getDel(str) {
+                        $.post('../model/getDelivery.php', { 'data': str }, function (data) {
+                            window.open(data, '_blank');
+                        });
+
+                    }
+                </script>
+
+
+            </body>
+        </div>
     </div>
 </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PromoteToHigherClassRoutingModule } from './promote-to-higher-class-routing.module';
 import { PromoteToHigherClassComponent } from './promote-to-higher-class.component';
 import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     PromoteToHigherClassRoutingModule,
-    SideBarModule
+    SideBarModule,
+    ReactiveFormsModule
 ],
   exports:[
     PromoteToHigherClassComponent

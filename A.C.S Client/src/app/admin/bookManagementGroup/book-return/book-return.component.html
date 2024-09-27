@@ -4,13 +4,108 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12">
+            <div class="col-sm-12 form-group d-flex" >
+                <div class="col-sm-3 form-group " >
+                    <span class="badge badge-warning">INVOICE NO</span>
+                    <input type="text" class="form-control" placeholder="Invoice No" required="" name="invoiceNo"
+                        onchange="getBookCode('0')" id="invoiceNo" fdprocessedid="nkqf18" >
+                </div>
+                <div class="col-sm-3 form-group">
+                    <span class="badge badge-warning">VENDOR ID</span>
+                    <!--<input type="text" class="form-control" placeholder="Vendor Id" required name="vendorId"/>-->
+                    <select class="form-control" name="vendorId" id="vendorId" onchange="getBookCode()" required=""
+                        fdprocessedid="k98zpw">
+                        <option value="">Select</option>
+                    </select>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="col-sm-12 form-group">
+            <table class="table table-ordered table-responsive" id="bookTable">
+                <tbody>
+                    <tr>
+                        <th>BOOK</th>
+                        <th>QTY</th>
+                        <th>PRICE</th>
+                        <th>TOTAL AMOUNT</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+
+                        <td>
+                            <select class="form-control bookCode_0" name="bookArr[0][bookCode]" required=""
+                                fdprocessedid="ayjxu">
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" class="form-control" name="bookArr[0][returnqty]" onblur="getPrice(this)"
+                                required="" fdprocessedid="c6wuxf">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control price" name="bookArr[0][price]" required=""
+                                readonly="" fdprocessedid="n1wdvf">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control totalAmount" name="bookArr[0][totalAmount]"
+                                required="" readonly="" fdprocessedid="djx38l">
+                        </td>
+
+                        <td>
+                            <a class="btn btn-primary" onclick="AddNewRow(this)"><i class="fa fa-plus"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-info" id="btnSubmit" fdprocessedid="ub6rlf">Save</button>
+            </div>
+        </div>
+        <span class="my-3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List Of Books Return To Vendor</span>
+
+        <div class="ibox-content table-responsive">
+            <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
+                fdprocessedid="xgxxse">
+            <br><b>Warning</b>: Undefined variable returnBookArr in
+            <b>C:\xampp\htdocs\acs\acs\view\book_return_to_vendor.php</b> on line <b>149</b><br><br><b>Fatal error</b>:
+            Uncaught TypeError: count(): Argument #1 ($value) must be of type Countable|array, null given in
+            C:\xampp\htdocs\acs\acs\view\book_return_to_vendor.php:149
+            Stack trace:
+            <!-- #0 {main} -->
+            thrown in <b>C:\xampp\htdocs\acs\acs\view\book_return_to_vendor.php</b> on line <b>149</b><br>
+            <table class="footable table table-stripped table-bordered" data-page-size="10" data-filter="#filter"
+                data-limit-navigation="5">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Vendor Name</th>
+                        <th>Book Name</th>
+                        <th>Invoice No</th>
+                        <th>Qty</th>
+                        <th>timestamp</th>
+                        <th>Action</th>
+
+
+                    </tr>
+                </thead>
+                <tbody id="data_tr">
+
+
+
+
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>

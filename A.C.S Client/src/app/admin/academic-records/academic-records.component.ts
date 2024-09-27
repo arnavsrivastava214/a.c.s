@@ -72,17 +72,13 @@ export class AcademicRecordsComponent {
 
   getStudentPerformance(){
     console.log(this.performanceForm.value);
-    
-
-
   }
-
   getStudentId(){
     let params:any={
       student_id:this.id
     }
+
     this.service.fetchstudentRecords(params,(response:any)=>{
-      console.log(response);
       
 
       this.studentRecords = response.data;
@@ -92,7 +88,6 @@ export class AcademicRecordsComponent {
       }
       
     })
-    console.log(this.id);
     
 
   }

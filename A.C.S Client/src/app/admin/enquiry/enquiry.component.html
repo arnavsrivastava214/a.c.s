@@ -4,13 +4,120 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12">
+            <div class="wrapper wrapper-content animated fadeInRight">
+                <title>Enquiry Form</title>
+
+                <link rel="stylesheet"
+                    href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
+                <style>
+                    hr {
+                        border-top: 1px solid #bababa;
+                    }
+
+                    form_main {
+                        width: 100%;
+                    }
+
+                    .form_main h4 {
+                        font-family: roboto;
+                        font-size: 20px;
+                        font-weight: 300;
+                        margin-bottom: 15px;
+                        margin-top: 20px;
+                        text-transform: uppercase;
+                    }
+
+                    .heading {
+                        border-bottom: 1px solid #fcab0e;
+                        padding-bottom: 9px;
+                        position: relative;
+                    }
+
+                    .heading span {
+                        background: #9e6600 none repeat scroll 0 0;
+                        bottom: -2px;
+                        height: 3px;
+                        left: 0;
+                        position: absolute;
+                        width: 140px;
+                    }
+
+                    .form {
+                        border-radius: 7px;
+                        padding: 6px;
+                    }
+
+                    .txt[type="text"] {
+                        border: 1px solid #ccc;
+                        margin: 10px 0;
+                        padding: 10px 0 10px 5px;
+                        width: 100%;
+                    }
+
+                    .txt_3[type="text"] {
+                        margin: 10px 0 0;
+                        padding: 10px 0 10px 5px;
+                        width: 100%;
+                    }
+
+                    .txt2[type="submit"] {
+                        background: #242424 none repeat scroll 0 0;
+                        border: 1px solid #4f5c04;
+                        border-radius: 25px;
+                        color: #fff;
+                        font-size: 16px;
+                        font-style: normal;
+                        line-height: 35px;
+                        margin: 10px 0;
+                        padding: 0;
+                        text-transform: uppercase;
+                        width: 30%;
+                    }
+
+                    .txt2:hover {
+                        background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+                        color: #5793ef;
+                        transition: all 0.5s ease 0s;
+                    }
+                </style>
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form_main">
+                                <h4 class="heading"><strong> Send Enquiry </strong>&nbsp;Form <span></span></h4>
+                                <div class="form">
+                                    <form action="../model/send_enquiry.php" method="post" id="enquiryForm"
+                                        name="enquiryForm">
+                                        <input type="text" required="" placeholder="Please input Student Name" value=""
+                                            name="studentName" class="txt" fdprocessedid="q9try2s">
+                                        <input type="text" required="" placeholder="Please input Father Name" value=""
+                                            name="fname" class="txt" fdprocessedid="x86et">
+                                        <input type="text" required="" placeholder="Please input Contact No" value=""
+                                            name="contactNo" class="txt" fdprocessedid="tto54u">
+                                        <input type="text" required="" placeholder="Please input Email Id" value=""
+                                            name="email" class="txt" fdprocessedid="gielz">
+                                        <input type="hidden" value="1" name="add" class="txt">
+
+                                        <input type="submit" value="submit" name="submit" class="txt2"
+                                            fdprocessedid="xiv5wb">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

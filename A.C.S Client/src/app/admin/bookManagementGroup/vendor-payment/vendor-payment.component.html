@@ -4,13 +4,100 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="col-sm-12">
+
+
+            <div class="col-lg-3" style="padding-top: 10px;">
+                <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select
+                        class="form-control" id="vendorList" onchange="getDetails(this)"
+                        fdprocessedid="zcdqrl"></select>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="ibox-content" style="display: block;">
+        <div role="application" class=" clearfix">
+            <div class="content clearfix">
+
+
+                <div class="body" aria-hidden="false" style="display: block;">
+
+
+                    <div class="m-t-md">
+                        <h3>
+                            <span>Vendor Payment </span>
+
+                        </h3>
+                        <div class="ibox-content table-responsive">
+                            <input type="text" class="form-control input-sm m-b-xs" id="filter"
+                                placeholder="Search in table" fdprocessedid="33219d">
+                            <table class="footable table table-stripped table-bordered no-paging footable-loaded"
+                                data-page-size="10" data-filter="#filter" data-limit-navigation="5">
+                                <thead>
+                                    <tr>
+                                        <th class="footable-sortable">#<span class="footable-sort-indicator"></span>
+                                        </th>
+                                        <th class="footable-sortable">Vendor Name<span
+                                                class="footable-sort-indicator"></span></th>
+                                        <th class="footable-sortable">Amount<span
+                                                class="footable-sort-indicator"></span></th>
+                                        <th class="footable-sortable">Payment Type<span
+                                                class="footable-sort-indicator"></span></th>
+
+                                        <th class="footable-sortable">Description<span
+                                                class="footable-sort-indicator"></span></th>
+                                        <th class="footable-sortable">Timestamp<span
+                                                class="footable-sort-indicator"></span></th>
+                                        <th class="footable-sortable">Action<span
+                                                class="footable-sort-indicator"></span></th>
+
+
+                                    </tr>
+                                </thead>
+                                <tbody id="data_tr">
+                                    <tr class="footable-even" style="display: table-row;">
+                                        <td colspan="7" align="center"><span class="footable-toggle"></span>Data Not
+                                            Available</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                </tfoot>
+                            </table>
+                            <div class="col-sm-12" style="padding:0 0 0 0;">
+                                <!-- <div class="pull-left">
+                            <button type="button" class="btn btn-outline btn-primary  dim pull-right" onclick="total_data($('#enter_class').val());"><i class="fa fa-print"></i>  Print All</button>
+                          </div> -->
+                                <div class="pull-right">
+                                    <ul class="pagination">
+                                        <li class="footable-page-arrow disabled"><a data-page="first"
+                                                href="#first">«</a></li>
+                                        <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a>
+                                        </li>
+                                        <li class="footable-page-arrow" style="display: none;"><a data-page="limit-prev"
+                                                href="#limit-prev">...</a></li>
+                                        <li class="footable-page active"><a data-page="0" href="#">1</a></li>
+                                        <li class="footable-page-arrow" style="display: none;"><a data-page="limit-next"
+                                                href="#limit-next">...</a></li>
+                                        <li class="footable-page-arrow disabled"><a data-page="next" href="#next">›</a>
+                                        </li>
+                                        <li class="footable-page-arrow disabled"><a data-page="last" href="#last">»</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

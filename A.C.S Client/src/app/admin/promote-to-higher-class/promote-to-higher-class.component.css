@@ -16,3 +16,66 @@ table.table-bordered{
 table.table-bordered tr td{
     vertical-align: middle;
 } 
+
+
+.form-container {
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+  }
+  .step-indicators {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  .step-indicator {
+    width: 135px;
+    height: 40px;
+    background-color: #e0e0e0;
+    color: #666;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+  .step-indicator.active {
+    background-color: #1abc9c;
+    color: white;
+  }
+  .form-content {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+  }
+  button {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
