@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { EnquiryRoutingModule } from './enquiry-routing.module';
 import { EnquiryComponent } from './enquiry.component';
 import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     EnquiryRoutingModule,
-    SideBarModule
+    SideBarModule,
+ReactiveFormsModule
+
 ],
   exports:[
     EnquiryComponent

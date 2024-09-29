@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PunchingFormatRoutingModule } from './punching-format-routing.module';
 import { PunchingFormatComponent } from './punching-format.component';
 import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,9 +12,11 @@ import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     PunchingFormatRoutingModule,
-    SideBarModule
-],
-  exports:[
+    SideBarModule,
+    FormsModule
+
+  ],
+  exports: [
     PunchingFormatComponent
   ]
 })

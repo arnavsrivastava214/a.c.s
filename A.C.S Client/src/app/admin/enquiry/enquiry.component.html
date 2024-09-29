@@ -90,27 +90,26 @@
                 </style>
 
 
-                <div class="container">
+                <div class="container" [formGroup]="enquiryForm">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form_main">
                                 <h4 class="heading"><strong> Send Enquiry </strong>&nbsp;Form <span></span></h4>
                                 <div class="form">
-                                    <form action="../model/send_enquiry.php" method="post" id="enquiryForm"
-                                        name="enquiryForm">
+                                    <div >
                                         <input type="text" required="" placeholder="Please input Student Name" value=""
-                                            name="studentName" class="txt" fdprocessedid="q9try2s">
+                                            name="studentName" class="txt" formControlName="studentName">
                                         <input type="text" required="" placeholder="Please input Father Name" value=""
-                                            name="fname" class="txt" fdprocessedid="x86et">
+                                            name="fname" class="txt" formControlName="fname">
                                         <input type="text" required="" placeholder="Please input Contact No" value=""
-                                            name="contactNo" class="txt" fdprocessedid="tto54u">
+                                            name="contactNo" class="txt" formControlName="contactNo">
                                         <input type="text" required="" placeholder="Please input Email Id" value=""
-                                            name="email" class="txt" fdprocessedid="gielz">
+                                            name="email" class="txt" formControlName="email">
                                         <input type="hidden" value="1" name="add" class="txt">
 
-                                        <input type="submit" value="submit" name="submit" class="txt2"
-                                            fdprocessedid="xiv5wb">
-                                    </form>
+                                       <button (click)="getInputValue()">Submit </button>
+
+                                    </div>
                                 </div>
                             </div>
                         </div>

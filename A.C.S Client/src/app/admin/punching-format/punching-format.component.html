@@ -1,53 +1,515 @@
 <div class="container-fluid">
   <div class="row dashboard-container my-2">
-      <div class="col-sm-12 py-3 mb-2 bg-light">
-          <div class="display-6 px-3">punching-Format</div>
-          <nav aria-label="breadcrumb ">
-              <ol class="breadcrumb px-3">
-                <li class="breadcrumb-item">Home</li>
-                <li class="breadcrumb-item active" aria-current="page">Subject</li>
-              </ol>
-            </nav>
-      </div>
-     </div>
+    <div class="col-sm-12 py-3 mb-2 bg-light">
+      <div class="display-6 px-3">punching-Format</div>
+      <nav aria-label="breadcrumb ">
+        <ol class="breadcrumb px-3">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item active" aria-current="page">Subject</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
   <div class="row">
-      <div class="col-sm-12">
-        <div class="container">
-          <div class="header">
-            <p>Last Admission No.: #90</p>
+    <div class="col-sm-12">
+      <div class="container">
+        <div class="header">
+          <p>Last Admission No.: #90</p>
+        </div>
+        <div class="col-lg-4" style="padding-top: 10px;">
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
+              list="admission_nos" class="form-control" type="text" id="admission_id"
+              placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
+              class="input-group-btn">
+              <button
+                style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"
+                (click)="getAdmisssonId()">Search
+              </button> </span>
           </div>
-          <div class="search-section">
-            <div class="admission-search">
-              <input type="text" placeholder="Enter Admission Number" />
-              <button>Search</button>
+          <datalist id="admission_nos" id="browsers">
+            <option value="01"></option>
+            <option value="02"></option>
+            <option value="03"></option>
+            <option value="04"></option>
+            <option value="05"></option>
+
+          </datalist>
+        </div>
+      </div>
+    </div>
+    <div class="student-search">
+      <div class="card">
+        <div class="card-header">
+          <h3>Search</h3>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="form-group">
+              <label for="studentName">Student Name</label>
+              <input type="text" id="studentName" placeholder="Enter Student Name" />
             </div>
-          </div>
-          <div class="student-search">
-            <div class="card">
-              <div class="card-header">
-                <h3>Search</h3>
-              </div>
-              <div class="card-body">
-                <form>
-                  <div class="form-group">
-                    <label for="studentName">Student Name</label>
-                    <input type="text" id="studentName" placeholder="Enter Student Name" />
-                  </div>
-                  <div class="form-group">
-                    <label for="fatherName">Father Name</label>
-                    <input type="text" id="fatherName" placeholder="Enter Father Name" />
-                  </div>
-                  <div class="form-group">
-                    <label for="mobileNo">Mobile No</label>
-                    <input type="text" id="mobileNo" placeholder="Enter Mobile Number" />
-                  </div>
-                  <button type="submit">Submit</button>
-                </form>
-              </div>
+            <div class="form-group">
+              <label for="fatherName">Father Name</label>
+              <input type="text" id="fatherName" placeholder="Enter Father Name" />
             </div>
+            <div class="form-group">
+              <label for="mobileNo">Mobile No</label>
+              <input type="text" id="mobileNo" placeholder="Enter Mobile Number" />
+            </div>
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+  <div class="modal-content d-flex">
+    <span class="close" (click)="showModal = false">&times;</span>
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group"> 
+          <label class="font-noraml">Admission No</label>
+          <input class="form-control"  type="number"id="admission_no"  style="height:35px; width: 240px;" name="admission_no">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Name</label>
+          <input class="form-control" type="text" id="name" name="name" style="height:35px; width: 240px;" fdprocessedid="mm9f77">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Father Name</label>
+          <input class="form-control" type="text" id="father_name" style="height:35px; width: 240px;" name="father_name">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Mother Name</label>
+          <input class="form-control" type="text" id="mother_name" style="height:35px; width: 240px;" name="mother_name">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Student Aadhar No.</label>
+          <input class="form-control" type="text" id="student_aadhar_no" name="student_aadhar_no"
+            onkeypress="return isNumber(event)" fdprocessedid="k5m7di">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Father Aadhar No.</label>
+          <input class="form-control" type="text" id="father_aadhar_no" name="father_aadhar_no"
+            onkeypress="return isNumber(event)" fdprocessedid="aje0c">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Mother Aadhar No.</label>
+          <input class="form-control" type="text" id="mother_aadhar_no" name="mother_aadhar_no"
+            onkeypress="return isNumber(event)" fdprocessedid="pe1zi">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Guardian Name</label>
+          <input class="form-control" type="text" id="guardian_name" name="guardian_name" fdprocessedid="9s5qg">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group" id="data_3">
+          <label class="font-noraml">Date of Birth</label>
+          <div class="input-group date">
+            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"
+              id="date_of_birth" name="date_of_birth" readonly="" fdprocessedid="6ym43">
           </div>
         </div>
-        
       </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Father Occupation</label>
+          <input class="form-control" type="text" id="father_occupation" name="father_occupation"
+            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="wh95vm">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Gender</label>
+          <select class="form-control" type="text" id="gender" name="gender" fdprocessedid="qnt4m">
+            <option value="">Select Gender</option>
+            <option value="male">MALE</option>
+            <option value="female">FEMALE</option>
+            <option value="other">OTHER</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Class</label>
+          <select class="form-control" type="text" id="class" name="class" fdprocessedid="x007mh">
+            <option value="">Select Class</option>
+            <option value="PLAY_GROUP">PLAY GROUP</option>
+            <option value="NURSERY">NURSERY</option>
+            <option value="LKG">LKG</option>
+            <option value="UKG">UKG</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Present Address</label>
+          <input class="form-control" type="text" id="present_address" name="present_address"
+            onblur="$('#permanent_address').val(this.value)" fdprocessedid="r374r">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Permanent Address</label>
+          <input class="form-control" type="text" id="permanent_address" name="permanent_address"
+            fdprocessedid="37onbd">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Pincode</label>
+          <input class="form-control" type="text" id="pin" name="pin" onkeypress="return isNumber(event)" maxlength="6"
+            value="229001" fdprocessedid="s1cd1r">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Nationality</label>
+          <input class="form-control" type="text" id="nationality" name="nationality"
+            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" value="INDIAN" fdprocessedid="n33kw">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Religion</label>
+          <input class="form-control" type="text" id="religion" name="religion"
+            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="qnyx4f">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Caste</label>
+          <input class="form-control" type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Category</label>
+          <select class="form-control" type="text" id="category" name="category" fdprocessedid="aj76d">
+            <option value="gen">GENERAL</option>
+            <option value="obc">OBC</option>
+            <option value="sc">SC</option>
+            <option value="st">ST</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group" id="data_1">
+          <label class="font-noraml">Period of Residence</label>
+          <input class="form-control" type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
+            fdprocessedid="jglx9kx">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Religion</label>
+          <input class="form-control" type="text" id="religion" name="religion"
+            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="qnyx4f">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Caste</label>
+          <input class="form-control" type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Category</label>
+          <select class="form-control" type="text" id="category" name="category" fdprocessedid="aj76d">
+            <option value="gen">GENERAL</option>
+            <option value="obc">OBC</option>
+            <option value="sc">SC</option>
+            <option value="st">ST</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group" id="data_1">
+          <label class="font-noraml">Period of Residence</label>
+          <input class="form-control" type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
+            fdprocessedid="jglx9kx">
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-12 d-flex">
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Previous School</label>
+          <input class="form-control" type="text" id="previous_school" name="previous_school" fdprocessedid="1rbytg">
+          <input type="hidden" id="punching_format_id" value="9">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label class="font-noraml">Mobile No.</label>
+          <input class="form-control" type="text" id="mobile_No" name="mobile_No" onkeypress="return isNumber(event)"
+            maxlength="12" fdprocessedid="88axvj">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label class="font-noraml">Phone No.</label>
+          <input class="form-control" type="text" id="phone_No" name="phone_No" onkeypress="return isNumber(event)"
+            maxlength="12" fdprocessedid="bimyh8">
+        </div>
+      </div>
+      <div class="col-sm-2">
+        <div class="form-group">
+          <label class="font-noraml">Whatsapp No.</label>
+          <input class="form-control" type="text" id="whatsapp_No" name="whatsapp_No"
+            onkeypress="return isNumber(event)" maxlength="12" fdprocessedid="9yujfx">
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="form-group">
+          <label class="font-noraml">Email</label>
+          <input class="form-control" type="text" id="email"  name="email" fdprocessedid="ko4634">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 d-flex">
+
+      <div class="col-sm-3" id="image_div">
+        <div class="form-group">
+          <label class="font-noraml">Student Image</label>
+          <input class="form-control" type="file" id="profileImage" name="profileImage">
+        </div>
+      </div>
+      <div class="col-sm-3" id="birth_div">
+        <div class="form-group">
+          <label class="font-noraml">Birth Certificate Form</label>
+          <input class="form-control" type="file" id="birth_certificate_form" name="birth_certificate_form">
+        </div>
+      </div>
+      <div class="col-sm-3" id="tc_div">
+        <div class="form-group">
+          <label class="font-noraml">TC Form</label>
+          <input class="form-control" type="file" id="tc_form" name="tc_form">
+        </div>
+      </div>
+      <div class="col-sm-3" id="addmission_div">
+        <div class="form-group">
+          <label class="font-noraml">Addmission Form</label>
+          <input class="form-control" type="file" id="addmission_form" name="addmission_form">
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12" align="right">
+      <button type="button" id="save" class="btn btn-primary"
+        onclick="if($('#punching_format_id').val() != ''){save_or_update('update');}else{save_or_update('insert');}"
+        fdprocessedid="imtgr">Update</button>
+    </div>
+    <div class="col-sm-12" id="fee_detail">
+      <div class="panel panel-info">
+          <div class="panel-heading" align="center">
+              Fee Details
+          </div>
+          <div class="panel-body">
+              <div class="ibox-content table-responsive" style="padding: 0px 0px 0px 0px;">
+                <table class="table table-bordered">
+                    <thead>
+                   
+                     <tr>
+                        <th>#</th>
+                        <th>APR</th>
+                        <th>MAY</th>
+        <th>JUNE</th>
+                        <th>JUL</th>
+                        <th>AUG</th>
+                        <th>SEP</th>
+                        <th>OCT</th>
+                        <th>NOV</th>
+                        <th>DEC</th>
+                        <th>JAN</th>
+        <th>FEB</th>
+        <th>MARCH</th>
+                    </tr>
+                    </thead>
+                    <tbody id="fee_detail_tbody">
+                      <tr id="fee_detail_tr">
+                        <td id="1">1</td>
+                          <td id="month_04" month="04"><p>Total: 2200</p><p>Date: 16-04-2024</p><p>Rec.No.: 2024-25##04###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim" onclick="receipt('2024-25##04###132##AM');" style="margin-top: -25px;height: 34px;" id="btn_receipt" fdprocessedid="vevn1t"><i class="fa fa-print" style="margin-right: 5px;"></i>Print</button></td>
+                          <td id="month_05" month="05"><p>Total: 1820</p><p>Date: 16-05-2024</p><p>Rec.No.: 2024-25##05###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim" onclick="receipt('2024-25##05###132##AM');" style="margin-top: -25px;height: 34px;" id="btn_receipt" fdprocessedid="fmreeo"><i class="fa fa-print" style="margin-right: 5px;"></i>Print</button></td>
+        <td id="month_06" month="06"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="ige71"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_07" month="07"><p>Total: 1200</p><p>Date: 15-07-2024</p><p>Rec.No.: 2024-25##07###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim" onclick="receipt('2024-25##07###132##AM');" style="margin-top: -25px;height: 34px;" id="btn_receipt" fdprocessedid="nz9vk"><i class="fa fa-print" style="margin-right: 5px;"></i>Print</button></td>
+                        <td id="month_08" month="08"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="og05x"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_09" month="09"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="x9dq38"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_10" month="10"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="xbv2tz"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_11" month="11"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="dz4cjv"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_12" month="12"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="xa9et"><i class="fa fa-money"></i></button></p></td>
+                        <td id="month_01" month="01"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="mxam1s"><i class="fa fa-money"></i></button></p></td>
+        <td id="month_02" month="02"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="2ae18p"><i class="fa fa-money"></i></button></p></td>
+        <td id="month_03" month="03"><p>_ _ _ _</p><p>_ _ _ _</p><p>_ _ _ _</p><p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"  fdprocessedid="i3rsio"><i class="fa fa-money"></i></button></p></td>
+                      </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-sm-12" id="fee_receipt" style="display: none;margin-top: 10px;">
+            <div class="panel panel-info">
+                <div class="panel-heading" align="center">
+                    Fee Receipt
+                </div>
+                <div class="panel-body" id="save_fee_detail">
+                   <div class="ibox-content" style="padding: 0px 0px 0px 0px;">
+                      <form role="form" method="post">
+              <div class="col-sm-12">
+                  <div class="col-sm-3"> 
+                      <div class="form-group" id="data_3">
+                      <label class="font-noraml">Date</label>
+                      <div class="input-group date">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control" id="timestamp" name="timestamp" readonly="" value="27-09-2024">
+                      </div>
+                  </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Month</label>
+                        <input class="form-control" type="text" id="month" name="month" disabled="">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Admission Fee</label>
+                        <input class="form-control" type="text" id="admission_fee" name="admission_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Session Fee</label>
+                        <input class="form-control" type="text" id="session_fee" name="session_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+              </div>
+              <div class="col-sm-12">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Tution Fee</label>
+                        <input class="form-control" type="text" id="tution_fee" name="tution_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Fine</label>
+                        <input class="form-control" type="text" id="fine" name="fine" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Re-Admission Fee</label>
+                        <input class="form-control" type="text" id="re_admission_fee" name="re_admission_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Exam Fee</label>
+                        <input class="form-control" type="text" id="exam_fee" name="exam_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Development Fee</label>
+                        <input class="form-control" type="text" id="development_fee" name="development_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Activity Fee</label>
+                        <input class="form-control" type="text" id="activity_fee" name="activity_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Computer Science Fee</label>
+                        <input class="form-control" type="text" id="computer_science_fee" name="computer_science_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Other</label>
+                        <input class="form-control" type="text" id="others" name="others" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Other 1.</label>
+                        <input class="form-control" type="text" id="adv_fee" name="adv_fee" onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                    </div>
+                  </div>
+                  <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Total</label>
+                        <input class="form-control" type="text" id="total_amt" name="total_amt" readonly="">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <button type="button" class="btn btn-primary btn-block btn-md" onclick="pay_fee();" style="margin-top: 22px;height: 34px;" id="btn_pay_fee"><i class="fa fa-file" style="margin-right: 5px;"></i> Pay Fee</button>
+                </div>
+                </div>
+                <input type="reset" style="display: none;" id="form_reset">
+              </form>
+                  </div>
+                  <input type="hidden" value="#132" id="adm_no" name="admission_no">
+                </div>
+            </div>
+            </div>
+          </div>
+          </div>
+      </div>
+
   </div>
+
 </div>
