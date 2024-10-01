@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StalkOutBookSaleRoutingModule } from './stalk-out-book-sale-routing.module';
 import { StalkOutBookSaleComponent } from './stalk-out-book-sale.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     StalkOutBookSaleRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[
     StalkOutBookSaleComponent

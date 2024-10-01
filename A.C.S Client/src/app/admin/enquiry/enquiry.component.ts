@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { EnquiryServiceService } from './enquiry-service.service';
 import { LoginComponent } from 'src/app/Authentication/login/login.component';
+import { AlertService } from 'src/app/shared/alert.service';
 
 @Component({
   selector: 'app-enquiry',
@@ -14,7 +15,7 @@ export class EnquiryComponent {
   session: string = '';
 
 
-  constructor(private _fb: FormBuilder, private service: EnquiryServiceService) {
+  constructor(private _fb: FormBuilder, private service: EnquiryServiceService, private alertService:AlertService) {
     this.isoTimestamp = new Date().toISOString();
     this.session = this.service.generateSession();
 
@@ -31,10 +32,19 @@ export class EnquiryComponent {
 
 
   getInputValue() {
-    console.log(this.enquiryForm.value);
     
     this.service.insertEnquiryCredential(this.enquiryForm.value, (callback: any) => {
-      console.log(callback);
+      if(callback.status == 200){
+        this.alertService.success(callback.message, "Success",{displayDuration : 2000})
+        this.enquiryForm.reset();
+
+
+      }else{
+        this.alertService.error(callback.message, "Error",{displayDuration : 2000})
+        this.enquiryForm.reset();
+
+
+      }
 
     })
   }

@@ -4,23 +4,75 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
         <div class="col-sm-12">
 
-            <div class="col-lg-5" style="padding-top: 10px;">
-                <div class="input-group" style="margin-top:3%;"><span class="input-group-addon"><i
-                            class="fa fa-list-ul"></i></span><input list="admission_nos" class="form-control"
-                        type="text" id="admission_id" placeholder="Enter Admission Number" required=""
-                        fdprocessedid="49f28"> <span class="input-group-btn"> <button type="button"
-                            style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;" fdprocessedid="rxzq9i">Search
-                        </button> </span>
-                </div>
+            <div class="col-lg-4" style="padding-top: 10px;">
+          <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
+              list="admission_nos" class="form-control" type="text" id="admission_id"
+              placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
+              class="input-group-btn">
+              <button
+                style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"
+                (click)="getAdmisssonId()">Search
+              </button> </span>
+          </div>
+          <datalist id="admission_nos" id="browsers">
+            <option value="01"></option>
+            <option value="02"></option>
+            <option value="03"></option>
+            <option value="04"></option>
+            <option value="05"></option>
+
+          </datalist>
         </div>
-    </div>
-</div>
+      </div>
+                <input type="text" class="form-control" disabled="" style="width: 300px;     margin-left: 65rem;   margin-top: -25px;
+
+" placeholder="Ayush">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="slno">SL No</label>
+                        <input type="text" id="slno" value="1" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">DATE</label>
+                        <input type="date" id="date" value="2024-10-01">
+                    </div>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>BOOK CODE</th>
+                            <th>QTY</th>
+                            <th>Rate</th>
+                            <th>AMOUNT</th>
+                            <th>STATUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <select>
+                                    <option value="">Select</option>
+                                </select>
+                            </td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
+                            <td><input type="number"></td>
+                            <td><button class="add-button">+</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <button class="save-button">Save</button>
+            </div>
+        </div>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PunchSaleRateRoutingModule } from './punch-sale-rate-routing.module';
 import { PunchSaleRateComponent } from './punch-sale-rate.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     PunchSaleRateRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[
     PunchSaleRateComponent

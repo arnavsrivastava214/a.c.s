@@ -13,9 +13,12 @@ router.post("/signUp", async function (req,res){
     let sql = "INSERT INTO 	user (name, email, password, rePassword) VALUES (?, ?, ?, ?)";
     let value = [name, email, password, rePassword];
     con.query(sql, value, async function (err, result){
-        if(err) throw console.log(err);
-        console.log("Data saved in database");
-    });
+        if(!err  ){
+            res.send({message:"Login Success",status:200});
+} else {
+            res.send({message:"Invalid Credential",status:404});
+    }
+})
 });
 
 router.post("/login", async function (req,res){
@@ -65,10 +68,9 @@ router.post("/newPassword", async function (req,res){
 
     con.query(query, values, (err, result) => {
         if (err) {
-            console.error(err);
-            res.status(500).send('Error updating user password');
+            res.status(500).send({ message: "Invalid Credential", status: 400 });
         } else {
-            res.status(200).send({ message: "Succes", status: 200 });
+            res.status(200).send({ message: "Succes", status: 200 ,data:result});
         }
     });
     });

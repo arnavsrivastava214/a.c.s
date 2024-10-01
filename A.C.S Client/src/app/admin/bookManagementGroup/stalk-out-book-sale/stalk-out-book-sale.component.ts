@@ -6,5 +6,27 @@ import { Component } from '@angular/core';
   styleUrls: ['./stalk-out-book-sale.component.css']
 })
 export class StalkOutBookSaleComponent {
+  admissionNO:any
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  getAdmisssonId(){
+
+  }
 
 }

@@ -15,7 +15,7 @@ router.post("/insertenquiry", (req, res) => {
     let values = [studentName, fname, contactNo, email, session, timestamp];
     con.query(sql, values, (error, result) => {
         if (!error) {
-            res.send({ message: "data fetched", status: 200, data: result });
+            res.send({ message: "data Saved", status: 200, data: result });
         }
         else {
             res.send({ message: "Error", status: 400 });

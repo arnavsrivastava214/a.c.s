@@ -13,116 +13,109 @@
     <div class="row">
         <div class="col-sm-12">
 
+            <button style="background-color: #337ab7;border: none ; color: white; width: 193px;height: 51px;"
+                (click)="punchSaleRate()">Change Sale Rate</button>
+            <button
+                style="background-color: #337ab7;border: none ; color: white;width: 193px;height: 51px; margin-left: 10px;"
+                (click)="changeSaleRate()"> Punch Sale Rate</button>
 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <link rel="stylesheet"
-                    href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/css/bootstrap-select.min.css">
-                <style>
-                    body {
-                        padding: 10px;
 
-                    }
+            <div class="custom-select-wrapper my-3 d-flex" *ngIf="punchSaleRateContent">
+                <input type="text" [(ngModel)]="selectedOption" placeholder="Select Book Code" readonly
+                    (click)="toggleDropdown()" />
 
-                    #exTab1 .tab-content {
-                        color: white;
-                        background-color: #428bde;
-                        padding: 5px 15px;
-                    }
-
-                    #exTab2 h3 {
-                        color: white;
-                        background-color: #428bde;
-                        padding: 5px 15px;
-                    }
-
-                    /* remove border radius for the tab */
-
-                    #exTab1 .nav-pills>li>a {
-                        border-radius: 0;
-                    }
-
-                    /* change border radius for the tab , apply corners on top*/
-
-                    #exTab3 .nav-pills>li>a {
-                        border-radius: 4px 4px 0 0;
-                    }
-
-                    #exTab3 .tab-content {
-                        color: white;
-                        background-color: #428bca;
-                        padding: 5px 15px;
-                    }
-                </style>
-                <div id="exTab2" class="container">
-                    <ul class="nav nav-pills nav-fill">
-                        <li class="nav-items">
-                            <a class="nav-link active" href="#1" data-toggle="tab" aria-expanded="false">Punch Sale
-                                Rate</a>
+                <div class="dropdown" *ngIf="isDropdownOpen">
+                    <input type="search" [(ngModel)]="searchTerm" placeholder="Search" (input)="filterOptions()" />
+                    <ul>
+                        <li *ngFor="let option of filteredOptions" (click)="selectOption(option)">
+                            {{ option }}
                         </li>
-                        <li class="nav-items active"><a class="nav-link" href="#2" data-toggle="tab"
-                                aria-expanded="true">Change Sale Rate</a>
-                        </li>
-
                     </ul>
-
-                    <div class="tab-content ">
-
-                        <div class="tab-pane" id="1">
-                            <form action="punch_book_sale.php" method="post">
-                                <h4>Data Not Found</h4>
-                            </form>
-                        </div>
-                        <div class="tab-pane active" id="2">
-                            <form action="punch_book_sale.php" method="post">
-                                <div class="col-lg-4" style="padding-top: 10px;">
-                                    <div class="input-group" style="margin-top:3%;"><span class="input-group-addon"><i
-                                                class="fa fa-list-ul"></i></span><select
-                                            class="form-control selectpicker selectBook" name="searchByBookCode"
-                                            data-show-subtext="true" data-live-search="true" required=""
-                                            style="display: none;">
-                                            <option value="">Select Book Code</option>
-                                        </select>
-                                        <div class="btn-group bootstrap-select input-group-btn form-control selectBook">
-                                            <button type="button" class="btn dropdown-toggle selectpicker btn-default"
-                                                data-toggle="dropdown" title="Select Book Code" aria-expanded="false"
-                                                fdprocessedid="imwic4"><span class="filter-option pull-left">Select Book
-                                                    Code</span>&nbsp;<span class="caret"></span></button>
-                                            <div class="dropdown-menu open"
-                                                style="max-height: 230.508px; overflow: hidden; min-height: 42px;">
-                                                <div class="bs-searchbox"><input type="text"
-                                                        class="input-block-level form-control" autocomplete="off"
-                                                        fdprocessedid="8ygqd8"></div>
-                                                <ul class="dropdown-menu inner selectpicker" role="menu"
-                                                    style="max-height: 188.508px; overflow-y: auto; min-height: 0px;">
-                                                    <li data-original-index="0" class="selected hide"><a tabindex="0"
-                                                            class=""
-                                                            data-normalized-text="<span class=&quot;text&quot;>Select Book Code</span>"><span
-                                                                class="text">Select Book Code</span><span
-                                                                class="glyphicon glyphicon-ok check-mark"></span></a>
-                                                    </li>
-                                                    <li class="no-results active" style="display: list-item;">No results
-                                                        match "ser"</li>
-                                                </ul>
-                                            </div>
-                                        </div> <span class="input-group-btn"> <button type="submit"
-                                                class="btn btn-primary" id="btn_search"
-                                                style="min-width: 72px; height: 34px;" fdprocessedid="udlema">Search
-                                            </button> </span>
-                                    </div>
-
-                                </div>
-                            </form>
-
-                        </div>
-
-                    </div>
                 </div>
-
-
-
-
+                <button type="submit" class="btn btn-primary" id="btn_search"
+                    style="min-width: 98px;height: 42px; background-color: #18a689; color: white; border: none;"
+                    (click)="getSelectedValues()">Search
+                </button>
             </div>
+
+
+
 
         </div>
     </div>
-</div>
+
+
+
+    <table class="table table-striped" *ngIf="punchSaleRateContent">
+        <thead>
+            <tr>
+                <th scope="col">BOOK CODE</th>
+                <th scope="col">BOOK Name</th>
+                <th scope="col">BOOK PUB.</th>
+                <th scope="col">Class</th>
+                <th scope="col">RECD QTY</th>
+                <th scope="col">RECD VALUE</th>
+                <th scope="col">ISS VALUE</th>
+                <th scope="col">BALANCE QTY</th>
+                <th scope="col">BALANCE VALUE</th>
+                <th scope="col">SALE RATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of displayAllData">
+                <td>{{book.bookCode}}</td>
+                <td>{{book.bookName}}</td>
+                <td>{{book.bookPub}}</td>
+                <td>{{book.class}}</td>
+                <td>{{book.returnQty}}</td>
+                <td>{{book.vendorId}}</td>
+                <td>{{book.totalQtyOrder}}</td>
+                <td>{{book.qty_order}}</td>
+                <td>{{book.totalAmount}}</td>
+                <td>{{book.saleRate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-striped" *ngIf="changeSaleRateContent">
+        <thead>
+            <tr>
+                <th scope="col">BOOK CODE</th>
+                <th scope="col">BOOK Name</th>
+                <th scope="col">BOOK PUB.</th>
+                <th scope="col">Class</th>
+                <th scope="col">RECD QTY</th>
+                <th scope="col">RECD VALUE</th>
+                <th scope="col">ISS VALUE</th>
+                <th scope="col">BALANCE QTY</th>
+                <th scope="col">BALANCE VALUE</th>
+                <th scope="col">SALE RATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let book of displayData">
+                <td>{{book.bookCode}}</td>
+                <td>{{book.bookName}}</td>
+                <td>{{book.bookPub}}</td>
+                <td>{{book.class}}</td>
+                <td>{{book.returnQty}}</td>
+                <td>{{book.vendorId}}</td>
+                <td>{{book.totalQtyOrder}}</td>
+                <td>{{book.qty_order}}</td>
+                <td>{{book.totalAmount}}</td>
+                <td>{{book.saleRate}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+    <div id="myModal" class="modal" *ngIf="showModal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close" (click)="showModal = false">&times;</span>
+            <h3>Data Not Found !</h3>
+            <button (click)="showModal = false" class="btn btn-danger">close</button>
+        </div>
+
+    </div>

@@ -12,11 +12,11 @@
     </div>
     <div class="row">
         <div class="col-sm-5 d-flex">
-            <select class="form-select " aria-label="Default select example">
+            <select class="form-select " aria-label="Default select example" [(ngModel)]="feePayment">
                 <option selected>Select Class</option>
-                <option value="1">PLAY GROUP</option>
-                <option value="2">NURSERY</option>
-                <option value="3">LKG</option>
+                <option value="PLAY GROUP">PLAY GROUP</option>
+                <option value="NURSERY">NURSERY</option>
+                <option value="LKG">LKG</option>
                 <option value="3">UKG</option>
                 <option value="3">1</option>
                 <option value="3">2</option>
@@ -27,16 +27,240 @@
                 <option value="3">7</option>
                 <option value="3">8</option>
                 <option value="3">9</option>
-                <option value="3">10</option>
+                <option value="10">10</option>
                 <option value="3">11</option>
                 <option value="3">12</option>
             </select>
 
 
             <button
-                style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;">
+                style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;"
+                (click)="getSelctedValue()">
                 Search
             </button>
         </div>
+        <div class="container my-5" *ngIf="showDetails">
+            <div>
+
+
+                <img src="../assets/img/namelogo.png" style="height: 25%;width: 100%;">
+                <p>
+                    <span>#FEE PAYMENT</span>
+                    <button (click)="sort()" class="btn btn-success mx-3">Sort</button>
+
+                    <span style="float: right;" id="date">#Class : LKG</span>
+                </p>
+                <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
+                    fdprocessedid="pdhux" [(ngModel)]="inputValues" (input)="getsearchedValues()">
+
+
+                <table class="table table-striped">
+
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">ADM No.</th>
+                            <th scope="col">CLASS</th>
+                            <th scope="col">STUDENT NAME</th>
+                            <th scope="col">FATHER NAME</th>
+                            <th scope="col">CONTACT NUMBER </th>
+                            <th scope="col">FEE STATUS</th>
+                            <th scope="col">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let payment of copyArray">
+                            <td>{{payment.id}}</td>
+                            <td>{{payment.admission_number}}</td>
+                            <td>{{payment.class}}</td>
+                            <td>{{payment.name}}</td>
+                            <td>{{payment.father_name}}</td>
+                            <td>{{payment.phone_number}}</td>
+                            <td>{{payment.fee}}</td>
+                            <td><button class="btn btn-primary" (click)="getPayment(payment)">Pay</button></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>
+
+<div id="myModal" class="modal" *ngIf=" showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="showModal = false">&times;</span>
+        <h3>Data Not Found!</h3>
+        <button (click)="showModal = false" class="btn btn-danger !important">close</button>
+    </div>
+
+</div>
+
+<div id="myModal" class="modal" *ngIf="feePayModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 80%;">
+        <span class="close" (click)="feePayModal = false">&times;</span>
+        <div class="col-sm-12 d-flex" [formGroup]="patchValueForm">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Admission No.</label>
+                    <input class="form-control" type="text" formControlName="admission_number">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Class</label>
+                    <input class="form-control" type="text" id="class" name="class" formControlName="class">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Student Name</label>
+                    <input class="form-control" type="text" id="student_name" name="student_name"
+                        formControlName="name">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Father's Name</label>
+                    <input class="form-control" type="text" id="father_name" name="father_name"
+                        formControlName="father_name">
+                </div>
+            </div>
+        </div>
+        <div class="container" [formGroup]="PaidFeeForm">
+
+            <div class="col-sm-12 d-flex">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Session</label>
+                        <input class="form-control" type="text" id="session" name="session" value="2024-25" disabled=""
+                            fdprocessedid="w1mcr">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Month</label>
+                        <select class="form-control" type="text"  formControlName="fee_date_nov">
+                            <option value="">Select Month</option>
+                            <option value="05">May</option>
+                            <option value="06">June</option>
+                            <option value="08">August</option>
+                            <option value="09">September</option>
+                            <option value="10">October</option>
+                            <option value="11">November</option>
+                            <option value="12">December</option>
+                            <option value="01">January</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Admission Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="admission_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Session Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="session_fee">
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-sm-12 d-flex">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Tution Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"formControlName="tuition_fee" >
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Fine</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="fine">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Re-Admission Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="ree_admission_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Exam Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="exam_fee">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-12 d-flex">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Development Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="development_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Activity Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="activity_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Computer Science Fee</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="computer_science_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Other</label>
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="other">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 d-flex">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">other 1.</label>
+                        <input class="form-control" type="number" placeholder="0"  formControlName="other1">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Total</label>
+                        <div class="total" style=" height: 38px; width: 131px;">
+                            <h3>{{grandTotal}}</h3>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn d-flex">
+
+
+            <button (click)="closeFeePayContent()">close</button>
+            <button class="btn btn-primary mx-3" (click)="getTotalFee()">Save</button>
+        </div>
+    </div>
+
+</div>
+
+
+
+<div id="myModal" class="modal" *ngIf="successModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" (click)="successModal = false">&times;</span>
+      <h3>Fee Paid Succesfully</h3>
+    </div>
+  
+  </div>

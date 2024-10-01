@@ -3,32 +3,53 @@ body {
     
   }
 
-  #exTab1 .tab-content {
-    color : white;
-    background-color: #428bde;
-    padding : 5px 15px;
+  .custom-select-wrapper {
+    position: relative;
+    width: 200px;
   }
+  
+  .custom-select-wrapper input[type="text"] {
+    width: 700px;
 
-  #exTab2 h3 {
-    color : white;
-    background-color: #428bde;
-    padding : 5px 15px;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
   }
-
-  /* remove border radius for the tab */
-
-  #exTab1 .nav-pills > li > a {
-    border-radius: 0;
+  
+  .custom-select-wrapper .dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 100;
   }
-
-  /* change border radius for the tab , apply corners on top*/
-
-  #exTab3 .nav-pills > li > a {
-    border-radius: 4px 4px 0 0 ;
+  
+  .custom-select-wrapper .dropdown input[type="search"] {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
   }
-
-  #exTab3 .tab-content {
-    color : white;
-    background-color: #428bca;
-    padding : 5px 15px;
+  
+  .custom-select-wrapper .dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
+  
+  .custom-select-wrapper .dropdown ul li {
+    padding: 8px;
+    cursor: pointer;
+  }
+  
+  .custom-select-wrapper .dropdown ul li:hover {
+    background-color: #f1f1f1;
+  }
+  

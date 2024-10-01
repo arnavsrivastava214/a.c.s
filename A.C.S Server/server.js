@@ -17,6 +17,8 @@ app.use("/api/academicrecords", require("./controller/academic_records.js"))
 app.use("/api/studentrecords", require("./controller/certificate.js"))
 app.use("/api/enquiry", require("./controller/enquiry.js"));
 app.use("/api/punchingformat", require("./controller/punchingformat.js"));
+app.use("/api/feepayment", require("./controller/feepaymnet.js"));
+app.use("/api/bookrecords", require("./controller/punch_saler_rate.js"));
 
 
 
