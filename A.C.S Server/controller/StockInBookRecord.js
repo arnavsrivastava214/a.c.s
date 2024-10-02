@@ -2,35 +2,35 @@ const express = require("express");
 const con = require("../connection.js");
 const router = express.Router();
 
-router.post("/savebookrecords", async function (req,res){
-       let vendorId = req.body.vendorId
-       let invoiceNo = req.body.invoiceNo
-      let  invoiceDate = req.body.invoiceDate
-       let bookCode = req.body.bookCode 
-      let  bookName = req.body.bookName 
-      let  bookPublisher = req.body.bookPublisher 
-      let class_Assign = req.body.class_Assign;
-       let quantity = req.body.quantity 
-       let mrpRate = req.body.mrpRate 
-      let  discount = req.body.discount 
-      let  totalPurchasingAmount = req.body.totalPurchasingAmount 
-       let totalAmount = req.body.totalAmount
+router.post("/savebookrecords", async function (req, res) {
+    let vendorId = req.body.vendorId
+    let invoiceNo = req.body.invoiceNo
+    let invoiceDate = req.body.invoiceDate
+    let bookCode = req.body.bookCode
+    let bookName = req.body.bookName
+    let bookPublisher = req.body.bookPublisher
+    let class_Assign = req.body.class_Assign;
+    let quantity = req.body.quantity
+    let mrpRate = req.body.mrpRate
+    let discount = req.body.discount
+    let totalPurchasingAmount = req.body.totalPurchasingAmount
+    let totalAmount = req.body.totalAmount
 
     let query = "INSERT INTO book_mangemement_stalk_in_book_record (vendorId, invoiceNo, invoiceDate, bookCode, bookName, bookPublisher, class_Assign, quantity, mrpRate, discount, totalPurchasingAmount, totalAmount) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     const value = [vendorId, invoiceNo, invoiceDate, bookCode, bookName, bookPublisher, class_Assign, quantity, mrpRate, discount, totalPurchasingAmount, totalAmount];
 
-    con.query(query,value, async (err,result)=>{
-        if(err) throw err;
+    con.query(query, value, async (err, result) => {
+        if (err) throw err;
         console.log("Book Record Saved");
-    res.send({massage:"succes", status:200})
+        res.send({ massage: "succes", status: 200 })
     })
 
 })
 
-router.get("/savebookrecords" ,async function (req,res){
+router.get("/savebookrecords", async function (req, res) {
     let query = "SELECT * FROM book_mangemement_stalk_in_book_record";
-    con.query(query, async function (err,result){
-        if(err) throw err;
+    con.query(query, async function (err, result) {
+        if (err) throw err;
         res.send(result);
     })
 })
@@ -74,4 +74,3 @@ router.put('/editbookrecords/:id', (req, res) => {
     });
 });
 module.exports = router;
-       

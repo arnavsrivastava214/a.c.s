@@ -69,7 +69,6 @@ export class PunchSaleRateComponent {
     }
     this.service.fetchBookRecordsByBookCode(obj, (callback: any) => {
       if (callback.status == 200 && callback.data.length > 0) {
-
         this.displayAllData = callback.data
       } else {
         this.showModal = true;

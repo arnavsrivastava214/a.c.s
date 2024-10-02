@@ -19,6 +19,7 @@ app.use("/api/enquiry", require("./controller/enquiry.js"));
 app.use("/api/punchingformat", require("./controller/punchingformat.js"));
 app.use("/api/feepayment", require("./controller/feepaymnet.js"));
 app.use("/api/bookrecords", require("./controller/punch_saler_rate.js"));
+app.use("/api/booksales", require("./controller/stalk_out_book_sale.js"));
 
 
 

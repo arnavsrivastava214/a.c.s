@@ -13,66 +13,95 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <div class="col-lg-4" style="padding-top: 10px;">
-          <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
-              list="admission_nos" class="form-control" type="text" id="admission_id"
-              placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
-              class="input-group-btn">
-              <button
-                style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"
-                (click)="getAdmisssonId()">Search
-              </button> </span>
-          </div>
-          <datalist id="admission_nos" id="browsers">
-            <option value="01"></option>
-            <option value="02"></option>
-            <option value="03"></option>
-            <option value="04"></option>
-            <option value="05"></option>
-
-          </datalist>
-        </div>
-      </div>
-                <input type="text" class="form-control" disabled="" style="width: 300px;     margin-left: 65rem;   margin-top: -25px;
-
-" placeholder="Ayush">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="slno">SL No</label>
-                        <input type="text" id="slno" value="1" readonly>
-                    </div>
-                    <div class="form-group">
-                        <label for="date">DATE</label>
-                        <input type="date" id="date" value="2024-10-01">
-                    </div>
+            <div class="col-lg-4" style="padding-top: 10px;"  >
+                <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
+                        list="admission_nos" class="form-control" type="text" id="admission_id"
+                        placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
+                        class="input-group-btn">
+                        <button
+                            style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"*ngFor="let student of displayData"
+                            (click)="getAdmisssonId(student)">Search
+                        </button> </span>
                 </div>
-
-                <table>
-                    <thead>
-                        <tr>
-                            <th>BOOK CODE</th>
-                            <th>QTY</th>
-                            <th>Rate</th>
-                            <th>AMOUNT</th>
-                            <th>STATUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <select>
-                                    <option value="">Select</option>
-                                </select>
-                            </td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                            <td><input type="number"></td>
-                            <td><button class="add-button">+</button></td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <button class="save-button">Save</button>
+                <datalist id="admission_nos" id="browsers">
+                    <option value="01"></option>
+                    <option value="02"></option>
+                    <option value="03"></option>
+                    <option value="04"></option>
+                    <option value="05"></option>
+                    <option value="06"></option>
+                    <option value="07"></option>
+                    <option value="08"></option>
+                    <option value="09"></option>
+                    <option value="10"></option>
+                </datalist>
             </div>
         </div>
+        <div *ngIf="showContent" [formGroup]="PatchValueForm">
+            <small
+                style="margin-left: 66rem; background-color: #f8ac59 !important; color: white; border-radius:25%;">student
+                name</small>
+
+            <input type="text" class="form-control" style="width: 300px; margin-left: 65rem;margin-top: -6px;
+" formControlName="name">
+
+
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="slno"
+                        style="background-color:#f8ac59; color: white; width: 40px; border-radius: 25%;">SL
+                        No</label>
+                    <input type="text" id="slno" readonly formControlName="id">
+                </div>
+                <div class="form-group">
+                    <label for="date"
+                        style="background-color:#f8ac59; color: white; width: 40px; border-radius: 25%;">DATE</label>
+                    <input type="date" id="date" formControlName="fee_date_nov">
+                </div>
+            </div>
+
+            <table>
+                <thead >
+                    <tr>
+                        <th>BOOK CODE</th>
+                        <th>QTY</th>
+                        <th>Rate</th>
+                        <th>AMOUNT</th>
+                        <th>STATUS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <select>
+                                <option value="">Select</option>
+                            </select>
+                        </td>
+                        <td><input type="number"></td>
+                        <td><input type="number"></td>
+                        <td><input type="number"></td>
+                        <td><button class="add-button">+</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button class="save-button">Save</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="showModal = false">&times;</span>
+        <h4>Data Not Found !</h4>
+        <button class="btn btn-danger" (click)="showModal = false">close</button>
+    </div>
+
+</div>
