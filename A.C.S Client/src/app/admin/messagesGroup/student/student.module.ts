@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StudentRoutingModule } from './student-routing.module';
 import { StudentComponent } from './student.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     StudentRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[
     StudentComponent

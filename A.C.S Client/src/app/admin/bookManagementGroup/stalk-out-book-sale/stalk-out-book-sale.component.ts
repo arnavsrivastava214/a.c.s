@@ -40,7 +40,7 @@ export class StalkOutBookSaleComponent {
 
 
 
-  getAdmisssonId(student:any) {
+  getAdmisssonId() {
     let obj = {
       admissiomId: this.admissionNO
     }
@@ -48,7 +48,9 @@ export class StalkOutBookSaleComponent {
       if (callback.status == 200 && callback.data.length > 0) {
         this.displayData = callback.data
 
-        this.PatchValueForm.patchValue(student)
+        this.PatchValueForm.patchValue(this.displayData)
+        console.log(this.displayData);
+        
         this.showContent = true;
 
       } else {
