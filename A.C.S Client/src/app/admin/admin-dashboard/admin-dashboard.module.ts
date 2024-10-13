@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { AdminDashboardComponent } from './admin-dashboard.component';
 import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     AdminDashboardRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[AdminDashboardComponent]
 })

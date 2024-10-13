@@ -21,6 +21,11 @@ app.use("/api/feepayment", require("./controller/feepaymnet.js"));
 app.use("/api/bookrecords", require("./controller/punch_saler_rate.js"));
 app.use("/api/booksales", require("./controller/stalk_out_book_sale.js"));
 app.use("/api/studentreports", require("./controller/student.js"));
+app.use("/api/tcissue", require("./controller/tc_issue.js"));
+app.use("/api/profile", require("./controller/side_bar.js"));
+app.use("/api/feestatus", require("./controller/fee_status.js"));
+app.use("/api/add", require("./controller/add.js"));
+app.use("/api/masterreport", require("./controller/master_report.js"));
 
 
 

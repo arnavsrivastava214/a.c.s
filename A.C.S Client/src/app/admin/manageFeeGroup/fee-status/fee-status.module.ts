@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { FeeStatusRoutingModule } from './fee-status-routing.module';
-import { FeePaymentComponent } from '../fee-payment/fee-payment.component';
 import { FeeStatusComponent } from './fee-status.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,7 +12,9 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     FeeStatusRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[
     FeeStatusComponent

@@ -4,8 +4,11 @@ const router = express.Router();
 
 router.post("/fetchfeedetails", (req,res)=>{
     let classfees = req.body.classfees;
+    const currentYear = new Date().getFullYear();
+    const nextYear = currentYear + 1;
+    const sessionString = `${currentYear}_${nextYear}`;
 
-    let sql  = `SELECT * FROM punching_format WHERE class =  ?`;
+    let sql  = `SELECT * FROM punching_format${sessionString} WHERE class =  ?`;
     let values = [classfees];
     con.query(sql, values,(error,result)=>{
         if(!error){

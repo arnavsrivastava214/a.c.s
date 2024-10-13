@@ -4,13 +4,355 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
-    <div class="row">
-        <div class="col-sm-12"></div>
     </div>
-</div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-5 d-flex">
+                <select class="form-select " aria-label="Default select example" [(ngModel)]="admissionId">
+                    <option selected>Select Class</option>
+                    <option value="PLAY GROUP">PLAY GROUP</option>
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="Lkg">LKG</option>
+                    <option value="UKG">UKG</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8th">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+
+
+                <button
+                    style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;"
+                    (click)="getAdmissionId()">
+                    Search
+                </button>
+            </div>
+
+            <div *ngIf="showContent">
+
+                <img src="../assets/img/namelogo.png" style="height: 50%;width: 100%;" class="my-5">
+                <p>
+                    <span>#MASTER REPORT FOR CLASS WISE</span>
+                    <span style="float: right;" id="class_text">#CLASS: LKG</span>
+                </p>
+                <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
+                    (input)="getsearchedValues()" [(ngModel)]="inputValues">
+
+
+
+
+
+
+
+                <div class="ibox-content table-responsive">
+                    <table class="footable table table-stripped table-bordered footable-loaded" data-page-size="10"
+                        data-filter="#filter" data-limit-navigation="5">
+                        <thead>
+                            <tr>
+                                <th class="footable-sortable">#<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('id')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">ADM. NO<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('admission_number')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">ST. NAME<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('name')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">DOB<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('date_of_birth')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">FATHER NAME<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('father_name')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">M.NAME<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('mother_name')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">CONTACT NO.<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('phone_number')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable">ADDRESS<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('phone_number')">
+                                        <svg
+                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                    </svg>
+                                    </div> </span>
+                                </th>
+                                <th class="footable-sortable footable-sorted">Print<span
+                                        class="footable-sort-indicator"></span></th>
+                                <th class="footable-sortable footable-sorted">Edit<span
+                                        class="footable-sort-indicator"></span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="data_tr">
+                            <tr *ngFor="let student of copyArray">
+                                <td>{{student.id}}</td>
+                                <td>{{student.admission_number}}</td>
+                                <td>{{student.name}}</td>
+                                <td>{{student.date_of_birth}}</td>
+                                <td>{{student.father_name}}</td>
+                                <td>{{student.mother_name}}</td>
+                                <td>{{student.phone_number}}</td>
+                                <td>{{student.permanent_address}}</td>
+                                <td><button class="btn btn-success" (click)="printDoc()">Print</button></td>
+                                <td><button class="btn btn-success" (click)="edit(student)">Edit</button></td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+                    <div class="col-sm-12" style="padding:0 0 0 0;">
+                        <div class="pull-left d-flex ">
+                            <button type="button" class="btn btn-outline btn-primary  dim pull-right" (click)="printDoc()"> Print
+                                All</button>
+                            <div class="pull-left">
+                                <button type="button" class="btn btn-outline mx-3 btn-primary">Export Data</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+        <div id="myModal" class="modal" *ngIf="showModal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close" (click)="showModal = false">&times;</span>
+                <h3>Data Not Found !</h3>
+                <button class="btn btn-danger w-25" (click)="showModal = false">close</button>
+            </div>
+
+        </div>
+        <div id="myModal" class="modal" *ngIf="editModal">
+
+            <!-- Modal content -->
+            <div class="modal-content" style="width: 70%;" [formGroup]="studentForm">
+                <span class="close" (click)="editModal = false">&times;</span>
+                <h4 class="modal-title" id="title" align="center">Edit Student Details</h4>
+
+                <div class="modal-body">
+                    <div class="col-sm-12 d-flex">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Admission No</label>
+                                <input class="form-control" type="text" formControlName="admission_number">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Name</label>
+                                <input class="form-control" type="text" formControlName="name">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Father Name</label>
+                                <input class="form-control" type="text" formControlName="father_name">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Mother Name</label>
+                                <input class="form-control" type="text" formControlName="mother_name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Guardian Name</label>
+                                <input class="form-control" type="text" formControlName="guardian_name">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="data_3">
+                                <label class="font-noraml">Date of Birth</label>
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input
+                                        type="text" class="form-control" formControlName="date_of_birth">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Father Occupation</label>
+                                <input class="form-control" type="text" formControlName="father_occupation">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Class</label>
+                                <select class="form-control" type="text" formControlName="assign_class">
+                                    <option value="">Select Class</option>
+                                    <option value="PLAY_GROUP">PLAY GROUP</option>
+                                    <option value="NURSERY">NURSERY</option>
+                                    <option value="LKG">LKG</option>
+                                    <option value="UKG">UKG</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Present Address</label>
+                                <input class="form-control" type="text" formControlName="present_address">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Permanent Address</label>
+                                <input class="form-control" type="text" formControlName="permanent_address">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Pincode</label>
+                                <input class="form-control" type="text" formControlName="pin">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Nationality</label>
+                                <input class="form-control" type="text" formControlName="nationality">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 d-flex">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Religion</label>
+                                <input class="form-control" type="email" formControlName="religion">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group" id="data_1">
+                                <label class="font-noraml">Period of Residence</label>
+                                <input type="text" class="form-control" formControlName="period_of_residence_in_up">
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label class="font-noraml">Previous School</label>
+                                <input class="form-control" type="text" formControlName="previous_school">
+                                <input type="hidden" id="punching_format_id" value="">
+                            </div>
+                        </div>
+                        <div class="col-sm-12 d-flex">
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label class="font-noraml">Phone No.</label>
+                                    <input class="form-control" type="text" formControlName="phone_number">
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                    <div class="d-flex">
+
+                        <button class="btn btn-danger" style="width: 70px;" (click)="editModal = false">close</button>
+                        <button class="btn btn-primary mx-4" style="width: 70px;"
+                            (click)="editStudentCredential()">Edit</button>
+                    </div>
+                </div>
+
+            </div>

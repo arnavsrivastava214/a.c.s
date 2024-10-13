@@ -22,4 +22,5 @@ export class ManageTeacherServiceService {
   editDataFromteacher(id:any , result: any, callback: any) {
     this.http.put(`${this.url}editTeacher/${id}`,result).subscribe(res => callback(res));
   }
+  
 }

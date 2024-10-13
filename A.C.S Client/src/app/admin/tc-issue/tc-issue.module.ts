@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { TcIssueRoutingModule } from './tc-issue-routing.module';
 import { TcIssueComponent } from './tc-issue.component';
 import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,11 @@ import { SideBarModule } from "../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     TcIssueRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule,
+ReactiveFormsModule
+
+
 ],
   exports:[
     TcIssueComponent

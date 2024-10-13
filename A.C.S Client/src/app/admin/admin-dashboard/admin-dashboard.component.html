@@ -1,15 +1,19 @@
 <div class="container-fluid">
-   <div class="row dashboard-container my-2">
-    <div class="col-sm-12 py-3 mb-2 bg-light">
-        <div class="display-6 px-3">Dashboard</div>
-        <nav aria-label="breadcrumb ">
-            <ol class="breadcrumb px-3">
-              <li class="breadcrumb-item">Home</li>
-              <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
-            </ol>
-          </nav>
+    <div class="row dashboard-container my-2">
+        <div class="col-sm-12 py-3 mb-2 bg-light">
+            <select class="form-select" aria-label="Default select example" style="height: 40px; margin-left: 70rem; width: 230px;"  (change)="onChange()" [(ngModel)]="getSession"   >
+                <option selected >Select session</option>
+                <option value="2024_2025">2024_2025</option>
+              </select>
+            <div class="display-6 px-3">Dashboard</div>
+            <nav aria-label="breadcrumb ">
+                <ol class="breadcrumb px-3">
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                </ol>
+            </nav>
+        </div>
     </div>
-   </div>
     <div class="row">
         <div class="col-sm-12">
             <div class="parent">
@@ -24,7 +28,7 @@
                     <div class="textitems bg bg-danger">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsgQaI6GQcXkncHNMfFHnzp2dmDlXZS5Bt8w&s"
                             alt="">
-                        <span><b>Send Message</b></span>
+                        <span><b><a routerLink="/admin/send-message" style="text-decoration: none; cursor: pointer;">Send Message</a></b></span>
                     </div>
 
                 </div>
@@ -49,7 +53,7 @@
                     <div class="textitems bg-secondary">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOlQWLS8QMAZY_449NNeCGc9dSjR1pQivXhw&s"
                             alt="">
-                        <span><b>Add Message</b></span>
+                        <span><b><a routerLink="/admin/add-message" style="text-decoration: none; cursor: pointer;"> Add Message</a></b></span>
 
                     </div>
 
@@ -66,7 +70,7 @@
                     <div class="textitems bg-primary">
                         <img src="https://static.vecteezy.com/system/resources/previews/002/219/582/non_2x/illustration-of-book-icon-free-vector.jpg"
                             alt="">
-                        <span><b>Check Log</b></span>
+                        <span><b> <a routerLink="/admin/check-log" style="text-decoration: none; cursor: pointer;">Check Log </a></b></span>
                     </div>
 
                 </div>
@@ -81,7 +85,7 @@
                     <div class="textitems bg-success">
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS_jEU2HepoJUkijmNCyzsEAjP9ug-n_HYsnw&s"
                             alt="">
-                        <span><b>Check Log</b></span>
+                        <span><b><a routerLink="/admin/balance-left" style="text-decoration: none; cursor: pointer;"> Balance Left </a></b></span>
                     </div>
                 </div>
             </div>

@@ -12,8 +12,8 @@ export class AuthServiceService {
 
   user = new BehaviorSubject<any>(null)
 
-  saveSignUpData(result: any, callback: any) {
-    this.http.post(this.url + "signUp", result).subscribe(res => callback(res));
+  saveSignUpData(result: any, image: any, callback: any) {
+    this.http.post(this.url + "signUp", { ...result, image: image }).subscribe(res => callback(res));
   }
   savedLoginData(result: any, callback: any) {
     this.http.post(this.url + 'login', result).subscribe(res => callback(res))
@@ -22,8 +22,12 @@ export class AuthServiceService {
   checkForgetPassword(result: any, callback: any) {
     this.http.post(this.url + "recoverpassword", result).subscribe(res => callback(res))
   }
-  saveNewPassword(result:any, callback:any){
+  saveNewPassword(result: any, callback: any) {
     this.http.post(this.url + "newPassword", result).subscribe(res => callback(res))
+
+  }
+  fetchAllData(callback: any) {
+    this.http.get(this.url + "fetchusercredential").subscribe(res => callback(res))
 
   }
 

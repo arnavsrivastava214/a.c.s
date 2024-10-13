@@ -51,7 +51,7 @@ router.delete('/deleteteacher/:id', (req, res) => {
 router.put('/editTeacher/:id', (req, res) => {
     const userId = req.params.id;
     console.log("USER ID ", userId);
-    const { name, email, address, mobile, subject, assignclass } = req.body;
+    const { name, email, address, mobile, subject, assignclass} = req.body;
 
     const query = `UPDATE teachers SET name = ?, email = ?, address = ?, mobile = ? , subject = ?, assignclass = ? WHERE id =${userId} `;
     const values = [name, email, address, mobile, subject, assignclass, userId];

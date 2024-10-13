@@ -15,8 +15,128 @@
             <div class="col-sm-5">
                 <div class="input-group" id="main_div">
                     <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control"
-                        type="text" id="enter_class" placeholder="Enter Class" onkeypress="return isNumber(event)"
-                        maxlength="2" fdprocessedid="p3oo3l">
+                        type="text" id="enter_class" placeholder="Enter Class" maxlength="2" [(ngModel)]="studentClass">
+                        <option value="">Select Class</option>
+                        <option value="PLAY_GROUP">PLAY GROUP</option>
+                        <option value="NURSERY">NURSERY</option>
+                        <option value="LKG">LKG</option>
+                        <option value="UKG">UKG</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8th">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select><span class="input-group-btn"> <button type="button" style="min-width: 72px; height: 40px; background-color: #1ab394; border: none; border-radius: 3px; color: white;
+                           " (click)="getStudentClass()"> Search
+                        </button> </span>
+                </div>
+            </div>
+            <button (click)="sort()" class="btn btn-primary my-3" *ngIf="showContent">sort</button>
+
+        </div>
+
+
+        <div *ngIf="showContent">
+            <h1 id="wizard-h-0" tabindex="-1" class="title current text-center m-t-md" style="font-size: 40px;"><img
+                    src="../assets/img/logo3.png" style="height: 100px; "> <u style="color: rgb(68, 68, 68);">KD MALVIYA
+                    VIDYA MANDIR</u></h1>
+            <h2 class="title current text-center m-t-md" style="line-height: 0em;">SOUTH JAHANABAD, RAEBARELI, UP</h2>
+            <input type="text" class="form-control input-sm m-b-xs my-5" id="filter" placeholder="Search in table"
+                fdprocessedid="piduwg" [(ngModel)]="inputValues" (input)="getsearchedValues()" *ngIf="showContent">
+            <table class="table table-striped my-5">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ADM. NO</th>
+                        <th scope="col">STUDENT NAME</th>
+                        <th scope="col">FATHER NAME</th>
+                        <th scope="col">CLASS</th>
+                        <th scope="col">CONTACT NUM.</th>
+                        <th scope="col">ADDRESS</th>
+                        <th scope="col">ACTION</th>
+                    </tr>
+                <tbody>
+                    <tr *ngFor="let student of copyArray">
+                        <td>{{student.id}}</td>
+                        <td>{{student.admission_number}}</td>
+                        <td>{{student.name}}</td>
+                        <td>{{student.father_name}}</td>
+                        <td>{{student.assign_class}}</td>
+                        <td>{{student.phone_number}}</td>
+                        <td>{{student.present_address}}</td>
+                        <td><button class="btn btn-success" (click)="editStudentCredentials(student)">Edit</button></td>
+                        <td><button class="btn btn-info" (click)="studentDetails()">Details</button></td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="showModal = false">&times;</span>
+        <h3 style="text-align: center;">Data Not Found !</h3>
+        <button (click)="showModal = false" class="btn btn-danger" style="width: 70px;"> close</button>
+    </div>
+
+</div>
+
+
+
+<div id="myModal" class="modal" *ngIf="editModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 50%; height: 60%;" [formGroup]="editStudentForm">
+        <span class="close" (click)="editModal = false">&times;</span>
+        <h5 style="text-align: center; top: 0;">Edit Student Details </h5>
+        <div class="col-sm-12 d-flex">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Admission No</label>
+                    <input class="form-control" type="text" formControlName="admission_number">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Student Name</label>
+                    <input class="form-control" type="text" formControlName="name">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Father Name</label>
+                    <input class="form-control" type="text" formControlName="father_name">
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Class</label>
+                    <select class="form-control" type="text" formControlName="assign_class">
                         <option value="">Select Class</option>
                         <option value="PLAY_GROUP">PLAY GROUP</option>
                         <option value="NURSERY">NURSERY</option>
@@ -34,11 +154,178 @@
                         <option value="10">10</option>
                         <option value="11">11</option>
                         <option value="12">12</option>
-                    </select><span class="input-group-btn"> <button type="button" style="min-width: 72px; height: 40px; background-color: #1ab394; border: none; border-radius: 3px; color: white;
-                           ">Search
-                        </button> </span>
+                    </select>
                 </div>
             </div>
         </div>
+
+        <div class="col-sm-12 d-flex">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Address</label>
+                    <input class="form-control" type="text" formControlName="permanent_address">
+                </div>
+            </div>
+
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Contact No.</label>
+                    <input class="form-control" type="text" formControlName="phone_number">
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="d-flex my-5">
+            <button (click)="editModal = false" class="btn btn-danger mx-3" style="width: 70px;"> close</button>
+            <button class="btn btn-success" style="width: 70px;" (click)="afterEditValues()"> Edit</button>
+
+        </div>
     </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="myModal" class="modal" *ngIf="detailsModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 46%;">
+        <span class="close" (click)="detailsModal = false">&times;</span>
+        <div class="" style="width: 690px;">
+            <div class="modal-header" style="background-color: #23C6C8;">
+                <h4 class="modal-title">Information</h4>
+            </div>
+            <div class="modal-body" style="background-color: #f1f1ec;" align="center">
+                <img class="img-responsive" src="../assets/img/info.png" alt="image" style="width:100px;">
+                <p style="font-size: 1.4em;">Firstly Pay Fee Then School Should Issue T.C</p>
+                <p style="font-size: 1.8em;">OR</p>
+                <p style="font-size: 1.4em;">You Should Go On T.C Generate Button For Issue T.C of Student.</p>
+            </div>
+            <div class="modal-footer" style="background-color: #f1f1ec;">
+                <button type="button" class="btn btn-warning btn-md" data-dismiss="modal" id="generate"
+                    fdprocessedid="tls42" (click)="tcGenerateFunc()">T.C Generate</button>
+                <button type="button" class="btn btn-primary" routerLink="/admin/fee-payment">Go Payment</button>
+                <button type="button" class="btn btn-info btn-md" data-dismiss="modal" fdprocessedid="bmr28i"
+                    (click)="detailsModal = false" style="text-align: center;">Close</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="myModal" class="modal" *ngIf="afterEditModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="afterEditModal = false">&times;</span>
+        <h3 style="text-align: center;">Update Succesfully !</h3>
+        <button (click)="afterEditModal = false" class="btn btn-danger" style="width: 70px;"> close</button>
+    </div>
+
+</div>
+<div id="myModal" class="modal" *ngIf="afterEditerrorModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="afterEditerrorModal = false">&times;</span>
+        <h3 style="text-align: center;"> error Update !</h3>
+        <button (click)="afterEditerrorModal = false" class="btn btn-danger" style="width: 70px;"> close</button>
+    </div>
+
+</div>
+<div id="myModal" class="modal" *ngIf="tcGenerateModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 70%;">
+        <span class="close" (click)="tcGenerateModal = false">&times;</span>
+        <h5 class="text-center">This is Old Student Please Update Tc Number</h5>
+        <div class="col-sm-12 d-flex">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">T.C No.</label>
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="form-group" id="data_2">
+                        <label class="font-noraml">TC Date</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">Promotion has been</label>
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="font-noraml">To Class</label>
+                    <input class="form-control" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 d-flex">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="form-group">
+                        <div class="form-group" id="data_3">
+                            <label class="font-noraml">TC Issue Date</label>
+                            <div class="input-group date">
+                                <input type="text" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <div class="form-group" id="data_4">
+                        <label class="font-noraml">Admission Date</label>
+                        <div class="input-group date">
+                            <input type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="mx-5 d-flex my-4">
+
+                <button class="btn btn-danger h-100 w-100 mx-3" (click)="tcGenerateModal = false">close</button>
+                <button class="btn btn-primary h-100 w-100">Print</button>
+            </div>
+        </div>
+
+    </div> <button (click)="tcGenerateModal = false" class="btn btn-danger" style="width: 70px;"> close</button>
 </div>

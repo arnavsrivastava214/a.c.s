@@ -4,19 +4,19 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Subject</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
+    </div>
     <div class="row">
         <div class="col-sm-5 d-flex">
-            <select class="form-select " aria-label="Default select example">
+            <select class="form-select " aria-label="Default select example" [(ngModel)]="getClass">
                 <option selected>Select Class</option>
                 <option value="1">PLAY GROUP</option>
                 <option value="2">NURSERY</option>
-                <option value="3">LKG</option>
+                <option value="Lkg">LKG</option>
                 <option value="3">UKG</option>
                 <option value="3">1</option>
                 <option value="3">2</option>
@@ -34,9 +34,98 @@
 
 
             <button
-                style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;">
+                style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;"
+                (click)="getStudentClass()">
                 Search
             </button>
         </div>
+
     </div>
+</div>
+
+<div *ngIf="showContent" class="bg-light">
+
+    <img src="../assets/img/namelogo.png" style="height: 22%;width: 100%;">
+    <p>
+        <span>#Class Fee Status As On</span>
+        <span style="float: right;" id="class_text">#CLASS: LKG</span>
+    </p>
+    <button (click)="sort()" class="btn btn-success">sort table</button>
+    <input type="text" class="form-control input-sm m-b-xs my-3" id="filter" (input)="getsearchedValues()" [(ngModel)]="inputValues" placeholder="Search in table"
+        style="width:100%">
+
+
+
+
+    <table class="footable table table-stripped table-bordered footable-loaded" data-page-size="10"
+        data-filter="#filter">
+        <thead>
+            <tr>
+                <th class="footable-sortable">S.NO<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">ADM NO.<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">STUDENT NAME<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable footable-sorted">APR<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">MAY<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">JUL<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">AUG<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">SEP<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">OCT<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">NOV<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">DEC<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">JAN<span class="footable-sort-indicator"></span></th>
+                <th class="footable-sortable">Total<span class="footable-sort-indicator"></span></th>
+            </tr>
+        </thead>
+        <tbody id="fee_detail_tbody">
+            <tr *ngFor="let student of copyArray">
+                <td> {{student.id}}</td>
+                <td> {{student.admission_number}}</td>
+                <td> {{student.name}}</td>
+                <td> {{student.fee_date_april}}</td>
+                <td> {{student.fee_date_may}}</td>
+                <td> {{student.fee_date_july}}</td>
+                <td> {{student.fee_date_august}}</td>
+                <td> {{student.fee_date_sep}}</td>
+                <td> {{student.fee_date_oct}}</td>
+                <td> {{student.fee_date_nov}}</td>
+                <td> {{student.fee_date_dec}}</td>
+                <td> {{student.fee_date_january}}</td>
+                <td> {{student.fee}}</td>
+            </tr>
+     
+        </tbody>
+        <tfoot>
+        </tfoot>
+    </table>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close" (click)="showModal = false">&times;</span>
+        <h3>Data Not Found !</h3>
+        <button (click)="showModal = false" class="btn btn-danger">close</button>
+    </div>
+
 </div>

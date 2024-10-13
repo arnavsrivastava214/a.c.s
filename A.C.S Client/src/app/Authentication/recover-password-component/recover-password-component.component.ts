@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { AuthServiceService } from '../authServices/auth-service.service';
 import { AlertService } from 'src/app/shared/alert.service';
+import { last } from 'rxjs';
 
 @Component({
   selector: 'app-recover-password-component',
@@ -15,9 +16,11 @@ export class RecoverPasswordComponentComponent {
   showModal:any = false;
   password:any 
   forgetPass:any
+  isoTimestamp:any
 
 
   constructor (private Service:AuthServiceService , private _Route:Router, private alertService:AlertService){}
+
 
 
 
@@ -42,14 +45,13 @@ getInputValue(){
 
 }
 recoverPassword(){
+  this.isoTimestamp = new Date().toISOString();
+
   this.forgetPass = {
     password: this.password,
-    email:this.email
+    email:this.email,
+    lastUpdate:this.isoTimestamp
   }
-
-  console.log(this.password.length);
-  
-  
 
   this.Service.saveNewPassword(this.forgetPass, (callback:any)=>{
     
