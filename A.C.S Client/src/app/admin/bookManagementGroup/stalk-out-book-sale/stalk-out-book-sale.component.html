@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <div class="col-lg-4" style="padding-top: 10px;"  >
+            <div class="col-lg-4" style="padding-top: 10px;">
                 <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
                         list="admission_nos" class="form-control" type="text" id="admission_id"
                         placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
@@ -39,11 +39,11 @@
         </div>
         <div *ngIf="showContent" [formGroup]="PatchValueForm">
             <small
-                style="margin-left: 66rem; background-color: #f8ac59 !important; color: white; border-radius:25%;">student
+                style="margin-left: 46rem; background-color: #f8ac59 !important; color: white; border-radius:25%;">student
                 name</small>
 
-            <input type="text" class="form-control" style="width: 300px; margin-left: 65rem;margin-top: -6px;
-" formControlName="name">
+            <input type="text" class="form-control" style="width: 300px; margin-left: 46rem;margin-top: -6px;"
+                formControlName="name">
 
 
 
@@ -57,12 +57,15 @@
                 <div class="form-group">
                     <label for="date"
                         style="background-color:#f8ac59; color: white; width: 40px; border-radius: 25%;">DATE</label>
-                    <input type="date" id="date" formControlName="fee_date_nov">
+                    <input type="date" formControlName="fee_date_nov">
                 </div>
             </div>
+        </div>
+
+        <div *ngIf="showContent">
 
             <table>
-                <thead >
+                <thead>
                     <tr>
                         <th>BOOK CODE</th>
                         <th>QTY</th>
@@ -72,21 +75,42 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    <tr *ngFor="let item of obj;let idx= index">
                         <td>
-                            <select>
-                                <option value="">Select</option>
-                            </select>
+                            <div class="custom-select-wrapper my-3 d-flex position-relative" >
+                                <input type="text" [(ngModel)]="item.bookCode" placeholder="Select Book Code" readonly
+                                    (click)="item.dropdown=!item.dropdown"/>
+
+                                <div class="dropdown" *ngIf="item.dropdown">
+                                    <input type="search" [(ngModel)]="searchTerm" placeholder="Search"
+                                        (input)="filterOptions()" />
+                                        <button type="submit" class="btn btn-primary w-100" id="btn_search">Search
+                                        </button>
+                                    <ul>
+                                        <li *ngFor="let option of filteredOptions" (click)="selectOption(option,item)">
+                                            {{ option }}
+                                        </li>
+                                    </ul>
+                                </div>
+                              
+                            </div>
+
+
                         </td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><input type="number"></td>
-                        <td><button class="add-button">+</button></td>
+                        <td><input type="number" class="form-control" placeholder="Quantity"
+                                [(ngModel)]="item.quantity"></td>
+                        <td><input type="number" class="form-control" placeholder="Rate" [(ngModel)]="item.rate"></td>
+                        <td><input type="number" class="form-control" placeholder="Total" disabled=""  [value]="item.quantity*item.rate">
+                        </td>
+                        <td *ngIf="!item.isNewAdded"> <button class="add-button fw-bold"
+                                (click)="inrementMultipleFields()">+</button></td>
+                        <td *ngIf="item.isNewAdded"><button class="add-button fw-bold"
+                                (click)="decreaseMultipleFields(idx)">-</button></td>
                     </tr>
                 </tbody>
             </table>
 
-            <button class="save-button">Save</button>
+            <button class="save-button" (click)="getBookDetails()">Save</button>
         </div>
     </div>
 </div>
@@ -101,7 +125,7 @@
     <div class="modal-content">
         <span class="close" (click)="showModal = false">&times;</span>
         <h4>Data Not Found !</h4>
-        <button class="btn btn-danger" (click)="showModal = false">close</button>
+        <button class="btn btn-danger w-25" (click)="showModal = false">close</button>
     </div>
 
 </div>

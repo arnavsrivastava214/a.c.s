@@ -21,7 +21,7 @@ router.post("/signUp", async function (req, res) {
         if (!err) {
             res.send({ message: "Login Success", status: 200 });
         } else {
-            res.send({ message: "Invalid Credential", status: 404 });
+            res.send({ message: "Invalid Credential", status: 404,error:err.sqlMessage });
         }
     })
 });
@@ -224,7 +224,7 @@ router.post("/recoverpassword", async function (req, res) {
         if (!err && result.length > 0) {
             res.send({ message: "Login Success", status: 200 });
         } else {
-            res.send({ message: "Invalid Credential", status: 404 });
+            res.send({ message: "Email Does Not Exist !", status: 404, error:err });
         }
     })
 });
@@ -240,7 +240,7 @@ router.post("/newPassword", async function (req, res) {
 
     con.query(query, values, (err, result) => {
         if (err) {
-            res.status(500).send({ message: "Invalid Credential", status: 400 });
+            res.status(500).send({ message: "Invalid Credential", status: 400 , error:err});
         } else {
             res.status(200).send({ message: "Succes", status: 200, data: result });
         }

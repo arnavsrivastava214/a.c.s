@@ -54,10 +54,6 @@ const routes: Routes = [
     path: "tc-issue",
     loadChildren: ()=>import("./tc-issue/tc-issue.module").then(m=>m.TcIssueModule)
   },
-  {
-    path: "reports",
-    loadChildren: ()=>import("./reports/reports.module").then(m=>m.ReportsModule)
-  },
     //Admin global  components ends  here --
 
   //book management group starts here --

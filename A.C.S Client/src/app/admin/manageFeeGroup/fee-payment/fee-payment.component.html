@@ -42,12 +42,9 @@
         <div class="container my-5" *ngIf="showDetails">
             <div>
 
-
-                <img src="../assets/img/namelogo.png" style="height: 25%;width: 100%;">
+                <img src="../assets/img/namelogo.png" style="height: 25%; width: 100%;">
                 <p>
                     <span>#FEE PAYMENT</span>
-                    <button (click)="sort()" class="btn btn-success mx-3">Sort</button>
-
                     <span style="float: right;" id="date">#Class : LKG</span>
                 </p>
                 <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
@@ -58,13 +55,77 @@
 
                     <thead>
                         <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">ADM No.</th>
-                            <th scope="col">CLASS</th>
-                            <th scope="col">STUDENT NAME</th>
-                            <th scope="col">FATHER NAME</th>
-                            <th scope="col">CONTACT NUMBER </th>
-                            <th scope="col">FEE STATUS</th>
+
+                            <th class="footable-sortable">#<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('admission_number')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">ADM NO.<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('admission_number')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">CLASS<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('admission_number')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">ST .NAME<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('name')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">FATHER NAME<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('father_name')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">CONTACT NUMBER<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('phone_number')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
+                            <th class="footable-sortable">FEE STATUS<span class="footable-sort-indicator">
+                                    <div class="d-inline-block" (click)="sort('father_name')">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd"
+                                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                        </svg>
+                                    </div>
+                                </span>
+                            </th>
                             <th scope="col">ACTION</th>
                         </tr>
                     </thead>
@@ -72,7 +133,7 @@
                         <tr *ngFor="let payment of copyArray">
                             <td>{{payment.id}}</td>
                             <td>{{payment.admission_number}}</td>
-                            <td>{{payment.class}}</td>
+                            <td>{{payment.assign_class}}</td>
                             <td>{{payment.name}}</td>
                             <td>{{payment.father_name}}</td>
                             <td>{{payment.phone_number}}</td>
@@ -144,7 +205,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Month</label>
-                        <select class="form-control" type="text"  formControlName="fee_date_nov">
+                        <select class="form-control" type="text" formControlName="fee_date_nov">
                             <option value="">Select Month</option>
                             <option value="05">May</option>
                             <option value="06">June</option>
@@ -160,13 +221,15 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Admission Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="admission_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="admission_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Session Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="session_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="session_fee">
                     </div>
                 </div>
             </div>
@@ -176,7 +239,8 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Tution Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0"formControlName="tuition_fee" >
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="tuition_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -188,13 +252,15 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Re-Admission Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="ree_admission_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="ree_admission_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Exam Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="exam_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="exam_fee">
                     </div>
                 </div>
             </div>
@@ -203,25 +269,28 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Development Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="development_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="development_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Activity Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="activity_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="activity_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Computer Science Fee</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="computer_science_fee">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0"
+                            formControlName="computer_science_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Other</label>
-                        <input class="form-control" type="number" maxlength="5" placeholder="0"  formControlName="other">
+                        <input class="form-control" type="number" maxlength="5" placeholder="0" formControlName="other">
                     </div>
                 </div>
             </div>
@@ -229,7 +298,7 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">other 1.</label>
-                        <input class="form-control" type="number" placeholder="0"  formControlName="other1">
+                        <input class="form-control" type="number" placeholder="0" formControlName="other1">
                     </div>
                 </div>
                 <div class="col-sm-3">
@@ -259,8 +328,8 @@
 
     <!-- Modal content -->
     <div class="modal-content">
-      <span class="close" (click)="successModal = false">&times;</span>
-      <h3>Fee Paid Succesfully</h3>
+        <span class="close" (click)="successModal = false">&times;</span>
+        <h3>Fee Paid Succesfully</h3>
     </div>
-  
-  </div>
+
+</div>

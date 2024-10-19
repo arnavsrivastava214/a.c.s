@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AcademicReportRoutingModule } from './academic-report-routing.module';
 import { AcademicReportComponent } from './academic-report.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     AcademicReportRoutingModule,
-    SideBarModule
+    SideBarModule,
+FormsModule
+
 ],
   exports:[
     AcademicReportComponent

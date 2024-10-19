@@ -97,12 +97,12 @@ export class FeePaymentComponent {
 
 
 
-  sort() {
+  sort(sortByValue:any){
     this.isAscending = !this.isAscending;
-    if (this.isAscending) {
-      this.copyArray.sort((a: any, b: any) => a.admission_number.localeCompare(b.admission_number));
-    } else {
-      this.copyArray.sort((a: any, b: any) => b.admission_number.localeCompare(a.admission_number));
+    if(!this.isAscending){
+      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
+    }else{
+      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
     }
   }
 

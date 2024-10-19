@@ -14,4 +14,9 @@ export class StalkOutBookSaleServiceService {
 
 
   }
+  saveBookPurchaseDetails(id:any, result:any, callback:any){
+    this.http.put(this.url+`insertbookpurchasedetails/${id}`,result).subscribe(res=>callback(res));
+
+
+  }
 }

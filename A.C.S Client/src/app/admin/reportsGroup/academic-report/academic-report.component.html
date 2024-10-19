@@ -4,13 +4,112 @@
             <div class="display-6 px-3">Subject</div>
             <nav aria-label="breadcrumb ">
                 <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Subject</li>
+                    <li class="breadcrumb-item">Home</li>
+                    <li class="breadcrumb-item active" aria-current="page">Academic Report</li>
                 </ol>
-              </nav>
+            </nav>
         </div>
-       </div>
-    <div class="row">
-        <div class="col-sm-12"></div>
     </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="col-sm-5 d-flex justify-content-end">
+                <select class="form-select " aria-label="Default select example" [(ngModel)]="getClass">
+                    <option selected>Select Class</option>
+                    <option value="PLAY GROUP">PLAY GROUP</option>
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="Lkg">LKG</option>
+                    <option value="3">UKG</option>
+                    <option value="3">1</option>
+                    <option value="3">2</option>
+                    <option value="3">3</option>
+                    <option value="3">4</option>
+                    <option value="3">5</option>
+                    <option value="3">6</option>
+                    <option value="3">7</option>
+                    <option value="3">8</option>
+                    <option value="3">9</option>
+                    <option value="10">10</option>
+                    <option value="3">11</option>
+                    <option value="3">12</option>
+                </select>
+
+
+                <button
+                    style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;"
+                    (click)="getSelctedValue()">
+                    Search
+                </button>
+                
+                <button (click)="printPage()"  class=" btn btn-warning">Print </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="showContent">
+    <input type="text" class="form-control input-sm m-b-xs my-5" id="filter" placeholder="Search in table"
+        fdprocessedid="pdhux" [(ngModel)]="inputValues" (input)="getsearchedValues()">
+
+    <label>Show <select name="example_length" aria-controls="example" class="">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+        </select> entries</label>
+    <table class="table table-striped  my-5">
+        <thead>
+            <th class="footable-sortable">ADM NO.<span class="footable-sort-indicator">
+                    <div class="d-inline-block" (click)="sort('admission_number')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </div>
+                </span>
+            </th>
+            <th class="footable-sortable">NAME<span class="footable-sort-indicator">
+                    <div class="d-inline-block" (click)="sort('admission_number')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </div>
+                </span>
+            </th>
+            <th class="footable-sortable">CLASS<span class="footable-sort-indicator">
+                    <div class="d-inline-block" (click)="sort('admission_number')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </div>
+                </span>
+            </th>
+            <th class="footable-sortable">FATHER NAME<span class="footable-sort-indicator">
+                    <div class="d-inline-block" (click)="sort('admission_number')">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                        </svg>
+                    </div>
+                </span>
+            </th>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let payment of copyArray">
+                <td>{{payment.admission_number}}</td>
+                <td>{{payment.name}}</td>
+                <td>{{payment.assign_class}}</td>
+                <td>{{payment.father_name}}</td>
+
+            </tr>
+
+        </tbody>
+    </table>
+
 </div>

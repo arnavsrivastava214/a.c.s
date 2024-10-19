@@ -15,7 +15,7 @@ export class SubjectComponent {
   inputValues: any;
   id: any
   isEdit: any
-  isAscending:any
+  isSorted:any
   constructor(private _form: FormBuilder, private service: SubjectService) {
 
     this.studentMarks = _form.group({
@@ -97,12 +97,13 @@ export class SubjectComponent {
     this.showModal = false;
     this.studentMarks.reset();
   }
-  sort(){
-   this.isAscending = !this.isAscending;
-   if(this.isAscending){
-     this.copyArray.sort((a:any,b:any)=>a.assign_class.localeCompare(b.assign_class));
+
+  sort(sortByValue:any){
+    this.isSorted = !this.isSorted;
+    if(!this.isSorted){
+      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
     }else{
-      this.copyArray.sort((a:any,b:any)=>b.assign_class.localeCompare(a.assign_class));
+      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
     }
-    }
+  }
 }

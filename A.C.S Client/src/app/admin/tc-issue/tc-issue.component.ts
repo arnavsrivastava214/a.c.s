@@ -16,13 +16,13 @@ export class TcIssueComponent {
   showContent: any = false
   copyArray: any = []
   inputValues: any
-  isAscending: any
   editModal: any = false;
   detailsModal: any = false
   editStudentForm: any
   afterEditModal: any = false
   id: any
   tcGenerateModal:any = false;
+  isSorted:any
 
   afterEditerrorModal: any = false;
 
@@ -71,14 +71,7 @@ export class TcIssueComponent {
     })
 
   }
-  sort() {
-    this.isAscending = !this.isAscending;
-    if (this.isAscending) {
-      this.copyArray.sort((a: any, b: any) => a.admission_number.localeCompare(b.admission_number));
-    } else {
-      this.copyArray.sort((a: any, b: any) => b.admission_number.localeCompare(a.admission_number));
-    }
-  }
+ 
 
 
   getsearchedValues() {
@@ -106,6 +99,14 @@ export class TcIssueComponent {
     })
 
 
+  }
+  sort(sortByValue:any){
+    this.isSorted = !this.isSorted;
+    if(!this.isSorted){
+      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
+    }else{
+      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
+    }
   }
 
   tcGenerateFunc(){

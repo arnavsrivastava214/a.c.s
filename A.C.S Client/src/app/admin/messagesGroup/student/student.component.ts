@@ -9,13 +9,14 @@ import { StudentServiceService } from './student-service.service';
 export class StudentComponent {
   admissionId: any;
   showContent: any = false;
-  displayData: any = []
+  displayData: any = [];
   showModal: any = false;
-  copyArray: any = []
-  inputValues: any
-  isAscending: any
-  enableSuccessModal: any = true
-  disableSuccessModal: any = true
+  copyArray: any = [];
+  inputValues: any;
+  isAscending: any;
+  enableSuccessModal: boolean = false;
+  disableSuccessModal: boolean = false;
+  id:any
 
   constructor(private service: StudentServiceService) { }
 
@@ -50,27 +51,37 @@ export class StudentComponent {
 
   }
 
-  sort() {
+  sort(sortByValue:any){
     this.isAscending = !this.isAscending;
-    if (this.isAscending) {
-      this.copyArray.sort((a: any, b: any) => a.admission_number.localeCompare(b.admission_number));
-    } else {
-      this.copyArray.sort((a: any, b: any) => b.admission_number.localeCompare(a.admission_number));
+    if(!this.isAscending){
+      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
+    }else{
+      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
     }
   }
 
-  enable() {
-    this.disableSuccessModal = true
-    this.enableSuccessModal = false;
+  toggleStudent(student:any){
+    student.isEnabled = !student.isEnabled;
+
+    this.id = student.id
+    
+    let obj = {
+      msg_flg:student.isEnabled
+    }
+    if(student.isEnabled == true){
+      this.enableSuccessModal = true
+      this.service.isStudentEnableSuccess(this.id,obj, (callback:any)=>{
+        console.log(callback);
+      })
+    }else{
+      this.disableSuccessModal = true
+      this.service.isStudentDisabledSuccess(this.id,obj, (callback:any)=>{
+        console.log(callback);
+      })
+
+    }
+    
 
   }
-  disable() {
-    this.enableSuccessModal = true
-    this.disableSuccessModal = false
-
-
-
-  }
-
 
 }

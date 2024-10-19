@@ -12,7 +12,6 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <button (click)="sort()" class="btn btn-success">sort</button>
             <div class="ibox-title">
                 <i class="fa fa-list"></i>
                 <div class="pull-right">
@@ -75,13 +74,38 @@
                                                     data-page-navigation=".pagination">
                                                     <thead>
                                                         <tr>
-                                                            <th class="footable-sortable">#<span
-                                                                    class="footable-sort-indicator"></span></th>
-                                                            <th class="footable-sortable">NAME<span
-                                                                    class="footable-sort-indicator"></span></th>
 
-                                                            <th class="footable-sortable">CONTACT<span
-                                                                    class="footable-sort-indicator"></span></th>
+                                                            <th class="footable-sortable">#<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">NAME<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">CONTACT<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('user_id')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+
                                                             <th class="footable-sortable">Edit<span
                                                                     class="footable-sort-indicator"></span></th>
                                                             <th class="footable-sortable">Delete<span
@@ -142,13 +166,36 @@
                                                     data-page-navigation=".pagination">
                                                     <thead>
                                                         <tr>
-                                                            <th class="footable-sortable">#<span
-                                                                    class="footable-sort-indicator"></span></th>
-                                                            <th class="footable-sortable">NAME<span
-                                                                    class="footable-sort-indicator"></span></th>
-
-                                                            <th class="footable-sortable">CONTACT<span
-                                                                    class="footable-sort-indicator"></span></th>
+                                                            <th class="footable-sortable">#<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">NAME<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">CONTACT<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('user_id')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
                                                             <th class="footable-sortable">Edit<span
                                                                     class="footable-sort-indicator"></span></th>
                                                             <th class="footable-sortable">Delete<span
@@ -210,12 +257,36 @@
                                                     data-page-navigation=".pagination">
                                                     <thead>
                                                         <tr>
-                                                            <th class="footable-sortable">#<span
-                                                                    class="footable-sort-indicator"></span></th>
-                                                            <th class="footable-sortable">NAME<span
-                                                                    class="footable-sort-indicator"></span></th>
-                                                            <th class="footable-sortable footable-sorted">CONTACT<span
-                                                                    class="footable-sort-indicator"></span></th>
+                                                            <th class="footable-sortable">#<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">NAME<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('name')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
+                                                            <th class="footable-sortable">CONTACT<span class="footable-sort-indicator">
+                                                                <div class="d-inline-block" (click)="sort('user_id')">
+                                                                    <svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-arrow-down-up" viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5" />
+                                                                </svg>
+                                                                </div> </span>
+                                                            </th>
                                                             <th class="footable-sortable">Edit<span
                                                                     class="footable-sort-indicator"></span></th>
                                                             <th class="footable-sortable">Delete<span
@@ -229,7 +300,6 @@
 
                                                             <td>{{message.message_id}}</td>
                                                             <td>{{message.message_body}}</td>
-                                                            <td>{{message.message_title}}</td>
                                                             <td>{{message.user_id}}</td>
                                                             <td><button class="btn btn-success"
                                                                     (click)="editAddedValues(message)">Edit</button>

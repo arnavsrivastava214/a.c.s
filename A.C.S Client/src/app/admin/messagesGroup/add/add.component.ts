@@ -65,12 +65,12 @@ export class AddComponent {
 
   }
 
-  sort() {
+  sort(sortByValue:any){
     this.isAscending = !this.isAscending;
-    if (this.isAscending) {
-      this.copyArray.sort((a: any, b: any) => a.message_body.localeCompare(b.message_body));
-    } else {
-      this.copyArray.sort((a: any, b: any) => b.message_body.localeCompare(a.message_body));
+    if(!this.isAscending){
+      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
+    }else{
+      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
     }
   }
 
@@ -110,5 +110,6 @@ export class AddComponent {
 
 
   }
+
 
 }

@@ -26,9 +26,7 @@ app.use("/api/profile", require("./controller/side_bar.js"));
 app.use("/api/feestatus", require("./controller/fee_status.js"));
 app.use("/api/add", require("./controller/add.js"));
 app.use("/api/masterreport", require("./controller/master_report.js"));
-
-
-
+app.use("/api/academicreports", require("./controller/academic_report.js"));
 
 
 

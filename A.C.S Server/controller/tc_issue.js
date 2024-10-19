@@ -4,8 +4,11 @@ const router = express.Router();
 
 router.post("/fetchtcissues", (req, res) => {
     let studentclassname = req.body.studentclassname;
+    const currentYear = new Date().getFullYear();
+    const nextYear = currentYear + 1;
+    const sessionString = `${currentYear}_${nextYear}`;
 
-    let sql = `SELECT * FROM punching_format WHERE assign_class =  ?`;
+    let sql = `SELECT * FROM punching_format${sessionString} WHERE assign_class =  ?`;
     let values = [studentclassname];
     con.query(sql, values, (error, result) => {
         if (!error) {

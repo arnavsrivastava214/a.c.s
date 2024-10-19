@@ -13,7 +13,17 @@ export class StudentServiceService {
   fetchBookSaleDetailsByStudentClass(result:any, callback:any){
     this.http.post(this.url+"fetchstudentreports",result).subscribe(res=>callback(res));
 
-    
+  }
+
+  isStudentEnableSuccess(id:any, result:any,callback:any ){
+    this.http.put(this.url+`studentenable/${id}`, result).subscribe(res=>callback(res));
 
   }
+  isStudentDisabledSuccess(id:any, result:any,callback:any ){
+    this.http.put(this.url+`studentdisable/${id}`, result).subscribe(res=>callback(res))
+
+
+
+  }
+
 }

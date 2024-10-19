@@ -8,7 +8,7 @@ router.post("/fetchfeedetails", (req,res)=>{
     const nextYear = currentYear + 1;
     const sessionString = `${currentYear}_${nextYear}`;
 
-    let sql  = `SELECT * FROM punching_format${sessionString} WHERE class =  ?`;
+    let sql  = `SELECT * FROM punching_format${sessionString} WHERE assign_class =  ?`;
     let values = [classfees];
     con.query(sql, values,(error,result)=>{
         if(!error){
