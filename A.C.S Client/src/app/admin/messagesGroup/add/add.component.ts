@@ -22,22 +22,21 @@ export class AddComponent {
 
   constructor (private _fb:FormBuilder, private service:AddServiceService){
     this.stafform = _fb.group({
-      message_title:[],
-      message_body:[],
-      user_id:[],
+      type:[],
+      name:[],
+      contact:[],
 
     })
 
     this.editForm = _fb.group({
-      message_title:[],
-      message_body:[],
-      user_id:[],
+      type:[],
+      name:[],
+      contact:[],
     })
   }
 
   ngOnInit(){
     this.service.getAllMessage((calback:any)=>{
-      console.log(calback);
       
       this.displayData = calback.data;
 
@@ -54,8 +53,14 @@ export class AddComponent {
     this.showModal = true;
   }
   addMessage(){
+    
+    
     this.service.insertSchoolMessage(this.stafform.value,(calback:any)=>{
+      console.log(calback);
+      
     })
+    this.showModal = false;
+    this.stafform.reset()
 
   }
   getsearchedValues() {
@@ -76,7 +81,7 @@ export class AddComponent {
 
   editAddedValues(obj:any){
 
-    this.id = obj.message_id;
+    this.id = obj.id;
     console.log(this.id);
     
     this.editModal = true
@@ -87,10 +92,9 @@ export class AddComponent {
   }
 
   deleteAddedValues(message:any, idx:any){
-    console.log(message.message_id);
     
     
-    this.service.deleteMessageById(message.message_id, (callback:any)=>{
+    this.service.deleteMessageById(message.id, (callback:any)=>{
       console.log(callback);
       
     })

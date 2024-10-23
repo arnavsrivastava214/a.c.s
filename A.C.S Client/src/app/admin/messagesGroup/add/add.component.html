@@ -15,8 +15,7 @@
             <div class="ibox-title">
                 <i class="fa fa-list"></i>
                 <div class="pull-right">
-                    <button class="btn btn-sm btn-warning" style="min-width:7%; margin-left: 79rem;" type="button"><span
-                            class="hidden-xs" (click)="addstaff()"> Add</span></button>
+                    <button class="btn btn-sm btn-warning" style="min-width:7%; margin-left: 62rem;" type="button"><span (click)="addstaff()"> Add</span></button>
                 </div>
             </div>
             <ul class="nav nav-tabs d-none d-sm-flex" role="tablist">
@@ -115,11 +114,11 @@
                                                     <ng-container *ngFor="let message of copyArray ; let idx = index">
                                                         <!-- <tbody id="data_tbody_staff"> -->
 
-                                                        <tr *ngIf="message.message_title == 'P.G.'">
+                                                        <tr *ngIf="message.type == 'P.G.'">
 
-                                                            <td>{{message.message_id}}</td>
-                                                            <td>{{message.message_body}}</td>
-                                                            <td>{{message.user_id}}</td>
+                                                            <td>{{message.id}}</td>
+                                                            <td>{{message.name}}</td>
+                                                            <td>{{message.contact}}</td>
                                                             <td><button class="btn btn-success"
                                                                     (click)="editAddedValues(message)">Edit</button>
                                                             </td>
@@ -205,11 +204,11 @@
                                                     <ng-container *ngFor="let message of copyArray ; let idx = index">
                                                         <!-- <tbody id="data_tbody_staff"> -->
 
-                                                        <tr *ngIf="message.message_title == 'Staff'">
+                                                        <tr *ngIf="message.type == 'Staff'">
 
-                                                            <td>{{message.message_id}}</td>
-                                                            <td>{{message.message_body}}</td>
-                                                            <td>{{message.user_id}}</td>
+                                                            <td>{{message.id}}</td>
+                                                            <td>{{message.name}}</td>
+                                                            <td>{{message.contact}}</td>
                                                             <td><button class="btn btn-success"
                                                                     (click)="editAddedValues(message)">Edit</button>
                                                             </td>
@@ -296,11 +295,11 @@
                                                     <ng-container *ngFor="let message of copyArray ; let idx = index">
                                                         <!-- <tbody id="data_tbody_staff"> -->
 
-                                                        <tr *ngIf="message.message_title == 'Personal'">
+                                                        <tr *ngIf="message.type == 'Personal'">
 
-                                                            <td>{{message.message_id}}</td>
-                                                            <td>{{message.message_body}}</td>
-                                                            <td>{{message.user_id}}</td>
+                                                            <td>{{message.id}}</td>
+                                                            <td>{{message.name}}</td>
+                                                            <td>{{message.contact}}</td>
                                                             <td><button class="btn btn-success"
                                                                     (click)="editAddedValues(message)">Edit</button>
                                                             </td>
@@ -339,11 +338,10 @@
             <span class="close" (click)="showModal = false">&times;</span>
             <div class="modal-body" [formGroup]="stafform">
                 <div class="row">
-                    <form role="form" id="add_new_sec" method="post">
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="font-noraml">Type</label>
-                                <select class="form-control" formControlName="message_title">
+                                <select class="form-control" formControlName="type">
                                     <option value="">Select Type</option>
                                     <option value="P.G.">P.G.</option>
                                     <option value="Staff">Staff</option>
@@ -354,17 +352,16 @@
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="font-noraml">Name</label>
-                                <input class="form-control" type="text" formControlName="message_body">
+                                <input class="form-control" type="text" formControlName="name">
                             </div>
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group">
                                 <label class="font-noraml">Contact</label>
-                                <input class="form-control" type="text" formControlName="user_id">
+                                <input class="form-control" type="text" formControlName="contact">
                             </div>
 
                         </div>
-                    </form>
                     <div class="d-flex">
 
                         <button class="btn btn-danger my-3" (click)="showModal = false">close</button>
@@ -384,7 +381,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label class="font-noraml">Type</label>
-                    <select class="form-control" formControlName="message_title">
+                    <select class="form-control" formControlName="type">
                         <option value="">Select Type</option>
                         <option value="P.G.">P.G.</option>
                         <option value="Staff">Staff</option>
@@ -395,13 +392,13 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label class="font-noraml">Name</label>
-                    <input class="form-control" type="text" formControlName="message_body">
+                    <input class="form-control" type="text" formControlName="name">
                 </div>
             </div>
             <div class="col-sm-12">
                 <div class="form-group">
                     <label class="font-noraml">Contact</label>
-                    <input class="form-control" type="text" formControlName="user_id">
+                    <input class="form-control" type="text" formControlName="contact">
                 </div>
                 <button class="btn btn-danger my-3" (click)="editModal = false">close</button>
                 <button class="btn btn-success mx-3 my-3" (click)="editDataBase()">Edit</button>

@@ -187,33 +187,19 @@
     position: relative;
     color: #e67e22;
     border: 0;
-    /*border-top: 4px solid #e67e22;
-      border-bottom: 4px solid #e67e22;
-      margin-top: -4px;*/
     box-shadow: 0 0 5px #DDD;
     -moz-box-shadow: 0 0 5px #DDD;
     -webkit-box-shadow: 0 0 5px #DDD;
 
-    /* == */
-    /* border-left: 4px solid #e67e22; */
-    /* border-right: 4px solid #e67e22; */
     margin: 0 -4px;
-    /* == */
 }
 
 .mcd-menu li a.active:before {
     content: "";
     position: absolute;
-    /*top: 0;
-      left: 45%;
-      border-top: 5px solid #e67e22;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;*/
 
-    /* == */
     top: 42%;
     left: 0;
-    /* border-left: 5px solid #e67e22; */
     border-top: 5px solid transparent;
     border-bottom: 5px solid transparent;
     /* == */
@@ -692,4 +678,13 @@
         font-size: 14px;
     }
 
+}
+
+@media screen and (max-width:455px){
+    .top{
+        width: auto;
+    }
+    .side-container{
+        width:auto;
+    }
 }
