@@ -21,12 +21,13 @@ export class FeePaymentComponent {
   PaidFeeForm: any;
   successModal: any = false;
   grandTotal: any;
+  id:any
   constructor(private service: FeePaymentServiceService, private _FB: FormBuilder) {
 
     this.patchValueForm = _FB.group({
       name: [],
       father_name: [],
-      class: [],
+      assign_class: [],
       admission_number: []
 
     })
@@ -61,7 +62,6 @@ export class FeePaymentComponent {
         this.copyArray = [].concat(this.displayData)
 
         this.showDetails = true
-        console.log(callback.data);
 
 
       } else {
@@ -81,8 +81,20 @@ export class FeePaymentComponent {
 
   }
   getPayment(payment: any) {
+    this.id = payment.id
+    
     this.feePayModal = true;
     this.patchValueForm.patchValue(payment)
+    
+    setInterval(()=>{
+
+      this.grandTotal = this.PaidFeeForm.value.admission_fee + this.PaidFeeForm.value.session_fee +
+      this.PaidFeeForm.value.tuition_fee + this.PaidFeeForm.value.fine +
+      this.PaidFeeForm.value.ree_admission_fee + this.PaidFeeForm.value.exam_fee+
+      this.PaidFeeForm.value.development_fee + this.PaidFeeForm.value.activity_fee+
+      this.PaidFeeForm.value.computer_science_fee + this.PaidFeeForm.value.other + this.PaidFeeForm.value.other1;
+      
+    },100)
 
   }
 
@@ -92,6 +104,7 @@ export class FeePaymentComponent {
   closeFeePayContent() {
     this.feePayModal = false
     this.showDetails = false
+    this.PaidFeeForm.reset();
 
   }
 
@@ -107,12 +120,15 @@ export class FeePaymentComponent {
   }
 
   getTotalFee() {
-    this.grandTotal = this.PaidFeeForm.value.admission_fee + this.PaidFeeForm.value.session_fee +
-    this.PaidFeeForm.value.tuition_fee + this.PaidFeeForm.value.fine +
-    this.PaidFeeForm.value.ree_admission_fee + this.PaidFeeForm.value.exam_fee
-    this.PaidFeeForm.value.development_fee + this.PaidFeeForm.value.activity_fee
-    this.PaidFeeForm.value.computer_science_fee + this.PaidFeeForm.value.other + this.PaidFeeForm.value.other1;
-    console.log(this.grandTotal);
+    
+    this.service.PaidFeeByAdmin(this.id,this.PaidFeeForm.value,(callback:any)=>{
+      console.log(callback);
+      
+    })
+    
+    this.PaidFeeForm.reset();
+    
+   
     setTimeout(()=>{
       this.successModal = true;
       this.feePayModal = false;

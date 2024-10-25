@@ -12,4 +12,9 @@ export class FeePaymentServiceService {
   fetchFeePaymentDetails(result:any, callback:any){
     this.http.post(this.url+"fetchfeedetails", result).subscribe(res=>callback(res));
   }
+
+  PaidFeeByAdmin(id:any, result:any, callback:any){
+    this.http.put(this.url+`updatefeedetails/`+id, result).subscribe(res=>callback(res));
+
+  }
 }

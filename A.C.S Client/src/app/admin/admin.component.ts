@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AdminComponent {
 
+  collapse:boolean=true;
+
+  receiveChildEvent(event:any){
+    this.collapse=event;
+  }
+
 }

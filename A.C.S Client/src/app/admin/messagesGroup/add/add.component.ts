@@ -43,7 +43,6 @@ export class AddComponent {
       
 
       this.copyArray = [].concat(this.displayData)
-      console.log(this.copyArray);
       
 
 
@@ -56,7 +55,6 @@ export class AddComponent {
     
     
     this.service.insertSchoolMessage(this.stafform.value,(calback:any)=>{
-      console.log(calback);
       
     })
     this.showModal = false;
@@ -82,7 +80,6 @@ export class AddComponent {
   editAddedValues(obj:any){
 
     this.id = obj.id;
-    console.log(this.id);
     
     this.editModal = true
     this.editForm.patchValue(obj)
@@ -95,7 +92,6 @@ export class AddComponent {
     
     
     this.service.deleteMessageById(message.id, (callback:any)=>{
-      console.log(callback);
       
     })
     this.copyArray.splice(idx,1)

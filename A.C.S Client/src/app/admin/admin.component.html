@@ -1,9 +1,9 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 p-0">
-           <app-side-bar></app-side-bar>
+        <div class="col-sm-2 p-0" [ngStyle]="{'width':collapse ? '' : '66px'}">
+           <app-side-bar (emitToParent)="receiveChildEvent($event)"></app-side-bar>
         </div>
-        <div class="col-sm-10">
+        <div class="col-sm-10" [ngStyle]="{'width':collapse ? '' : '1280px' , 'margin-left':collapse ? '' : '66px'}">
             <router-outlet></router-outlet>
            
         </div>

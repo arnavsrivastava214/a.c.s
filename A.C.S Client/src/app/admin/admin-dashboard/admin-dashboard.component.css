@@ -740,6 +740,10 @@
 .parent{
   flex-direction: column;
 }
+
+.container1 img{
+  margin-top: 40px;
+}
     
     
 }

@@ -55,13 +55,11 @@ router.delete('/deletemessage/:id', (req, res) => {
 });
 
 router.put('/editmessage/:id', (req, res) => {
-    const id = req.params.id;  // The ID of the message you're updating
+    const id = req.params.id;  
     const {type, name, contact } = req.body;
 
-    // Use the correct column name for the ID in the WHERE clause (e.g., 'id')
+    
     const sql = `UPDATE others SET type = ?, name= ?, contact= ? WHERE id = ?`;
-
-    // Pass the messageId as the fourth parameter to match the WHERE clause
     con.query(sql, [type, name, contact, id ], (err, result) => {
         if (err) {
             console.error(err);

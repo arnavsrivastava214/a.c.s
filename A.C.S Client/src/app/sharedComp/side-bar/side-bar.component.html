@@ -1,133 +1,184 @@
 <div class="container-fluid">
     <div class="row">
         <div class="d-block side-container">
-            <div class="dp">
-               <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" height="80px" max-width="80px" style="margin-left: 55px;" alt="Profile image">
-                <h5 style="text-align: center; margin-top: 15px;"><strong><a href=""><i>Log Out</i></a></strong></h5>
-            </div>
-            <div class="top">
-                <ul class="mcd-menu">
-                    <li>
-                            <a routerLink="/admin/admin-dashboard">
-                                <i class="fa fa-home"></i>
-                                <strong>Dashboard</strong>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="fa fa-comments-o"></i>
-                                <strong>Book Management</strong>
-                            </a>
-                            <ul>
-                                <li><a routerLink="/admin/stalk-in-book-record"><i class="fa fa-globe"></i>Stock In Book (recd)</a></li>
-                                <li>
-                                    <a routerLink="/admin/punch-sale-rate"><i class="fa fa-group"></i>Punch Sale Rate</a>
-                                </li>
-                                <li><a routerLink="/admin/stalk-out-book-sale"><i class="fa fa-trophy"></i>Stalk Out (Book Sale)</a></li>
-                                <li><a routerLink="/admin/sale-bill-edit-delete"><i class="fa fa-certificate"></i>Sale Bill (edit/delete)</a></li>
-                                <li><a routerLink="/admin/purchase-report"><i class="fa fa-certificate"></i>Purchase Report</a></li>
-                                <li><a routerLink="/admin/collection-between-two-dates"><i class="fa fa-certificate"></i>Collection Between Two Days</a></li>
-                                <li><a routerLink="/admin/vendor-report"><i class="fa fa-certificate"></i>Vendor Report</a></li>
-                                <li><a routerLink="/admin/vendor-payment"><i class="fa fa-certificate"></i>Vendor Payment</a></li>
-                                <li><a routerLink="/admin/book-return"><i class="fa fa-certificate"></i>Book Return</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="admin/punching-format">
-                                <i class="fa fa-home"></i>
-                                <strong>Punching Format</strong>
-                            </a>
-                        </li>
-                       
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="fa fa-comments-o"></i>
-                                <strong>Manage Fee</strong>
-                            </a>
-                            <ul>
-                                <li><a routerLink="/admin/fee-payment"><i class="fa fa-globe"></i>Fee Payment</a></li>
-                                <li><a routerLink="/admin/fee-status"><i class="fa fa-globe"></i>Fee Status</a></li>
-                                <li><a routerLink="/admin/bill-amendment"><i class="fa fa-globe"></i>Bill Amendment</a></li>
-                                <li>
-                                    <a routerLink="/admin/tuition-fee"><i class="fa fa-group"></i>Tuition Fee </a>
-                                </li>
-                                <li><a routerLink="/admin/print-receipt"><i class="fa fa-certificate"></i>Print Receipt</a></li>
-                            </ul>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="fa fa-comments-o"></i>
-                                    <strong>Reports</strong>
-                                </a>
-                                <ul>
-                                    <li><a routerLink="/admin/master-report"><i class="fa fa-globe"></i>Master Report</a></li>
-                                    <li>
-                                        <a routerLink="/admin/complete-report"><i class="fa fa-group"></i>Complete Report</a>
-                                    </li>
-                                    <li><a routerLink="/admin/collection-report"><i class="fa fa-trophy"></i>Collection Report</a></li>
-                                    <li><a routerLink="/admin/academic-report"><i class="fa fa-certificate"></i>Academic Report</a></li>
-                                </ul>
-                            </li>
-                            
-                            <li>
-                                <a routerLink="/admin/academic-records">
-                                    <i class="fa fa-picture-o"></i>
-                                    <strong>Academic Records</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)">
-                                    <i class="fa fa-comments-o"></i>
-                                    <strong>Message</strong>
-                                </a>
-                                <ul>
-                                    <li><a routerLink="/admin/student"><i class="fa fa-globe"></i>Student</a></li>
-                                    <li>
-                                        <a routerLink="/admin/add"><i class="fa fa-group"></i>Add</a>
-                                    </li>
-                                    <li><a routerLink="/admin/send-message"><i class="fa fa-trophy"></i>Send Message</a></li>
-                                    <li><a routerLink="/admin/add-message"><i class="fa fa-certificate"></i>Add Message</a></li>
-                                    <li><a routerLink="/admin/check-log"><i class="fa fa-certificate"></i>Check Log</a></li>
-                                    <li><a routerLink="/admin/balance-left"><i class="fa fa-certificate"></i>Balance Left</a></li>
-                                </ul>
-                            </li>
-                            <li>
-                                <a routerLink="/admin/subject">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>Subject</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/admin/promote-to-higher-class">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>Promo TO Higher Cl </strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/admin/tc-issue">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>T.C Issue</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/admin/certificate">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>Certificate</strong>
-                                </a>
-                            </li>
-                            
-                            <li>
-                                <a routerLink="/admin/enquiry">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>Enquiry</strong>
-                                </a>
-                            </li>
-                            <li>
-                                <a routerLink="/admin/manage-teacher">
-                                    <i class="fa fa-envelope-o"></i>
-                                    <strong>Manage Teacher</strong>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+            <div class="sidebar ">
+                <div class="logo-details d-flex flex-column active" style="background-color: #19c0a0;"
+                    [ngClass]="{active:isActive, Inactive:!isActive}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/9203/9203764.png"
+                        style="height: 50px;  width: 50px;" alt="">
+                    <span routerLink="/" class="fw-bold my-2">LogOut</span>
                 </div>
-    </div>
+
+                <ul class="nav-links">
+                    <li>
+                        <a>
+                            <i class='bx bx-grid-alt'></i>
+                            <span class="link_name" routerLink="/admin/admin-dashboard">Dashboard</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/admin-dashboard">Dashboard</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="iocn-link">
+                            <a>
+                                <i class='bx bx-collection'></i>
+                                <span class="link_name">Manage Fee</span>
+                            </a>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+                        <ul class="sub-menu">
+                            <li><a class="link_name">Manage Fee</a></li>
+                            <li><a routerLink="/admin/fee-payment">Fee Payment</a></li>
+                            <li><a routerLink="/admin/tuition-fee">Tuition Fee </a></li>
+                            <li><a routerLink="/admin/fee-status"> Fee Status</a></li>
+                            <li><a routerLink="/admin/bill-amendment">Bill Amendment</a></li>
+                            <li><a routerLink="/admin/print-receipt">Print Reciept</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="iocn-link">
+                            <a>
+                                <i class='bx bx-book-alt'></i>
+                                <span class="link_name">Reports</span>
+                            </a>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+                        <ul class="sub-menu">
+                            <li><a class="link_name">Reports</a></li>
+                            <li><a routerLink="/admin/master-report">Master Report</a></li>
+                            <li><a routerLink="/admin/complete-report">Complete Report</a></li>
+                            <li><a routerLink="/admin/collection-report">Collecion Report</a></li>
+                            <li><a routerLink="/admin/academic-report">Academic Report</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-pie-chart-alt-2'></i>
+                            <span class="link_name" routerLink="/admin/punching-format">Punching Format</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/punching-format">Punching Format</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-pie-chart-alt-2'></i>
+                            <span class="link_name" routerLink="/admin/enquiry">Enquiry</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/enquiry">Enquiry</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-line-chart'></i>
+                            <span class="link_name" routerLink="/admin/academic-records">Academic Records</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/academic-records">Academic Records</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-line-chart'></i>
+                            <span class="link_name" routerLink="/admin/manage-teacher">Manage Tecaher</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/manage-teacher">Manage Tecaher</a></li>
+                        </ul>
+                    </li>
+
+                    <!-- this is book management system Lnks here -->
+
+                    
+                    <!-- <li>
+                        <div class="iocn-link">
+                            <a>
+                                <i class='bx bx-plug'></i>
+                                <span class="link_name">Books</span>
+                            </a>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+                        <ul class="sub-menu">
+                            <li><a class="link_name">Book Management</a></li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/stalk-in-book-record">Stock In Book
+                                    (record)</a></li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/punch-sale-rate">Punch Sale Rate</a>
+                            </li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/stalk-out-book-sale">Stalk Out Book
+                                    Sale</a></li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/sale-bill-edit-delete">Sale Bill (Edit
+                                    Delete)</a></li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/purchase-report">Purchase Report</a>
+                            </li>
+                            <li><a routerLink="/admin/student"
+                                    routerLink="/admin/collection-between-two-dates">Collection Between Two Dates</a>
+                            </li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/vendor-report">Vendor Report</a></li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/vendor-payment">Vendor Paymnet</a>
+                            </li>
+                            <li><a routerLink="/admin/student" routerLink="/admin/book-return">Book Return</a></li>
+                        </ul>
+                    </li> -->
+                    <li>
+                        <a>
+                            <i class='bx bx-line-chart'></i>
+                            <span class="link_name" routerLink="/admin/tc-issue">T.C Issue</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/tc-issue">T.C Issue</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="iocn-link">
+                            <a>
+                                <i class='bx bx-plug'></i>
+                                <span class="link_name">Messages</span>
+                            </a>
+                            <i class='bx bxs-chevron-down arrow'></i>
+                        </div>
+                        <ul class="sub-menu">
+                            <li><a class="link_name">Messages</a></li>
+                            <li><a routerLink="/admin/student">Students</a></li>
+                            <li><a routerLink="/admin/add">Add</a></li>
+                            <li><a routerLink="/admin/send-message">Send Message</a></li>
+                            <li><a routerLink="/admin/add-message">Add Message</a></li>
+                            <li><a routerLink="/admin/check-log">Check Log</a></li>
+                            <li><a routerLink="/admin/balance-left">Balance Left</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-compass'></i>
+                            <span class="link_name" routerLink="/admin/promote-to-higher-class">Promote </span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/promote-to-higher-class">Promote To Higher Class
+                                </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-history'></i>
+                            <span class="link_name" routerLink="/admin/subject">Subject</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/subject">Subject</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>
+                            <i class='bx bx-cog'></i>
+                            <span class="link_name" routerLink="/admin/certificate">Certificate</span>
+                        </a>
+                        <ul class="sub-menu blank">
+                            <li><a class="link_name" routerLink="/admin/certificate">Certificate</a></li>
+                        </ul>
+                    </li>
+                   
+                </ul>
+            </div>
+          
+
+        </div>

@@ -162,7 +162,7 @@
 <div id="myModal" class="modal" *ngIf="feePayModal">
 
     <!-- Modal content -->
-    <div class="modal-content" style="width: 80%;">
+    <div class="modal-content" style="width: 60%;">
         <span class="close" (click)="feePayModal = false">&times;</span>
         <div class="col-sm-12 d-flex" [formGroup]="patchValueForm">
             <div class="col-sm-3">
@@ -174,7 +174,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label class="font-noraml">Class</label>
-                    <input class="form-control" type="text" id="class" name="class" formControlName="class">
+                    <input class="form-control" type="text" id="class" name="class" formControlName="assign_class">
                 </div>
             </div>
             <div class="col-sm-3">
@@ -305,7 +305,7 @@
                     <div class="form-group">
                         <label class="font-noraml">Total</label>
                         <div class="total" style=" height: 38px; width: 131px;">
-                            <h3>{{grandTotal}}</h3>
+                            <input type="text" class="form-control" disabled="" value="{{grandTotal}}">
 
                         </div>
                     </div>
@@ -330,6 +330,7 @@
     <div class="modal-content">
         <span class="close" (click)="successModal = false">&times;</span>
         <h3>Fee Paid Succesfully</h3>
+        <button class="btn btn-danger" (click)="successModal = false">Close</button>
     </div>
 
 </div>
