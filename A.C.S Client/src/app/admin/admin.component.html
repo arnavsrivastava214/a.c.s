@@ -1,11 +1,10 @@
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-2 p-0" [ngStyle]="{'width':collapse ? '' : '66px'}">
+        <div class="col-sm-2 p-0 custom-width-sidebar transition-auto" [ngStyle]="{'width':collapse ? '' : '13px'}">
            <app-side-bar (emitToParent)="receiveChildEvent($event)"></app-side-bar>
         </div>
-        <div class="col-sm-10" [ngStyle]="{'width':collapse ? '' : '1280px' , 'margin-left':collapse ? '' : '66px'}">
+        <div class="col-sm-10 p-0 transition-auto" [ngStyle]="{'width':collapse ? '' : '1440px' , 'margin-left':collapse ? '' : '66px'}">
             <router-outlet></router-outlet>
-           
         </div>
     </div>
 </div>

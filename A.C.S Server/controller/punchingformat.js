@@ -8,6 +8,9 @@ router.post("/fetchsstudentcred", (req,res)=>{
     const nextYear = currentYear + 1;
     const sessionString = `${currentYear}_${nextYear}`;
 
+    console.log(sessionString);
+    
+
     let sql  = `SELECT * FROM punching_format${sessionString} WHERE admission_number =  ?`;
     let values = [StudentAdmId];
     con.query(sql, values,(error,result)=>{
@@ -15,7 +18,7 @@ router.post("/fetchsstudentcred", (req,res)=>{
             res.send({message:"data fetched",status:200,data:result});
         }
         else{
-            res.send({message:"Error", status:400});
+            res.send({message:"Error", status:400,error});
         }
     })
 })
