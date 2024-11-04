@@ -644,6 +644,22 @@
 
 }
 
+.custom-bg-plane{
+  background-color: #ed5565;
+}
+
+.custom-bg-add{
+  background-color: #1ab394;
+}
+
+.custom-bg-log{
+  background-color: #23c6c8;
+}
+
+.custom-bg-balance{
+  background-color: #f8ac59;
+}
+
 @media only screen and (max-width: 479px) {
   .mcd-menu {
     width: 50px;

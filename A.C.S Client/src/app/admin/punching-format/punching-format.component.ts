@@ -24,7 +24,7 @@ export class PunchingFormatComponent {
         this.showModal = true
         this.showContent = true
         console.log(callback);
-        this.displayCredential = callback.data;
+        this.displayCredential = callback.data[0];
       } else {
         this.showContent = false;
         this.showModal = true;

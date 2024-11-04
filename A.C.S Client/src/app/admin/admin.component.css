@@ -1,0 +1,7 @@
+.custom-width-sidebar{
+    max-width: 236px;
+}
+
+.transition-auto{
+    transition: all 0.5s;
+}
