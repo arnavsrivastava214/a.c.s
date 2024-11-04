@@ -5,8 +5,6 @@ const router = express.Router();
 
 
 router.post("/signUp", async function (req, res) {
-    console.log(req.body);
-    console.log(req.file);
     let name = req.body.name;
     let email = req.body.email;
     let password = req.body.password;
