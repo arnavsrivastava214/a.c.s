@@ -11,18 +11,98 @@
                 </div>
             </section>
         </div>
-    <div class="row dashboard-container my-2">
-        <div class="col-sm-12 py-3 mb-2 bg-light">
-            <div class="display-6 " style="font-size: 1.75em; font-weight: 100;">Complete Report</div>
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Complete Report</li>
-                </ol>
-              </nav>
+        <div class="row dashboard-container my-2">
+            <div class="col-sm-12 py-3 mb-2 bg-light">
+                <div class="display-6 " style="font-size: 1.75em; font-weight: 100;">Complete Report</div>
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb px-3">
+                        <li class="breadcrumb-item">Home</li>
+                        <li class="breadcrumb-item active" aria-current="page">Complete Report</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-       </div>
-    <div class="row">
-        <div class="col-sm-12"></div>
+        <div class="row">
+            <div class="col-sm-6 d-flex">
+                <div class="form-group">
+                    <input type="date" [(ngModel)]="dateObj.startDate" class="form-control" placeholder="Start Date">
+                </div>
+                <div class="form-group mx-2">
+                    <input type="date" [(ngModel)]="dateObj.endDate" class="form-control" placeholder="End Date">
+                </div>
+            </div>
+            <div class="col-sm-6 d-flex">
+                <div class="form-group">
+                    <select name="" id="" [(ngModel)]="assign_class" class="form-select">
+                        <option selected>Select Class</option>
+                        <option value="play_group">PLAY GROUP</option>
+                        <option value="nursery">NURSERY</option>
+                        <option value="Lkg">LKG</option>
+                        <option value="ukg">UKG</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary mx-2" (click)="searchReport()">Search</button>
+            </div>
+        </div>
+        <div class="row mt-3" *ngIf="completesReportData.length>0">
+            <div class="col-sm-12 table-responsive">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                            <tr>
+                                <th>SL NO.</th>
+                                <th>ADMN NO.</th>
+                                <th>NAME</th>
+                                <th>CLASS</th>
+                                <th>FATHER NAME</th>
+                                <th>ADM. FEE</th>
+                                <th>TUT.</th>
+                                <th>FINE</th>
+                                <th>RE. ADMN</th>
+                                <th>EXAM</th>
+                                <th>ACT.</th>
+                                <th>DEV.</th>
+                                <th>OTHER</th>
+                                <th>OTHER 1.</th>
+                                <th>SESS.</th>
+                                <th>COM.S.</th>
+                               <th>TOTAL</th>
+                            </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let data of completesReportData;let idx = index;">
+                            <td>{{idx+1}}</td>
+                            <td>{{data.admission_number}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.assign_class}}</td>
+                            <td>{{data.father_name}}</td>
+                            <td>{{data.fee.admission_fee}}</td>
+                            <td>{{data.fee.tuition_fee}}</td>
+                            <td>{{data.fee.fine}}</td>
+                            <td>{{data.fee.ree_admission_fee}}</td>
+                            <td>{{data.fee.exam_fee}}</td>
+                            <td>{{data.fee.activity_fee}}</td>
+                            <td>{{data.fee.development_fee}}</td>
+                            <td>{{data.fee.other}}</td>
+                            <td>{{data.fee.other1}}</td>
+                            <td>{{data.fee.session_fee}}</td>
+                            <td>{{data.fee.computer_science_fee}}</td>
+                            <td>{{data.total}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
 </div>

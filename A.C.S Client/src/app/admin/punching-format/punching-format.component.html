@@ -1,15 +1,15 @@
 <div class="container-fluid bg-light" style="height: 100vh;">
   <div class="row p-3">
     <div class="col-sm-12">
-        <section class="home-section">
-            <div class="home-content">
-                <button class='bx bx-menu rounded border-0' style="height: 28px;
+      <section class="home-section">
+        <div class="home-content">
+          <button class='bx bx-menu rounded border-0' style="height: 28px;
                 width: 37px; padding: 5px;
                 background-color: #1ab394;
                 color: #ffff;
             "></button>
-            </div>
-        </section>
+        </div>
+      </section>
     </div>
   </div>
   <div class="row dashboard-container my-2">
@@ -87,28 +87,28 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Admission No</label>
-          <input class="form-control" type="number" id="admission_no" style="height:35px; width: 240px;"
+          <input class="form-control" [(ngModel)]="stdData.admission_number"  type="number" id="admission_no" style="height:35px; width: 240px;"
             name="admission_no">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Name</label>
-          <input class="form-control" type="text" id="name" name="name" style="height:35px; width: 240px;"
+          <input class="form-control" [(ngModel)]="stdData.name"  type="text" id="name" name="name" style="height:35px; width: 240px;"
             fdprocessedid="mm9f77">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Name</label>
-          <input class="form-control" type="text" id="father_name" style="height:35px; width: 240px;"
+          <input class="form-control" [(ngModel)]="stdData.father_name"  type="text" id="father_name" style="height:35px; width: 240px;"
             name="father_name">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Mother Name</label>
-          <input class="form-control" type="text" id="mother_name" style="height:35px; width: 240px;"
+          <input class="form-control"  [(ngModel)]="stdData.mother_name"  type="text" id="mother_name" style="height:35px; width: 240px;"
             name="mother_name">
         </div>
       </div>
@@ -118,28 +118,28 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Student Aadhar No.</label>
-          <input class="form-control" type="text" id="student_aadhar_no" name="student_aadhar_no"
+          <input class="form-control" [(ngModel)]="stdData.student_aadhar_no"  type="text" id="student_aadhar_no" name="student_aadhar_no"
             onkeypress="return isNumber(event)" fdprocessedid="k5m7di">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Aadhar No.</label>
-          <input class="form-control" type="text" id="father_aadhar_no" name="father_aadhar_no"
+          <input class="form-control"  [(ngModel)]="stdData.father_aadhar_no" type="text" id="father_aadhar_no" name="father_aadhar_no"
             onkeypress="return isNumber(event)" fdprocessedid="aje0c">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Mother Aadhar No.</label>
-          <input class="form-control" type="text" id="mother_aadhar_no" name="mother_aadhar_no"
+          <input class="form-control"  [(ngModel)]="stdData.mother_aadhar_no" type="text" id="mother_aadhar_no" name="mother_aadhar_no"
             onkeypress="return isNumber(event)" fdprocessedid="pe1zi">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Guardian Name</label>
-          <input class="form-control" type="text" id="guardian_name" name="guardian_name" fdprocessedid="9s5qg">
+          <input class="form-control"  [(ngModel)]="stdData.guardian_name" type="text" id="guardian_name" name="guardian_name" fdprocessedid="9s5qg">
         </div>
       </div>
     </div>
@@ -149,21 +149,21 @@
           <label class="font-noraml">Date of Birth</label>
           <div class="input-group date">
             <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"
-              id="date_of_birth" name="date_of_birth" readonly="" fdprocessedid="6ym43">
+              id="date_of_birth" name="date_of_birth" readonly="" fdprocessedid="6ym43" [(ngModel)]="stdData.date_of_birth" >
           </div>
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Occupation</label>
-          <input class="form-control" type="text" id="father_occupation" name="father_occupation"
+          <input class="form-control" [(ngModel)]="stdData.father_occupation"  type="text" id="father_occupation" name="father_occupation"
             onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="wh95vm">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Gender</label>
-          <select class="form-control" type="text" id="gender" name="gender" fdprocessedid="qnt4m">
+          <select class="form-control"  [(ngModel)]="stdData.gender"  type="text" id="gender" name="gender" fdprocessedid="qnt4m">
             <option value="">Select Gender</option>
             <option value="male">MALE</option>
             <option value="female">FEMALE</option>
@@ -174,7 +174,7 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Class</label>
-          <select class="form-control" type="text" id="class" name="class" fdprocessedid="x007mh">
+          <select class="form-control"  [(ngModel)]="stdData.assign_class" type="text" id="class" name="class" fdprocessedid="x007mh">
             <option value="">Select Class</option>
             <option value="PLAY_GROUP">PLAY GROUP</option>
             <option value="NURSERY">NURSERY</option>
@@ -202,28 +202,28 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Present Address</label>
-          <input class="form-control" type="text" id="present_address" name="present_address"
+          <input class="form-control"  [(ngModel)]="stdData.present_address"  type="text" id="present_address" name="present_address"
             onblur="$('#permanent_address').val(this.value)" fdprocessedid="r374r">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Permanent Address</label>
-          <input class="form-control" type="text" id="permanent_address" name="permanent_address"
+          <input class="form-control" [(ngModel)]="stdData.permanent_address"  type="text" id="permanent_address" name="permanent_address"
             fdprocessedid="37onbd">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Pincode</label>
-          <input class="form-control" type="text" id="pin" name="pin" onkeypress="return isNumber(event)" maxlength="6"
+          <input class="form-control"[(ngModel)]="stdData.pin"  type="text" id="pin" name="pin" onkeypress="return isNumber(event)" maxlength="6"
             value="229001" fdprocessedid="s1cd1r">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Nationality</label>
-          <input class="form-control" type="text" id="nationality" name="nationality"
+          <input class="form-control" [(ngModel)]="stdData.nationality"   type="text" id="nationality" name="nationality"
             onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" value="INDIAN" fdprocessedid="n33kw">
         </div>
       </div>
@@ -234,20 +234,20 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Religion</label>
-          <input class="form-control" type="text" id="religion" name="religion"
+          <input class="form-control" [(ngModel)]="stdData.religion" type="text" id="religion" name="religion"
             onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="qnyx4f">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Caste</label>
-          <input class="form-control" type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
+          <input class="form-control" [(ngModel)]="stdData.caste"type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Category</label>
-          <select class="form-control" type="text" id="category" name="category" fdprocessedid="aj76d">
+          <select class="form-control" [(ngModel)]="stdData.category"  type="text" id="category" name="category" fdprocessedid="aj76d">
             <option value="gen">GENERAL</option>
             <option value="obc">OBC</option>
             <option value="sc">SC</option>
@@ -258,41 +258,7 @@
       <div class="col-sm-3">
         <div class="form-group" id="data_1">
           <label class="font-noraml">Period of Residence</label>
-          <input class="form-control" type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
-            fdprocessedid="jglx9kx">
-        </div>
-      </div>
-
-    </div>
-    <div class="col-sm-12 d-flex">
-      <div class="col-sm-3">
-        <div class="form-group">
-          <label class="font-noraml">Religion</label>
-          <input class="form-control" type="text" id="religion" name="religion"
-            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="qnyx4f">
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-          <label class="font-noraml">Caste</label>
-          <input class="form-control" type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group">
-          <label class="font-noraml">Category</label>
-          <select class="form-control" type="text" id="category" name="category" fdprocessedid="aj76d">
-            <option value="gen">GENERAL</option>
-            <option value="obc">OBC</option>
-            <option value="sc">SC</option>
-            <option value="st">ST</option>
-          </select>
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="form-group" id="data_1">
-          <label class="font-noraml">Period of Residence</label>
-          <input class="form-control" type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
+          <input class="form-control" [(ngModel)]="stdData.period_of_residence_in_up"  type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
             fdprocessedid="jglx9kx">
         </div>
       </div>
@@ -302,35 +268,35 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Previous School</label>
-          <input class="form-control" type="text" id="previous_school" name="previous_school" fdprocessedid="1rbytg">
+          <input class="form-control" [(ngModel)]="stdData.previous_school" type="text" id="previous_school" name="previous_school" fdprocessedid="1rbytg">
           <input type="hidden" id="punching_format_id" value="9">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Mobile No.</label>
-          <input class="form-control" type="text" id="mobile_No" name="mobile_No" onkeypress="return isNumber(event)"
+          <input class="form-control"  [(ngModel)]="stdData.phone_number" type="text" id="mobile_No" name="mobile_No" onkeypress="return isNumber(event)"
             maxlength="12" fdprocessedid="88axvj">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Phone No.</label>
-          <input class="form-control" type="text" id="phone_No" name="phone_No" onkeypress="return isNumber(event)"
+          <input class="form-control" [(ngModel)]="stdData.phone_number"  type="text" id="phone_No" name="phone_No" onkeypress="return isNumber(event)"
             maxlength="12" fdprocessedid="bimyh8">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Whatsapp No.</label>
-          <input class="form-control" type="text" id="whatsapp_No" name="whatsapp_No"
+          <input class="form-control"  [(ngModel)]="stdData.whatsapp_number"  type="text" id="whatsapp_No" name="whatsapp_No"
             onkeypress="return isNumber(event)" maxlength="12" fdprocessedid="9yujfx">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Email</label>
-          <input class="form-control" type="text" id="email" name="email" fdprocessedid="ko4634">
+          <input class="form-control" [(ngModel)]="stdData.mobile_email" type="text" id="email" name="email" fdprocessedid="ko4634">
         </div>
       </div>
     </div>
@@ -339,32 +305,30 @@
       <div class="col-sm-3" id="image_div">
         <div class="form-group">
           <label class="font-noraml">Student Image</label>
-          <input class="form-control" type="file" id="profileImage" name="profileImage">
+          <input class="form-control"  type="file" id="profileImage" name="profileImage">
         </div>
       </div>
       <div class="col-sm-3" id="birth_div">
         <div class="form-group">
           <label class="font-noraml">Birth Certificate Form</label>
-          <input class="form-control" type="file" id="birth_certificate_form" name="birth_certificate_form">
+          <input class="form-control"  type="file" id="birth_certificate_form" name="birth_certificate_form">
         </div>
       </div>
       <div class="col-sm-3" id="tc_div">
         <div class="form-group">
           <label class="font-noraml">TC Form</label>
-          <input class="form-control" type="file" id="tc_form" name="tc_form">
+          <input class="form-control"  type="file" id="tc_form" name="tc_form">
         </div>
       </div>
       <div class="col-sm-3" id="addmission_div">
         <div class="form-group">
           <label class="font-noraml">Addmission Form</label>
-          <input class="form-control" type="file" id="addmission_form" name="addmission_form">
+          <input class="form-control"  type="file" id="addmission_form" name="addmission_form">
         </div>
       </div>
     </div>
     <div class="col-sm-12" align="right">
-      <button type="button" id="save" class="btn btn-primary"
-        onclick="if($('#punching_format_id').val() != ''){save_or_update('update');}else{save_or_update('insert');}"
-        fdprocessedid="imtgr">Update</button>
+      <button type="button" id="save" class="btn btn-primary">Update</button>
     </div>
     <div class="col-sm-12" id="fee_detail">
       <div class="panel panel-info">

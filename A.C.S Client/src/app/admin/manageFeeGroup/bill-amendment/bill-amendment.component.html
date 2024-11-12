@@ -1,46 +1,206 @@
 <div class="container-fluid">
   <div class="row p-3">
     <div class="col-sm-12">
-        <section class="home-section">
-            <div class="home-content">
-                <button class='bx bx-menu rounded border-0' style="height: 28px;
+      <section class="home-section">
+        <div class="home-content">
+          <button class='bx bx-menu rounded border-0' style="height: 28px;
                 width: 37px; padding: 5px;
-                background-color: #1ab394;
-                color: #ffff;
             "></button>
-            </div>
-        </section>
-    </div>
-  <div class="row dashboard-container my-2">
-    <div class="col-sm-12 py-3 mb-2 bg-light">
-      <div class="display-6" style="font-size: 1.75em; font-weight: 100;">Bill Amendment</div>
-      <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb px-3">
-          <li class="breadcrumb-item">Home</li>
-          <li class="breadcrumb-item active" aria-current="page">Bill Amendment</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 bg-light">
-      <button (click)="toggleVisibility()">
-        {{ isVisible ? 'Hide' : 'Show' }} Content
-      </button>
-
-      <div *ngIf="isVisible">
-        <button class="my-3" style="width: 114px;">1.</button>
-        <div class="form-group">
-          <div class="form input">
-            <h3 style="margin-left:30px; margin-top: 10px;"> your,s first name ?</h3>
-
-            <input type="text" class="form-control" placeholder="Enter name">
-          </div>
         </div>
-        <button class="align my-2" style="width: 114px;">Finish</button>
-      </div>
-
+      </section>
     </div>
+    <div class="row dashboard-container my-2">
+      <div class="col-sm-12 py-3 mb-2 bg-light">
+        <div class="display-6" style="font-size: 1.75em; font-weight: 100;">Bill Amendment</div>
+        <nav aria-label="breadcrumb ">
+          <ol class="breadcrumb px-3">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Bill Amendment</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+    <div class="row" *ngIf="!showReciptInput">
+      <div class="col-sm-12 bg-light">
+        <button (click)="toggleVisibility()">
+          {{ isVisible ? 'Hide' : 'Show' }} Content
+        </button>
 
+        <div *ngIf="isVisible">
+          <button class="my-3" style="width: 114px;">1.</button>
+          <div class="form-group">
+            <div class="form input">
+              <h3 style="margin-left:30px; margin-top: 10px;"> Your's first name ?</h3>
+
+              <input type="text" class="form-control" placeholder="Enter name">
+            </div>
+          </div>
+          <button class=" my-2" style="width: 114px;" (click)="showReciptBox()">Finish</button>
+        </div>
+      </div>
+    </div>
+    <div class="row align-items-center" *ngIf="showReciptInput">
+      <div class="col-sm-3">
+        <input type="text" placeholder="Enter Reciept Number" class="form-control" [(ngModel)]="receiptNumber"
+          aria-label="Default select example">
+      </div>
+      <div class="col-sm-2">
+        <button class="my-2" style="width: 114px;" (click)="searchBillAmendment()">Search</button>
+      </div>
+    </div>
   </div>
 </div>
+
+<div class="modal" *ngIf="showModal">
+  <div class="modal-content">
+    <ng-container *ngIf="successModal">
+      <div class="d-flex justify-content-between mb-3">
+        <h3>SUCCESS</h3>
+        <span class="close" (click)="showModal = false">&times;</span>
+      </div>
+      <strong class="my-3">
+        You are authorised for bill amendment
+      </strong>
+      <button (click)="showModal = false" class="btn btn-danger">OK</button>
+    </ng-container>
+    <ng-container *ngIf="billDetailModal && billData">
+      <span class="close" (click)="closeModal();">&times;</span>
+      <div class="modal-body">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Admission No.</label>
+                <input class="form-control" [(ngModel)]="billData.admission_number" type="text" id="admission_no" name="admission_no" disabled="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Class</label>
+                <input class="form-control" [(ngModel)]="billData.assign_class" type="text" id="class" name="class" disabled="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Student Name</label>
+                <input class="form-control" [(ngModel)]="billData.name" type="text" id="student_name" name="student_name" disabled="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Father's Name</label>
+                <input class="form-control" [(ngModel)]="billData.father_name" type="text" id="father_name" name="father_name" disabled="">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Month</label>
+                <input class="form-control" [(ngModel)]="billData.month" type="text" id="month" name="month" disabled="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Session</label>
+                <input class="form-control" [(ngModel)]="billData.session" type="text" id="session" name="session"
+                  value="<?php echo date('Y').'-'.(date('y')+1); ?>" readonly="">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group" id="data_3">
+                <label class="font-noraml">Date</label>
+                <div class="input-group date">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" [(ngModel)]="billData.date"
+                    class="form-control" id="timestamp" name="timestamp" readonly="" value="">
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Admission Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.admission_fee" title="Enter Admission Fee Or Zero" type="text" id="admission_fee"
+                  >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Session Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.session_fee" title="Enter Session Fee Or Zero" type="text" >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Tution Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.tution_fee" title="Enter Tution Fee Or Zero" type="text" id="tution_fee"
+                  >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Fine</label>
+                <input class="form-control" [(ngModel)]="billData.fee.fine" title="Enter Fine Or Zero" type="text" id="fine" name="fine"
+                  >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Re-Admission Fee</label>
+                <input class="form-control" title="Enter Re-Admission Fee Or Zero" type="text" [(ngModel)]="billData.fee.re_admission_fee" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Exam Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.exam_fee" title="Enter Exam Fee Or Zero" type="text" >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Development Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.development_fee" title="Enter Development Fee Or Zero" type="text" id="development_fee"
+                  >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Activity Fee</label>
+                <input class="form-control"[(ngModel)]="billData.fee.activity_fee" title="Enter Activity Fee Or Zero" type="text" id="activity_fee"
+                  >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Computer Science Fee</label>
+                <input class="form-control" [(ngModel)]="billData.fee.computer_science_fee" title="Enter Computer Science Fee Or Zero" type="text"
+                  id="computer_science_fee" >
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Other</label>
+                <input class="form-control" [(ngModel)]="billData.fee.others" title="Enter Others Fee Or Zero" type="text" id="others" 
+                 >
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Other 1.</label>
+                <input class="form-control"  [(ngModel)]="billData.fee.others1" title="Enter Advance Fee Or Zero" type="text" id="adv_fee">
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="form-group">
+                <label class="font-noraml">Total</label>
+                <input class="form-control" [(ngModel)]="billData.fee.total" type="text" id="total_amt" name="total" disabled="">
+              </div>
+            </div>
+          </div>
+      </div>
+    </ng-container>
+  </div>

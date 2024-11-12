@@ -10,7 +10,7 @@ export class PunchingFormatComponent {
   admissionNO: any;
   showModal: any
   showContent: any
-  displayCredential: any
+  stdData:any=[];
   constructor(private service: PunchingFormatServiceService) { }
 
 
@@ -24,7 +24,9 @@ export class PunchingFormatComponent {
         this.showModal = true
         this.showContent = true
         console.log(callback);
-        this.displayCredential = callback.data[0];
+        this.stdData = callback.data[0];
+        console.log(this.stdData);
+        
       } else {
         this.showContent = false;
         this.showModal = true;

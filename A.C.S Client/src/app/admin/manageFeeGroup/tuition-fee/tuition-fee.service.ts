@@ -7,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class TuitionFeeService {
 
   url:any={
-    'fetchTutionFee':'http://localhost:3000/api/fetchtutionfee'
+    'fetchTutionFee':'http://localhost:3000/api/tutionfee/fetchtutionfee'
   }
 
   constructor(private http:HttpClient) { }

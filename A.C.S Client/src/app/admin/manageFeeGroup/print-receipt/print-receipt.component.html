@@ -11,26 +11,180 @@
                 </div>
             </section>
         </div>
-    <div class="row dashboard-container my-2">
-        <div class="col-sm-12 py-3 mb-2 bg-light">
-            <div class="display-6 " style="font-size: 1.75em; font-weight: 100;">Print Reciept</div>
-            <nav aria-label="breadcrumb ">
-                <ol class="breadcrumb px-3">
-                  <li class="breadcrumb-item">Home</li>
-                  <li class="breadcrumb-item active" aria-current="page">Print Reciept</li>
-                </ol>
-              </nav>
+        <div class="row dashboard-container my-2">
+            <div class="col-sm-12 py-3 mb-2 bg-light">
+                <div class="display-6 " style="font-size: 1.75em; font-weight: 100;">Print Reciept</div>
+                <nav aria-label="breadcrumb ">
+                    <ol class="breadcrumb px-3">
+                        <li class="breadcrumb-item">Home</li>
+                        <li class="breadcrumb-item active" aria-current="page">Print Reciept</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
-       </div>
-    <div class="row">
-        <div class="col-sm-5 d-flex">
-            <input type="text" placeholder="Enter Reciept Number" class="form-control" aria-label="Default select example">
+        <div class="row">
+            <div class="col-sm-5 d-flex">
+                <input type="text" placeholder="Enter Reciept Number" class="form-control"
+                    aria-label="Default select example">
 
 
-            <button
-                style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;">
-                Search
-            </button>
+                <button (click)="printReceipt('printModal')"
+                    style="min-width: 72px; height: 40px; background-color: #18a689; border: none; color: white; border-radius: 3px;">
+                    Search
+                </button>
+            </div>
         </div>
     </div>
+</div>
+<div class="modal" id="section-to-print"  *ngIf="showModal">
+    <div class="modal-content">
+        <span class="close" (click)="closeModal()">&times;</span>
+        <div class="modal-body" *ngIf="receiptData">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Admission No.</label>
+                        <input class="form-control" [(ngModel)]="receiptData.admission_number" type="text"
+                            id="admission_no" name="admission_no" disabled="">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Class</label>
+                        <input class="form-control" [(ngModel)]="receiptData.assign_class" type="text" id="class"
+                            name="class" disabled="">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Student Name</label>
+                        <input class="form-control" [(ngModel)]="receiptData.name" type="text" id="student_name"
+                            name="student_name" disabled="">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Father's Name</label>
+                        <input class="form-control" [(ngModel)]="receiptData.father_name" type="text" id="father_name"
+                            name="father_name" disabled="">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Month</label>
+                        <input class="form-control" [(ngModel)]="receiptData.month" type="text" id="month" name="month"
+                            disabled="">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Session</label>
+                        <input class="form-control" [(ngModel)]="receiptData.session" type="text" >
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group" id="data_3">
+                        <label class="font-noraml">Date</label>
+                        <div class="input-group date">
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                [(ngModel)]="receiptData.date" class="form-control" id="timestamp" name="timestamp"
+                                readonly="" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Admission Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.admission_fee"
+                            title="Enter Admission Fee Or Zero" type="text" id="admission_fee">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Session Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.session_fee"
+                            title="Enter Session Fee Or Zero" type="text">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Tution Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.tution_fee"
+                            title="Enter Tution Fee Or Zero" type="text" id="tution_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Fine</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.fine" title="Enter Fine Or Zero"
+                            type="text" id="fine" name="fine">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Re-Admission Fee</label>
+                        <input class="form-control" title="Enter Re-Admission Fee Or Zero" type="text"
+                            [(ngModel)]="receiptData.fee.re_admission_fee">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Exam Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.exam_fee" title="Enter Exam Fee Or Zero"
+                            type="text">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Development Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.development_fee"
+                            title="Enter Development Fee Or Zero" type="text" id="development_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Activity Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.activity_fee"
+                            title="Enter Activity Fee Or Zero" type="text" id="activity_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Computer Science Fee</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.computer_science_fee"
+                            title="Enter Computer Science Fee Or Zero" type="text" id="computer_science_fee">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Other</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.others" title="Enter Others Fee Or Zero"
+                            type="text" id="others">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Other 1.</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.others1" title="Enter Advance Fee Or Zero"
+                            type="text" id="adv_fee">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label class="font-noraml">Total</label>
+                        <input class="form-control" [(ngModel)]="receiptData.fee.total" type="text" id="total_amt"
+                            name="total" disabled="">
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>

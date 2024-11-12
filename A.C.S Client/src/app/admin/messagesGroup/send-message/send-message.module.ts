@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SendMessageRoutingModule } from './send-message-routing.module';
 import { SendMessageComponent } from './send-message.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     SendMessageRoutingModule,
-    SideBarModule
+    SideBarModule,
+    FormsModule
 ]
   ,
   exports:[

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { BillAmendmentRoutingModule } from './bill-amendment-routing.module';
 import { BillAmendmentComponent } from './bill-amendment.component';
 import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { SideBarModule } from "../../../sharedComp/side-bar/side-bar.module";
   imports: [
     CommonModule,
     BillAmendmentRoutingModule,
-    SideBarModule
+    SideBarModule,
+    FormsModule
 ],
   exports:[
     BillAmendmentComponent

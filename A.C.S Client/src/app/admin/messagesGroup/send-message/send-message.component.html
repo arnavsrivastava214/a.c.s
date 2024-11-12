@@ -1,80 +1,114 @@
 <div class="container-fluid">
   <div class="row p-3">
     <div class="col-sm-12">
-        <section class="home-section">
-            <div class="home-content">
-                <button class='bx bx-menu rounded border-0' style="height: 28px;
+      <section class="home-section">
+        <div class="home-content">
+          <button class='bx bx-menu rounded border-0' style="height: 28px;
                 width: 37px; padding: 5px;
                 background-color: #1ab394;
                 color: #ffff;
             "></button>
-            </div>
-        </section>
+        </div>
+      </section>
     </div>
-  <div class="row dashboard-container my-2">
-    <div class="col-sm-12 py-3 mb-2 bg-light">
-      <div class="display-6 px-3" style="font-size: 1.75em; font-weight: 100;">Send Message</div>
-      <nav aria-label="breadcrumb ">
-        <ol class="breadcrumb px-3">
-          <li class="breadcrumb-item">Home</li>
-          <li class="breadcrumb-item active" aria-current="page">Send Message</li>
-        </ol>
-      </nav>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12 ">
-      <div class="col-sm-12 d-flex">
-        <div class="col-sm-4 col-xs-12 col-md-3">
-          <div class="radio radio-info radio-inline">
-            <input type="radio" id="single" value="option1" name="radioInline" checked="">
-            <label for="single"> Send to single student </label>
-          </div>
-        </div>
-        <div class="col-sm-4 col-xs-12 col-md-3">
-          <div class="radio radio-info radio-inline">
-            <input type="radio" id="class" value="option2" name="radioInline">
-            <label for="class"> Send to whole class </label>
-          </div>
-        </div>
-        <div class="col-sm-4 col-xs-12 col-md-3">
-          <div class="radio radio-info radio-inline">
-            <input type="radio" id="all" value="option3" name="radioInline">
-            <label for="all"> Send to all </label>
-          </div>
-        </div>
+    <div class="row dashboard-container my-2">
+      <div class="col-sm-12 py-3 mb-2 bg-light">
+        <div class="display-6 px-3" style="font-size: 1.75em; font-weight: 100;">Send Message</div>
+        <nav aria-label="breadcrumb ">
+          <ol class="breadcrumb px-3">
+            <li class="breadcrumb-item">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Send Message</li>
+          </ol>
+        </nav>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 ">
+        <div class="col-sm-12 d-flex">
+          <div class="col-sm-4 col-xs-12 col-md-3">
+            <div class="radio radio-info radio-inline">
+              <input type="radio" id="single" value="option1" class="form-check-input mx-1" name="radioInline"
+                [(ngModel)]="inputGroupConfig.single">
+              <label for="single"> Send to single student </label>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 col-md-3">
+            <div class="radio radio-info radio-inline">
+              <input type="radio" id="class" value="option2" class="form-check-input mx-1" name="radioInline"
+                [(ngModel)]="inputGroupConfig.whole">
+              <label for="class"> Send to whole class </label>
+            </div>
+          </div>
+          <div class="col-sm-4 col-xs-12 col-md-3">
+            <div class="radio radio-info radio-inline">
+              <input type="radio" id="all" value="option3" class="form-check-input mx-1" name="radioInline"
+                [(ngModel)]="inputGroupConfig.all">
+              <label for="all"> Send to all </label>
+            </div>
+          </div>
+        </div>
 
-      <div class="ibox-title my-5">
+        <!-- <div class="ibox-title my-5">
         <h5 id="heading">Send to single student</h5>
         <div class="col-sm-13" style="color: red" align="right">Message Length : <span id="count">0</span> Characters
         </div>
-      </div>
-  <div class="col-sm-12 d-flex">
+      </div> -->
+        <div class="row">
+          <div class="col-sm-12 d-flex my-3">
+            <textarea maxlength="800" class="form-control me-2" id="messagebody_single" placeholder="Message Body"
+              rows="7" style="resize: none;" [disabled]="!class||!message"></textarea>
 
-    <textarea maxlength="800" class="form-control" id="messagebody_single" placeholder="Message Body" rows="7"
-    style="resize: none;" onkeyup="onInput('messagebody_single');" disabled=""></textarea>
-
-        <div class="col-lg-5">
-          <div class="col-sm-10">
-            <div class="input-group" id="main_div">
-              <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control" type="text" id="enter_class" onchange="if(this.value === ''){ $('#info').css('display','none'); }" fdprocessedid="g0p6kd"><option value="">Select Class</option><option value="PG">PG</option><option value="play_group">PLAY GROUP</option><option value="NURSERY">NURSERY</option><option value="KG">KG</option><option value="UKG">UKG</option><option value="LKG">LKG</option><option value="1">1</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="STAFF">STAFF</option><option value="PERSONAL">PERSONAL</option></select>
+            <div class="col-lg-5">
+              <div class="col-sm-10">
+                <div class="input-group" id="main_div">
+                  <span class="input-group-addon"><i class="fa fa-list-ul"></i></span><select class="form-control"
+                    type="text" id="enter_class" [(ngModel)]="class">
+                    <option value="">Select Class</option>
+                    <option value="PG">PG</option>
+                    <option value="play_group">PLAY GROUP</option>
+                    <option value="NURSERY">NURSERY</option>
+                    <option value="KG">KG</option>
+                    <option value="UKG">UKG</option>
+                    <option value="LKG">LKG</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="STAFF">STAFF</option>
+                    <option value="PERSONAL">PERSONAL</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-10" style="margin-top:10px;" *ngIf="inputGroupConfig.whole || inputGroupConfig.single">
+                <div class="input-group" id="main_div">
+                  <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                  <select class="form-control" type="text" id="msg1" [(ngModel)]="message">
+                    <option value="">Select Message</option>
+                    <option [value]="mes" *ngFor="let mes of messageList">{{mes.message_body}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-sm-10" style="margin-top:10px;" *ngIf="inputGroupConfig.single">
+                <div class="input-group m-b">
+                  <span class="input-group-addon"><i class="fa fa-search"></i></span> <input type="text"
+                    placeholder="Std. Name" class="form-control">
+                </div>
+              </div>
+              <div class="col-sm-10">
+                <button type="button" class="btn btn-block btn-primary my-5"
+                  style="width: 50%; margin-left: 110px;">Search</button>
+              </div>
             </div>
-          </div>
-          <div class="col-sm-10" style="margin-top:10px;">
-            <div class="input-group" id="main_div">
-              <span class="input-group-addon"><i class="fa fa-envelope"></i></span><select class="form-control" type="text" id="msg1" onchange="search_msg($('option:selected',this).attr('messagebody'),'single');" fdprocessedid="2tzgul"><option value="">Select Message</option></select>
-            </div>
-          </div>
-          <div class="col-sm-10" style="margin-top:10px;">
-            <div class="input-group m-b">
-              <span class="input-group-addon"><i class="fa fa-search"></i></span> <input type="text" placeholder="Name" class="form-control" id="txt_name" fdprocessedid="pxe8s">
-            </div>
-          </div>
-          <div class="col-sm-10">
-            <button type="button" class="btn btn-block btn-primary my-5" style="width: 50%; margin-left: 110px;">Search</button>
           </div>
         </div>
+
       </div>
     </div>
-  </div>

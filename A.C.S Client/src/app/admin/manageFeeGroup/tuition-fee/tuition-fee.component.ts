@@ -10,15 +10,19 @@ import { TuitionFeeService } from './tuition-fee.service';
 export class TuitionFeeComponent {
 
   tutionFee:any=[];
+  dateObj:any={stdate:'',enddate:''};
+  assignClass:any='';
 
   constructor(private service:TuitionFeeService){
     
   }
 
   searchFee(){
-    this.service.fetchTutionFee({class:"LKG"},(res:any)=>{
+    this.service.fetchTutionFee({class:"LKG",stdate:this.dateObj.stdate,enddate:this.dateObj.enddate},(res:any)=>{
       if(res.status == 200){
-        this.tutionFee=res.data;
+        this.tutionFee=res.data.map((item:any)=>{return{...item,fee:JSON.parse(item.fee)}});
+        console.log(this.tutionFee);
+        
       }
     })
   }
