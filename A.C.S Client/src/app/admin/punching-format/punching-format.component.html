@@ -14,7 +14,7 @@
   </div>
   <div class="row dashboard-container my-2">
     <div class="col-sm-12 py-3 mb-2 bg-white">
-      <div class="fs-3" style="font-size: 1.75em; font-weight: 100;">Punching Format</div>
+      <div class="fs-3 px-3" style="font-size: 1.75em; font-weight: 100;">Punching Format</div>
       <nav aria-label="breadcrumb ">
         <ol class="breadcrumb px-3">
           <li class="breadcrumb-item">Home</li>
@@ -23,57 +23,58 @@
       </nav>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="container">
-        <div class="header">
-          <p>Last Admission No.: #90</p>
+  <div class="row bg-light ps-3">
+    <div class="col-sm-6">
+      <div class="row">
+        <div class="col-sm-12">
+          <p>Last Admission No : #90</p>
         </div>
-        <div class="col-lg-4" style="padding-top: 10px;">
-          <div class="input-group"><span class="input-group-addon"><i class="fa fa-list-ul"></i></span><input
-              list="admission_nos" class="form-control" type="text" id="admission_id"
-              placeholder="Enter Admission Number" list="browsers" [(ngModel)]="admissionNO"> <span
-              class="input-group-btn">
-              <button
-                style="min-width: 72px; height: 40px; background-color: #18a689;; border: none; color:white; border-radius: 3px;"
-                (click)="getAdmisssonId()">Search
-              </button> </span>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group d-flex align-items-center">
+            <input type="text" st="admission_nos" id="admission_id" class="form-control rounded-0"
+              placeholder="Enter Admission Number" [(ngModel)]="admissionNO">
+            <datalist id="admission_nos" id="browsers">
+              <option value="01"></option>
+              <option value="02"></option>
+              <option value="03"></option>
+              <option value="04"></option>
+              <option value="05"></option>
+            </datalist>
+            <span class="">
+              <button class="btn btn-success btn-lg rounded-0" (click)="getAdmisssonId()">Search</button> </span>
           </div>
-          <datalist id="admission_nos" id="browsers">
-            <option value="01"></option>
-            <option value="02"></option>
-            <option value="03"></option>
-            <option value="04"></option>
-            <option value="05"></option>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-5">
+      <div class="student-search">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="text-center fs-5">Search</h3>
+          </div>
+          <div class="card-body">
+            <form>
+              <div class="form-group">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter Student Name" />
+              </div>
+              <div class="form-group">
+                <label for="fatherName">Father Name</label>
+                <input type="text" id="fatherName" placeholder="Enter Father Name" />
+              </div>
+              <div class="form-group">
+                <label for="mobileNo">Mobile No</label>
+                <input type="text" id="mobileNo" placeholder="Enter Mobile Number" />
+              </div>
+              <button type="button" class="btn btn-success rounded-0">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
-          </datalist>
-        </div>
-      </div>
-    </div>
-    <div class="student-search">
-      <div class="card">
-        <div class="card-header">
-          <h3>Search</h3>
-        </div>
-        <div class="card-body">
-          <form>
-            <div class="form-group">
-              <label for="studentName">Student Name</label>
-              <input type="text" id="studentName" placeholder="Enter Student Name" />
-            </div>
-            <div class="form-group">
-              <label for="fatherName">Father Name</label>
-              <input type="text" id="fatherName" placeholder="Enter Father Name" />
-            </div>
-            <div class="form-group">
-              <label for="mobileNo">Mobile No</label>
-              <input type="text" id="mobileNo" placeholder="Enter Mobile Number" />
-            </div>
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -87,29 +88,29 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Admission No</label>
-          <input class="form-control" [(ngModel)]="stdData.admission_number"  type="number" id="admission_no" style="height:35px; width: 240px;"
-            name="admission_no">
+          <input class="form-control" [(ngModel)]="stdData.admission_number" type="number" id="admission_no"
+            style="height:35px; width: 240px;" name="admission_no">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Name</label>
-          <input class="form-control" [(ngModel)]="stdData.name"  type="text" id="name" name="name" style="height:35px; width: 240px;"
-            fdprocessedid="mm9f77">
+          <input class="form-control" [(ngModel)]="stdData.name" type="text" id="name" name="name"
+            style="height:35px; width: 240px;" fdprocessedid="mm9f77">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Name</label>
-          <input class="form-control" [(ngModel)]="stdData.father_name"  type="text" id="father_name" style="height:35px; width: 240px;"
-            name="father_name">
+          <input class="form-control" [(ngModel)]="stdData.father_name" type="text" id="father_name"
+            style="height:35px; width: 240px;" name="father_name">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Mother Name</label>
-          <input class="form-control"  [(ngModel)]="stdData.mother_name"  type="text" id="mother_name" style="height:35px; width: 240px;"
-            name="mother_name">
+          <input class="form-control" [(ngModel)]="stdData.mother_name" type="text" id="mother_name"
+            style="height:35px; width: 240px;" name="mother_name">
         </div>
       </div>
 
@@ -118,28 +119,29 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Student Aadhar No.</label>
-          <input class="form-control" [(ngModel)]="stdData.student_aadhar_no"  type="text" id="student_aadhar_no" name="student_aadhar_no"
-            onkeypress="return isNumber(event)" fdprocessedid="k5m7di">
+          <input class="form-control" [(ngModel)]="stdData.student_aadhar_no" type="text" id="student_aadhar_no"
+            name="student_aadhar_no">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Aadhar No.</label>
-          <input class="form-control"  [(ngModel)]="stdData.father_aadhar_no" type="text" id="father_aadhar_no" name="father_aadhar_no"
-            onkeypress="return isNumber(event)" fdprocessedid="aje0c">
+          <input class="form-control" [(ngModel)]="stdData.father_aadhar_no" type="text" id="father_aadhar_no"
+            name="father_aadhar_no">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Mother Aadhar No.</label>
-          <input class="form-control"  [(ngModel)]="stdData.mother_aadhar_no" type="text" id="mother_aadhar_no" name="mother_aadhar_no"
-            onkeypress="return isNumber(event)" fdprocessedid="pe1zi">
+          <input class="form-control" [(ngModel)]="stdData.mother_aadhar_no" type="text" id="mother_aadhar_no"
+            name="mother_aadhar_no">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Guardian Name</label>
-          <input class="form-control"  [(ngModel)]="stdData.guardian_name" type="text" id="guardian_name" name="guardian_name" fdprocessedid="9s5qg">
+          <input class="form-control" [(ngModel)]="stdData.guardian_name" type="text" id="guardian_name"
+            name="guardian_name" fdprocessedid="9s5qg">
         </div>
       </div>
     </div>
@@ -149,21 +151,23 @@
           <label class="font-noraml">Date of Birth</label>
           <div class="input-group date">
             <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control"
-              id="date_of_birth" name="date_of_birth" readonly="" fdprocessedid="6ym43" [(ngModel)]="stdData.date_of_birth" >
+              id="date_of_birth" name="date_of_birth" readonly="" fdprocessedid="6ym43"
+              [(ngModel)]="stdData.date_of_birth">
           </div>
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Father Occupation</label>
-          <input class="form-control" [(ngModel)]="stdData.father_occupation"  type="text" id="father_occupation" name="father_occupation"
-            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="wh95vm">
+          <input class="form-control" [(ngModel)]="stdData.father_occupation" type="text" id="father_occupation"
+            name="father_occupation">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Gender</label>
-          <select class="form-control"  [(ngModel)]="stdData.gender"  type="text" id="gender" name="gender" fdprocessedid="qnt4m">
+          <select class="form-control" [(ngModel)]="stdData.gender" type="text" id="gender" name="gender"
+            fdprocessedid="qnt4m">
             <option value="">Select Gender</option>
             <option value="male">MALE</option>
             <option value="female">FEMALE</option>
@@ -174,8 +178,9 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Class</label>
-          <select class="form-control"  [(ngModel)]="stdData.assign_class" type="text" id="class" name="class" fdprocessedid="x007mh">
-            <option value="">Select Class</option>
+          <select class="form-control" [(ngModel)]="stdData.assign_class" type="text" id="class" name="class"
+            fdprocessedid="x007mh">
+            <option value="" selected>Select Class</option>
             <option value="PLAY_GROUP">PLAY GROUP</option>
             <option value="NURSERY">NURSERY</option>
             <option value="LKG">LKG</option>
@@ -202,29 +207,28 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Present Address</label>
-          <input class="form-control"  [(ngModel)]="stdData.present_address"  type="text" id="present_address" name="present_address"
-            onblur="$('#permanent_address').val(this.value)" fdprocessedid="r374r">
+          <input class="form-control" [(ngModel)]="stdData.present_address" type="text" id="present_address"
+            name="present_address" onblur="$('#permanent_address').val(this.value)" fdprocessedid="r374r">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Permanent Address</label>
-          <input class="form-control" [(ngModel)]="stdData.permanent_address"  type="text" id="permanent_address" name="permanent_address"
-            fdprocessedid="37onbd">
+          <input class="form-control" [(ngModel)]="stdData.permanent_address" type="text" id="permanent_address"
+            name="permanent_address" fdprocessedid="37onbd">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Pincode</label>
-          <input class="form-control"[(ngModel)]="stdData.pin"  type="text" id="pin" name="pin" onkeypress="return isNumber(event)" maxlength="6"
-            value="229001" fdprocessedid="s1cd1r">
+          <input class="form-control" [(ngModel)]="stdData.pin" type="text" id="pin" name="pin">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Nationality</label>
-          <input class="form-control" [(ngModel)]="stdData.nationality"   type="text" id="nationality" name="nationality"
-            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" value="INDIAN" fdprocessedid="n33kw">
+          <input class="form-control" [(ngModel)]="stdData.nationality" type="text" id="nationality" name="nationality"
+           value="INDIAN" fdprocessedid="n33kw">
         </div>
       </div>
 
@@ -235,19 +239,21 @@
         <div class="form-group">
           <label class="font-noraml">Religion</label>
           <input class="form-control" [(ngModel)]="stdData.religion" type="text" id="religion" name="religion"
-            onkeyup="this.value=this.value.replace(/[^a-zA-Z\s*]/g,'');" fdprocessedid="qnyx4f">
+           fdprocessedid="qnyx4f">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Caste</label>
-          <input class="form-control" [(ngModel)]="stdData.caste"type="text" id="caste" name="caste" fdprocessedid="r1zmwz">
+          <input class="form-control" [(ngModel)]="stdData.caste" type="text" id="caste" name="caste"
+            fdprocessedid="r1zmwz">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Category</label>
-          <select class="form-control" [(ngModel)]="stdData.category"  type="text" id="category" name="category" fdprocessedid="aj76d">
+          <select class="form-control" [(ngModel)]="stdData.category" type="text" id="category" name="category"
+            fdprocessedid="aj76d">
             <option value="gen">GENERAL</option>
             <option value="obc">OBC</option>
             <option value="sc">SC</option>
@@ -258,8 +264,8 @@
       <div class="col-sm-3">
         <div class="form-group" id="data_1">
           <label class="font-noraml">Period of Residence</label>
-          <input class="form-control" [(ngModel)]="stdData.period_of_residence_in_up"  type="text" id="period_of_residence_in_up" name="period_of_residence_in_up"
-            fdprocessedid="jglx9kx">
+          <input class="form-control" [(ngModel)]="stdData.period_of_residence_in_up" type="text"
+            id="period_of_residence_in_up" name="period_of_residence_in_up" fdprocessedid="jglx9kx">
         </div>
       </div>
 
@@ -268,35 +274,35 @@
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Previous School</label>
-          <input class="form-control" [(ngModel)]="stdData.previous_school" type="text" id="previous_school" name="previous_school" fdprocessedid="1rbytg">
+          <input class="form-control" [(ngModel)]="stdData.previous_school" type="text" id="previous_school"
+            name="previous_school" fdprocessedid="1rbytg">
           <input type="hidden" id="punching_format_id" value="9">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Mobile No.</label>
-          <input class="form-control"  [(ngModel)]="stdData.phone_number" type="text" id="mobile_No" name="mobile_No" onkeypress="return isNumber(event)"
-            maxlength="12" fdprocessedid="88axvj">
+          <input class="form-control" [(ngModel)]="stdData.phone_number" type="text" id="mobile_No" name="mobile_No">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Phone No.</label>
-          <input class="form-control" [(ngModel)]="stdData.phone_number"  type="text" id="phone_No" name="phone_No" onkeypress="return isNumber(event)"
-            maxlength="12" fdprocessedid="bimyh8">
+          <input class="form-control" [(ngModel)]="stdData.phone_number" type="text" id="phone_No" name="phone_No">
         </div>
       </div>
       <div class="col-sm-2">
         <div class="form-group">
           <label class="font-noraml">Whatsapp No.</label>
-          <input class="form-control"  [(ngModel)]="stdData.whatsapp_number"  type="text" id="whatsapp_No" name="whatsapp_No"
-            onkeypress="return isNumber(event)" maxlength="12" fdprocessedid="9yujfx">
+          <input class="form-control" [(ngModel)]="stdData.whatsapp_number" type="text" id="whatsapp_No"
+            name="whatsapp_No">
         </div>
       </div>
       <div class="col-sm-3">
         <div class="form-group">
           <label class="font-noraml">Email</label>
-          <input class="form-control" [(ngModel)]="stdData.mobile_email" type="text" id="email" name="email" fdprocessedid="ko4634">
+          <input class="form-control" [(ngModel)]="stdData.mobile_email" type="text" id="email" name="email"
+            fdprocessedid="ko4634">
         </div>
       </div>
     </div>
@@ -305,34 +311,34 @@
       <div class="col-sm-3" id="image_div">
         <div class="form-group">
           <label class="font-noraml">Student Image</label>
-          <input class="form-control"  type="file" id="profileImage" name="profileImage">
+          <input class="form-control" type="file" id="profileImage" name="profileImage">
         </div>
       </div>
       <div class="col-sm-3" id="birth_div">
         <div class="form-group">
           <label class="font-noraml">Birth Certificate Form</label>
-          <input class="form-control"  type="file" id="birth_certificate_form" name="birth_certificate_form">
+          <input class="form-control" type="file" id="birth_certificate_form" name="birth_certificate_form">
         </div>
       </div>
       <div class="col-sm-3" id="tc_div">
         <div class="form-group">
           <label class="font-noraml">TC Form</label>
-          <input class="form-control"  type="file" id="tc_form" name="tc_form">
+          <input class="form-control" type="file" id="tc_form" name="tc_form">
         </div>
       </div>
       <div class="col-sm-3" id="addmission_div">
         <div class="form-group">
           <label class="font-noraml">Addmission Form</label>
-          <input class="form-control"  type="file" id="addmission_form" name="addmission_form">
+          <input class="form-control" type="file" id="addmission_form" name="addmission_form">
         </div>
       </div>
     </div>
     <div class="col-sm-12" align="right">
-      <button type="button" id="save" class="btn btn-primary">Update</button>
+      <button type="button" id="save" class="btn btn-primary" (click)="updateStdDetail()">Update</button>
     </div>
     <div class="col-sm-12" id="fee_detail">
       <div class="panel panel-info">
-        <div class="panel-heading" align="center">
+        <div class="panel-heading my-3 fs-5 p-2 bg-success text-center text-white">
           Fee Details
         </div>
         <div class="panel-body">
@@ -362,224 +368,207 @@
                   <td id="month_04" month="04">
                     <p>Total: 2200</p>
                     <p>Date: 16-04-2024</p>
-                    <p>Rec.No.: 2024-25##04###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim"
-                      onclick="receipt('2024-25##04###132##AM');" style="margin-top: -25px;height: 34px;"
-                      id="btn_receipt" fdprocessedid="vevn1t"><i class="fa fa-print"
-                        style="margin-right: 5px;"></i>Print</button>
+                    <p>Rec.No.: 2024-25##04###132##AM</p><br><button type="button"
+                      class="btn btn-outline btn-info text-white">Print</button>
                   </td>
                   <td id="month_05" month="05">
                     <p>Total: 1820</p>
                     <p>Date: 16-05-2024</p>
-                    <p>Rec.No.: 2024-25##05###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim"
-                      onclick="receipt('2024-25##05###132##AM');" style="margin-top: -25px;height: 34px;"
-                      id="btn_receipt" fdprocessedid="fmreeo"><i class="fa fa-print"
-                        style="margin-right: 5px;"></i>Print</button>
+                    <p>Rec.No.: 2024-25##05###132##AM</p><br><button type="button"
+                      class="btn btn-outline btn-info text-white">Print</button>
                   </td>
                   <td id="month_06" month="06">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="ige71"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(6)" class="btn btn-outline btn-info text-white btn-sm  dim " type="button"
+                        fdprocessedid="ige71"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_07" month="07">
                     <p>Total: 1200</p>
                     <p>Date: 15-07-2024</p>
-                    <p>Rec.No.: 2024-25##07###132##AM</p><br><button type="button" class="btn btn-outline btn-info  dim"
-                      onclick="receipt('2024-25##07###132##AM');" style="margin-top: -25px;height: 34px;"
-                      id="btn_receipt" fdprocessedid="nz9vk"><i class="fa fa-print"
-                        style="margin-right: 5px;"></i>Print</button>
+                    <p>Rec.No.: 2024-25##07###132##AM</p><br><button type="button"
+                      class="btn btn-outline btn-info text-white">Print</button>
                   </td>
                   <td id="month_08" month="08">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="og05x"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(8)" class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="og05x"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_09" month="09">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="x9dq38"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(9)" class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="x9dq38"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_10" month="10">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="xbv2tz"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(10)" class="btn btn-outline btn-info text-white btn-sm  dim " type="button"
+                        fdprocessedid="xbv2tz"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_11" month="11">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="dz4cjv"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(11)" class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="dz4cjv"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_12" month="12">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="xa9et"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(12)" class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="xa9et"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_01" month="01">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="mxam1s"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee"  (click)="setActiveMonth(1)"class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="mxam1s"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_02" month="02">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="2ae18p"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(2)" class="btn btn-outline btn-info text-white  btn-sm dim " type="button"
+                        fdprocessedid="2ae18p"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                   <td id="month_03" month="03">
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
                     <p>_ _ _ _</p>
-                    <p><button title="Pay Fee" class="btn btn-outline btn-info  dim " type="button"
-                        fdprocessedid="i3rsio"><i class="fa fa-money"></i></button></p>
+                    <p><button title="Pay Fee" (click)="setActiveMonth(3)"   class="btn btn-outline btn-info text-white btn-sm  dim " type="button"
+                        fdprocessedid="i3rsio"><i class="fa fa-money"></i>Pay</button></p>
                   </td>
                 </tr>
               </tbody>
             </table>
           </div>
-          <div class="col-sm-12" id="fee_receipt" style="display: none;margin-top: 10px;">
+          <div class="col-sm-12" id="fee_receipt" style="margin-top: 10px;" *ngIf="activeMonthFee">
             <div class="panel panel-info">
-              <div class="panel-heading" align="center">
+              <div class="panel-heading my-3 fs-5 bg-success text-white p-1 text-center">
                 Fee Receipt
               </div>
               <div class="panel-body" id="save_fee_detail">
                 <div class="ibox-content" style="padding: 0px 0px 0px 0px;">
-                  <form role="form" method="post">
-                    <div class="col-sm-12">
-                      <div class="col-sm-3">
-                        <div class="form-group" id="data_3">
-                          <label class="font-noraml">Date</label>
-                          <div class="input-group date">
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                              class="form-control" id="timestamp" name="timestamp" readonly="" value="27-09-2024">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Month</label>
-                          <input class="form-control" type="text" id="month" name="month" disabled="">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Admission Fee</label>
-                          <input class="form-control" type="text" id="admission_fee" name="admission_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Session Fee</label>
-                          <input class="form-control" type="text" id="session_fee" name="session_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group" id="data_3">
+                        <label class="font-noraml">Date</label>
+                        <div class="input-group date">
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                            class="form-control" id="timestamp" name="timestamp" [value]="todayDate|date:'dd/MM/yyyy'">
                         </div>
                       </div>
                     </div>
-                    <div class="col-sm-12">
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Tution Fee</label>
-                          <input class="form-control" type="text" id="tution_fee" name="tution_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Fine</label>
-                          <input class="form-control" type="text" id="fine" name="fine" onkeyup="total_fee();"
-                            maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Re-Admission Fee</label>
-                          <input class="form-control" type="text" id="re_admission_fee" name="re_admission_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Exam Fee</label>
-                          <input class="form-control" type="text" id="exam_fee" name="exam_fee" onkeyup="total_fee();"
-                            maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Month</label>
+                        <input class="form-control" [(ngModel)]="activeMonthFee" type="text" id="month" name="month" disabled="">
                       </div>
                     </div>
-                    <div class="col-sm-12">
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Development Fee</label>
-                          <input class="form-control" type="text" id="development_fee" name="development_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Activity Fee</label>
-                          <input class="form-control" type="text" id="activity_fee" name="activity_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Computer Science Fee</label>
-                          <input class="form-control" type="text" id="computer_science_fee" name="computer_science_fee"
-                            onkeyup="total_fee();" maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Other</label>
-                          <input class="form-control" type="text" id="others" name="others" onkeyup="total_fee();"
-                            maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Admission Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.admission_fee" type="text" id="admission_fee" name="admission_fee">
                       </div>
                     </div>
-                    <div class="col-sm-12">
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Other 1.</label>
-                          <input class="form-control" type="text" id="adv_fee" name="adv_fee" onkeyup="total_fee();"
-                            maxlength="5" onkeypress="return isNumber(event)" placeholder="0">
-                        </div>
-                      </div>
-                      <div class="col-sm-3">
-                        <div class="form-group">
-                          <label class="font-noraml">Total</label>
-                          <input class="form-control" type="text" id="total_amt" name="total_amt" readonly="">
-                        </div>
-                      </div>
-                      <div class="col-sm-6">
-                        <button type="button" class="btn btn-primary btn-block btn-md" onclick="pay_fee();"
-                          style="margin-top: 22px;height: 34px;" id="btn_pay_fee"><i class="fa fa-file"
-                            style="margin-right: 5px;"></i> Pay Fee</button>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Session Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.session_fee" type="text" id="session_fee" name="session_fee">
                       </div>
                     </div>
-                    <input type="reset" style="display: none;" id="form_reset">
-                  </form>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Tution Fee</label>
+                        <input class="form-control"  [(ngModel)]="stdFeeConfig.tution_fee" type="text" id="tution_fee" name="tution_fee">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Fine</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.fine" type="text" id="fine" name="fine"
+                          maxlength="5">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Re-Admission Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.re_admission_fee" type="text" id="re_admission_fee" name="re_admission_fee">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Exam Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.exam_fee" type="text" id="exam_fee" name="exam_fee"
+                          maxlength="5">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Development Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.development_fee" type="text" id="development_fee" name="development_fee">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Activity Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.activity_fee" type="text" id="activity_fee" name="activity_fee">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Computer Science Fee</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.computer_science_fee" type="text" id="computer_science_fee" name="computer_science_fee"
+                          maxlength="5">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Other</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.other" type="text" id="others" name="others"
+                          maxlength="5">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Other 1.</label>
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.other1" type="text" id="adv_fee" name="adv_fee"
+                          maxlength="5">
+                      </div>
+                    </div>
+                    <div class="col-sm-3">
+                      <div class="form-group">
+                        <label class="font-noraml">Total</label>
+                        <input class="form-control" disabled="" [(ngModel)]="stdFeeConfig.total" type="text" id="total_amt" name="total_amt" readonly="">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <button type="button" (click)="payFee()" class="btn btn-primary btn-block btn-md"><i class="fa fa-file"
+                          style="margin-right: 5px;"></i> Pay Fee</button>
+                    </div>
+                  </div>
+                  <input type="reset" style="display: none;" id="form_reset">
                 </div>
-                <input type="hidden" value="#132" id="adm_no" name="admission_no">
               </div>
+              <input type="hidden" value="#132" id="adm_no" name="admission_no">
             </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
-
 </div>

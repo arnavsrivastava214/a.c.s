@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-sm-5 d-flex">
             <select class="form-select " aria-label="Default select example" [(ngModel)]="feePayment">
-                <option selected>Select Class</option>
+                <option selected value="">Select Class</option>
                 <option value="PLAY GROUP">PLAY GROUP</option>
                 <option value="NURSERY">NURSERY</option>
                 <option value="LKG">LKG</option>
@@ -58,7 +58,7 @@
                 <img src="../assets/img/namelogo.png" style="height: 25%; width: 100%;">
                 <p>
                     <span>#FEE PAYMENT</span>
-                    <span style="float: right;" id="date">#Class : LKG</span>
+                    <span style="float: right;" id="date">#Class : {{feePayment}}</span>
                 </p>
                 <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
                     fdprocessedid="pdhux" [(ngModel)]="inputValues" (input)="getsearchedValues()">
@@ -150,7 +150,7 @@
                             <td>{{payment.name}}</td>
                             <td>{{payment.father_name}}</td>
                             <td>{{payment.phone_number}}</td>
-                            <td>{{payment.fee}}</td>
+                            <td>{{payment.fee.admission_fee ? 'Paid' : 'Not Paid'}}</td>
                             <td><button class="btn btn-primary" (click)="getPayment(payment)">Pay</button></td>
                         </tr>
 

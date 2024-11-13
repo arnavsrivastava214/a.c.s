@@ -4,7 +4,7 @@
             <div class="sidebar ">
                 <div class="logo-details d-flex flex-column active" style="background-color: #19c0a0;"
                     [ngClass]="{active:isActive, Inactive:!isActive}">
-                    <img src="https://cdn-icons-png.flaticon.com/512/9203/9203764.png"
+                    <img [src]="'https://cdn-icons-png.flaticon.com/512/9203/9203764.png'"
                         style="height: 50px;  width: 50px;" alt="">
                     <span routerLink="/" class="fw-bold my-2">LogOut</span>
                 </div>
@@ -148,7 +148,7 @@
                             <li><a routerLink="/admin/balance-left">Balance Left</a></li>
                         </ul>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a>
                             <i class='bx bx-compass'></i>
                             <span class="link_name" routerLink="/admin/promote-to-higher-class">Promote </span>
@@ -157,7 +157,7 @@
                             <li><a class="link_name" routerLink="/admin/promote-to-higher-class">Promote To Higher Class
                                 </a></li>
                         </ul>
-                    </li>
+                    </li> -->
                     <li>
                         <a>
                             <i class='bx bx-history'></i>

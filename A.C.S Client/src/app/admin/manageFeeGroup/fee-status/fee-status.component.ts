@@ -7,7 +7,7 @@ import { FeeStatusServiceService } from './fee-status-service.service';
   styleUrls: ['./fee-status.component.css']
 })
 export class FeeStatusComponent {
-  getClass:any;
+  getClass:any='';
   showContent:any = false
   showModal :any = false;
   displayData:any

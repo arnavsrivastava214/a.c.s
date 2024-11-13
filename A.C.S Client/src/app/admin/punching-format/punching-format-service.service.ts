@@ -10,5 +10,15 @@ export class PunchingFormatServiceService {
   url:any= "http://localhost:3000/api/punchingformat/"
 
   fetchStudentCredBYId(result:any, callback:any){
-    this.http.post(this.url+"fetchsstudentcred",result).subscribe(res=>callback(res));
-  }}
+   return this.http.post(this.url+"fetchsstudentcred",result).subscribe(res=>callback(res));
+  }
+
+  payFee(params:any,stdId:any,callback:any){
+    return this.http.put(this.url+'payFee/'+stdId,params).subscribe(res=>callback(res));
+  }
+
+  updateStdDetails(params:any,stdId:any,callback:any){
+    return this.http.put(this.url+'updateStdDetails/'+stdId,params).subscribe(res=>callback(res));
+  }
+
+}

@@ -13,7 +13,10 @@ router.post("/fetchfeedetails", (req,res)=>{
     let values = [classfees];
     con.query(sql, values,(error,result)=>{
         if(!error){
-            res.send({message:"data fetched",status:200,data:result});
+            let parsedResult = result.map((item)=>{
+                return { ...item, fee: JSON.parse(item.fee) };
+            })
+            res.send({message:"data fetched",status:200,data:parsedResult});
         }
         else{
             res.send({message:"Error", status:400});
