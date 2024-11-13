@@ -9,7 +9,7 @@ import { group } from '@angular/animations';
   styleUrls: ['./fee-payment.component.css']
 })
 export class FeePaymentComponent {
-  feePayment: any;
+  feePayment: any='';
   showDetails: any = false;
   showModal: any = false;
   displayData: any;

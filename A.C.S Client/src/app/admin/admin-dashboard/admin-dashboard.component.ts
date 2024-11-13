@@ -9,8 +9,12 @@ import { CommonService } from 'src/app/shared/common.service';
 })
 export class AdminDashboardComponent {
   hover:boolean=false;
-  getSession:any
+  userData:any={}
   constructor(private service:AlertService,private common:CommonService){}
+
+  ngOnInit(){
+    this.userData =  JSON.parse(<any>localStorage.getItem('user') || '{}');
+  }
   onChange(){
     window.location.reload();
     this.service.success("Welcome To Scool Management", "Success",{displayDuration : 2000})

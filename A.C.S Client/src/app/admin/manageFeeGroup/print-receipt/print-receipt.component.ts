@@ -19,17 +19,11 @@ export class PrintReceiptComponent {
       enter_receipt:this.receiptNumber
     };
     this._service.printReceipt(params,(res:any)=>{
-      if(res.status==200){
+      if(res.status==200 && res.data.length>0){
         this.receiptData= res.data.map((item:any)=>{return {...item,fee:JSON.parse(item.fee)}})[0];
-        console.log(this.receiptData);
-        
         this.showModal=true;
         setTimeout(() => {
-          // let printContents:any = document.getElementById(divId);
-          // let originalContents:any = document.body.innerHTML;
-          // document.body.innerHTML = printContents;
           window.print();
-          // document.body.innerHTML = originalContents;
         },500);
       }
     });

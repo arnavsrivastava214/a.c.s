@@ -10,10 +10,15 @@ import { CommonService } from 'src/app/shared/common.service';
 export class SideBarComponent {
   displayUserCredential: any
   isActive:any = true;
+  userData:any={};
 
   @Output() emitToParent:any = new EventEmitter();
   
   constructor(private common:CommonService){
+  }
+
+  ngOnInit(){
+    this.userData =  JSON.parse(<any>localStorage.getItem('user') || '{}');
   }
 
   ngAfterViewInit() {

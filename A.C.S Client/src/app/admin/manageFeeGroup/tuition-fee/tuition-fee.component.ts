@@ -18,7 +18,7 @@ export class TuitionFeeComponent {
   }
 
   searchFee(){
-    this.service.fetchTutionFee({class:"LKG",stdate:this.dateObj.stdate,enddate:this.dateObj.enddate},(res:any)=>{
+    this.service.fetchTutionFee({assign_class:this.assignClass,stdate:this.dateObj.stdate,enddate:this.dateObj.enddate},(res:any)=>{
       if(res.status == 200){
         this.tutionFee=res.data.map((item:any)=>{return{...item,fee:JSON.parse(item.fee)}});
         console.log(this.tutionFee);
