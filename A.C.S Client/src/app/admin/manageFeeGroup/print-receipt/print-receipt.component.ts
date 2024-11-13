@@ -11,6 +11,7 @@ export class PrintReceiptComponent {
   receiptNumber:any='';
   showModal:boolean=false;
   receiptData:any={};
+  showErrorModal:any = false
 
   constructor(private _service:BillAmendmentService){}
 
@@ -25,6 +26,10 @@ export class PrintReceiptComponent {
         setTimeout(() => {
           window.print();
         },500);
+      }else{
+        this.showErrorModal = true
+        this.showModal = false
+        this.receiptNumber = "";
       }
     });
   };

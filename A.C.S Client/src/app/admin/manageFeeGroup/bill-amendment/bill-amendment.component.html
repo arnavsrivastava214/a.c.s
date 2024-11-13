@@ -204,3 +204,14 @@
       </div>
     </ng-container>
   </div>
+
+  <div id="myModal" class="modal" *ngIf="showErrorModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="showErrorModal = false">&times;</span>
+      <p>Data Not Found ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="showErrorModal =false">Close</button>
+    </div>
+  
+  </div>

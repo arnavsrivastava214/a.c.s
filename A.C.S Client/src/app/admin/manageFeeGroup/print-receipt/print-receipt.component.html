@@ -24,7 +24,7 @@
         </div>
         <div class="row">
             <div class="col-sm-5 d-flex">
-                <input type="text" placeholder="Enter Reciept Number" class="form-control"
+                <input type="number" placeholder="Enter Reciept Number" class="form-control"
                     aria-label="Default select example" [(ngModel)]="receiptNumber">
 
 
@@ -44,28 +44,28 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Admission No.</label>
-                        <input class="form-control" [(ngModel)]="receiptData.admission_number" type="text"
+                        <input class="form-control" [(ngModel)]="receiptData.admission_number" type="number"
                             id="admission_no" name="admission_no" disabled="">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Class</label>
-                        <input class="form-control" [(ngModel)]="receiptData.assign_class" type="text" id="class"
+                        <input class="form-control" [(ngModel)]="receiptData.assign_class" type="number" id="class"
                             name="class" disabled="">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Student Name</label>
-                        <input class="form-control" [(ngModel)]="receiptData.name" type="text" id="student_name"
+                        <input class="form-control" [(ngModel)]="receiptData.name" type="number" id="student_name"
                             name="student_name" disabled="">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Father's Name</label>
-                        <input class="form-control" [(ngModel)]="receiptData.father_name" type="text" id="father_name"
+                        <input class="form-control" [(ngModel)]="receiptData.father_name" type="number" id="father_name"
                             name="father_name" disabled="">
                     </div>
                 </div>
@@ -74,21 +74,21 @@
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Month</label>
-                        <input class="form-control" [(ngModel)]="receiptData.month" type="text" id="month" name="month"
+                        <input class="form-control" [(ngModel)]="receiptData.month" type="number" id="month" name="month"
                             disabled="">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Session</label>
-                        <input class="form-control" [(ngModel)]="receiptData.session" type="text" >
+                        <input class="form-control" [(ngModel)]="receiptData.session" type="number" >
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group" id="data_3">
                         <label class="font-noraml">Date</label>
                         <div class="input-group date">
-                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                            <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="number"
                                 [(ngModel)]="receiptData.date" class="form-control" id="timestamp" name="timestamp"
                                 readonly="" value="">
                         </div>
@@ -98,7 +98,7 @@
                     <div class="form-group">
                         <label class="font-noraml">Admission Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.admission_fee"
-                            title="Enter Admission Fee Or Zero" type="text" id="admission_fee">
+                            title="Enter Admission Fee Or Zero" type="number" id="admission_fee">
                     </div>
                 </div>
             </div>
@@ -107,27 +107,27 @@
                     <div class="form-group">
                         <label class="font-noraml">Session Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.session_fee"
-                            title="Enter Session Fee Or Zero" type="text">
+                            title="Enter Session Fee Or Zero" type="number">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Tution Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.tution_fee"
-                            title="Enter Tution Fee Or Zero" type="text" id="tution_fee">
+                            title="Enter Tution Fee Or Zero" type="number" id="tution_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Fine</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.fine" title="Enter Fine Or Zero"
-                            type="text" id="fine" name="fine">
+                            type="number" id="fine" name="fine">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Re-Admission Fee</label>
-                        <input class="form-control" title="Enter Re-Admission Fee Or Zero" type="text"
+                        <input class="form-control" title="Enter Re-Admission Fee Or Zero" type="number"
                             [(ngModel)]="receiptData.fee.re_admission_fee">
                     </div>
                 </div>
@@ -137,28 +137,28 @@
                     <div class="form-group">
                         <label class="font-noraml">Exam Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.exam_fee" title="Enter Exam Fee Or Zero"
-                            type="text">
+                            type="number">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Development Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.development_fee"
-                            title="Enter Development Fee Or Zero" type="text" id="development_fee">
+                            title="Enter Development Fee Or Zero" type="number" id="development_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Activity Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.activity_fee"
-                            title="Enter Activity Fee Or Zero" type="text" id="activity_fee">
+                            title="Enter Activity Fee Or Zero" type="number" id="activity_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Computer Science Fee</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.computer_science_fee"
-                            title="Enter Computer Science Fee Or Zero" type="text" id="computer_science_fee">
+                            title="Enter Computer Science Fee Or Zero" type="number" id="computer_science_fee">
                     </div>
                 </div>
             </div>
@@ -167,20 +167,20 @@
                     <div class="form-group">
                         <label class="font-noraml">Other</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.others" title="Enter Others Fee Or Zero"
-                            type="text" id="others">
+                            type="number" id="others">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Other 1.</label>
                         <input class="form-control" [(ngModel)]="receiptData.fee.others1" title="Enter Advance Fee Or Zero"
-                            type="text" id="adv_fee">
+                            type="number" id="adv_fee">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
                         <label class="font-noraml">Total</label>
-                        <input class="form-control" [(ngModel)]="receiptData.fee.total" type="text" id="total_amt"
+                        <input class="form-control" [(ngModel)]="receiptData.fee.total" type="number" id="total_amt"
                             name="total" disabled="">
                     </div>
                 </div>
@@ -188,3 +188,16 @@
         </div>
     </div>
 </div>
+
+
+
+<div id="myModal" class="modal" *ngIf="showErrorModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="showErrorModal = false">&times;</span>
+      <p>Data Not Found ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="showErrorModal =false">Close</button>
+    </div>
+  
+  </div>

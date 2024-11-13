@@ -90,3 +90,24 @@
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal" *ngIf="fillDetailsModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="fillDetailsModal = false">&times;</span>
+      <p>Please Fill the Details ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="fillDetailsModal =false">Close</button>
+    </div>
+  
+  </div>
+<div id="myModal" class="modal" *ngIf="showContent">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="showContent = false">&times;</span>
+      <p>Data Not Found ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="showContent =false">Close</button>
+    </div>
+  
+  </div>

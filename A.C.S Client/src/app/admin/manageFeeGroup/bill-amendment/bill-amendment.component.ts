@@ -14,6 +14,7 @@ export class BillAmendmentComponent {
   successModal:boolean=false;
   billDetailModal:boolean=false;
   billData:any={};
+  showErrorModal:any = false;
 
   constructor(private _service:BillAmendmentService){}
 
@@ -28,14 +29,19 @@ export class BillAmendmentComponent {
       enter_receipt:this.receiptNumber
     }
     this._service.fetchBillAmendment(params,(response:any)=>{
-      if(response.status==200){
+      if(response.status==200 && response.data.length>0){
+        console.log(response.data.length);
+        
         this.billDetailModal=true;
         this.showModal=true;
         this.successModal=false;
         this.billData = response.data.map((item:any)=>{return {...item,fee:JSON.parse(item.fee)}})[0];
         console.log(this.billData);
         
-      } 
+      } else{
+        this.showModal = false;
+        this.showErrorModal = true;
+      }
     })
   }
 

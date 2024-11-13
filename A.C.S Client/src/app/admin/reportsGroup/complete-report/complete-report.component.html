@@ -23,17 +23,31 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 d-flex">
+            <form [formGroup]="dateObj" class="col-sm-7 d-flex">
+                <div>
+                    <label for="startDate">Start Date:</label>
+                    <input type="date" id="startDate" class="form-control" formControlName="startDate" [max]="maxStartDate" />
+                </div>
+
+                <div>
+                    <label for="endDate">End Date:</label>
+                    <input type="date" id="endDate" formControlName="endDate" class="form-control px-3" [min]="minEndDate"
+                        placeholder="End Date" />
+                </div>
+            </form>
+
+
+            <!-- <div class="col-sm-6 d-flex">
                 <div class="form-group">
                     <input type="date" [(ngModel)]="dateObj.startDate" class="form-control" placeholder="Start Date">
                 </div>
                 <div class="form-group mx-2">
                     <input type="date" [(ngModel)]="dateObj.endDate" class="form-control" placeholder="End Date">
                 </div>
-            </div>
-            <div class="col-sm-6 d-flex">
+            </div> -->
+            <div class="col-sm-5 d-flex">
                 <div class="form-group">
-                    <select name="" id="" [(ngModel)]="assign_class" class="form-select">
+                    <select name="" id="" style="height: 40px;" [(ngModel)]="assign_class" class="form-select">
                         <option selected value="">Select Class</option>
                         <option value="play_group">PLAY GROUP</option>
                         <option value="nursery">NURSERY</option>
@@ -53,32 +67,32 @@
                         <option value="12">12</option>
                     </select>
                 </div>
-                <button class="btn btn-primary mx-2" (click)="searchReport()">Search</button>
+                <button class="btn btn-primary mx-2 h-75" (click)="searchReport()">Search</button>
             </div>
         </div>
         <div class="row mt-3" *ngIf="completesReportData.length>0">
             <div class="col-sm-12 table-responsive">
                 <table class="table table-bordered table-striped">
                     <thead>
-                            <tr>
-                                <th>SL NO.</th>
-                                <th>ADMN NO.</th>
-                                <th>NAME</th>
-                                <th>CLASS</th>
-                                <th>FATHER NAME</th>
-                                <th>ADM. FEE</th>
-                                <th>TUT.</th>
-                                <th>FINE</th>
-                                <th>RE. ADMN</th>
-                                <th>EXAM</th>
-                                <th>ACT.</th>
-                                <th>DEV.</th>
-                                <th>OTHER</th>
-                                <th>OTHER 1.</th>
-                                <th>SESS.</th>
-                                <th>COM.S.</th>
-                               <th>TOTAL</th>
-                            </tr>
+                        <tr>
+                            <th>SL NO.</th>
+                            <th>ADMN NO.</th>
+                            <th>NAME</th>
+                            <th>CLASS</th>
+                            <th>FATHER NAME</th>
+                            <th>ADM. FEE</th>
+                            <th>TUT.</th>
+                            <th>FINE</th>
+                            <th>RE. ADMN</th>
+                            <th>EXAM</th>
+                            <th>ACT.</th>
+                            <th>DEV.</th>
+                            <th>OTHER</th>
+                            <th>OTHER 1.</th>
+                            <th>SESS.</th>
+                            <th>COM.S.</th>
+                            <th>TOTAL</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let data of completesReportData;let idx = index;">
@@ -106,3 +120,14 @@
         </div>
     </div>
 </div>
+
+<div id="myModal" class="modal" *ngIf="showErrorModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="showErrorModal = false">&times;</span>
+      <p>Data Not Found ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="showErrorModal =false">Close</button>
+    </div>
+  
+  </div>

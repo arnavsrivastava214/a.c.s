@@ -10,7 +10,7 @@ import { AlertService } from 'src/app/shared/alert.service';
 export class PunchingFormatComponent {
   admissionNO: any;
   showModal: any;
-  showContent: any;
+  showContent: any = false;
   stdData: any = [];
   todayDate: any = new Date();
   activeMonthFee: any = '';
@@ -26,14 +26,13 @@ export class PunchingFormatComponent {
     this.service.fetchStudentCredBYId(obj, (callback: any) => {
       if (callback.status == 200 && callback.data.length > 0) {
         this.showModal = true
-        this.showContent = true
         console.log(callback);
         this.stdData = callback.data[0];
         console.log(this.stdData);
 
       } else {
-        this.showContent = false; 
-        this.showModal = true;
+        this.showContent = true; 
+        this.showModal = false;
       }
     })
   }

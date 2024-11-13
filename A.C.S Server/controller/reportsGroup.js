@@ -3,6 +3,7 @@ const connection = require("../connection.js");
 const router = express.Router();
 
 router.post("/fetchCompleteReport", (req, res) => {
+    console.log(req.body);
     let { startDate, endDate, assign_class } = req.body;
 
     const currentYear = new Date().getFullYear();

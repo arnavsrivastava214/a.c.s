@@ -12,6 +12,8 @@ export class TuitionFeeComponent {
   tutionFee:any=[];
   dateObj:any={stdate:'',enddate:''};
   assignClass:any='';
+  showContent:any = false;
+  fillDetailsModal:any= false;
 
   constructor(private service:TuitionFeeService){
     
@@ -19,10 +21,20 @@ export class TuitionFeeComponent {
 
   searchFee(){
     this.service.fetchTutionFee({assign_class:this.assignClass,stdate:this.dateObj.stdate,enddate:this.dateObj.enddate},(res:any)=>{
-      if(res.status == 200){
-        this.tutionFee=res.data.map((item:any)=>{return{...item,fee:JSON.parse(item.fee)}});
-        console.log(this.tutionFee);
+      if(res.status == 200 && res.data.length>0){
+        console.log(res);
+        console.log(this.dateObj);
+
         
+        
+        this.tutionFee=res.data.map((item:any)=>{return{...item,fee:JSON.parse(item.fee)}});
+        
+      }else if(this.dateObj.stdate == "" && this.dateObj.enddate == ""){
+        
+        this.fillDetailsModal = true
+      }
+      else{
+        this.showContent = true
       }
     })
   }
