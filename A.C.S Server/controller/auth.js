@@ -17,7 +17,7 @@ router.post("/signUp", async function (req, res) {
     let value = [name, email, password, rePassword, image, timeStamp];
     con.query(sql, value, async function (err, result) {
         if (!err) {
-            res.send({ message: "Login Success", status: 200 });
+            res.send({ message: "User Registered Success", status: 200 });
         } else {
             res.send({ message: "Invalid Credential", status: 404,error:err.sqlMessage });
         }
@@ -134,7 +134,7 @@ function createSessionTable(err, res) {
 
                 let values = [
                     [
-                        'ADM001', 1, 'Arnav Singh', 'Rajesh Singh', 'Sita Singh', 'Amit Singh',
+                        '01', 1, 'Arnav Singh', 'Rajesh Singh', 'Sita Singh', 'Amit Singh',
                         '2005-05-15', 'Engineer', 'Male', '123456789012', '098765432109',
                         '567890123456', '10th Grade', '123 Main St, City', '456 Elm St, City',
                         'Good Grades', 'path/to/image1.jpg', '123456', 'General', 'Indian',
@@ -146,7 +146,7 @@ function createSessionTable(err, res) {
                         '2024-03-01', 0, 0, 0, 0, 0, 0, 'General', new Date()
                     ],
                     [
-                        'ADM002', 2, 'Priya Sharma', 'Ramesh Sharma', 'Geeta Sharma', 'Rahul Sharma',
+                        '02', 2, 'Priya Sharma', 'Ramesh Sharma', 'Geeta Sharma', 'Rahul Sharma',
                         '2006-06-20', 'Doctor', 'Female', '123456789013', '098765432108',
                         '567890123457', '9th Grade', '789 Pine St, City', '321 Oak St, City',
                         'Average Grades', 'path/to/image2.jpg', '654321', 'OBC', 'Indian',
@@ -158,7 +158,7 @@ function createSessionTable(err, res) {
                         '2024-03-02', 1, 0, 1, 0, 1, 0, 'OBC', new Date()
                     ],
                     [
-                        'ADM003', 3, 'Rahul Gupta', 'Suresh Gupta', 'Nina Gupta', 'Ravi Gupta',
+                        '03', 3, 'Rahul Gupta', 'Suresh Gupta', 'Nina Gupta', 'Ravi Gupta',
                         '2004-07-10', 'Businessman', 'Male', '123456789014', '098765432107',
                         '567890123458', '11th Grade', '111 Maple St, City', '222 Cedar St, City',
                         'Excellent Grades', 'path/to/image3.jpg', '789012', 'SC', 'Indian',
@@ -170,7 +170,7 @@ function createSessionTable(err, res) {
                         '2024-03-03', 0, 1, 0, 1, 0, 1, 'SC', new Date()
                     ],
                     [
-                        'ADM004', 4, 'Sneha Mehta', 'Vikram Mehta', 'Pooja Mehta', 'Riya Mehta',
+                        '04', 4, 'Sneha Mehta', 'Vikram Mehta', 'Pooja Mehta', 'Riya Mehta',
                         '2005-12-25', 'Teacher', 'Female', '123456789015', '098765432106',
                         '567890123459', '10th Grade', '444 Birch St, City', '555 Spruce St, City',
                         'Good Grades', 'path/to/image4.jpg', '456789', 'General', 'Indian',
@@ -182,7 +182,7 @@ function createSessionTable(err, res) {
                         '2024-03-04', 0, 0, 1, 1, 0, 1, 'General', new Date()
                     ],
                     [
-                        'ADM005', 5, 'Karan Joshi', 'Manoj Joshi', 'Suman Joshi', 'Neha Joshi',
+                        '05', 5, 'Karan Joshi', 'Manoj Joshi', 'Suman Joshi', 'Neha Joshi',
                         '2003-03-30', 'Engineer', 'Male', '123456789016', '098765432105',
                         '567890123460', '12th Grade', '888 Ash St, City', '999 Cherry St, City',
                         'Outstanding Grades', 'path/to/image5.jpg', '321654', 'General', 'Indian',
