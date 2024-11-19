@@ -27,14 +27,14 @@
     <div class="col-sm-6">
       <div class="row">
         <div class="col-sm-12">
-          <p>Last Admission No : #90</p>
+          <p>Last Admission No : {{lastAdmissionNo}}</p>
         </div>
       </div>
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group d-flex align-items-center">
             <input type="text" st="admission_nos" id="admission_id" class="form-control rounded-0"
-              placeholder="Enter Admission Number" [(ngModel)]="admissionNO">
+              placeholder="Enter Admission Number" style="height: 43px;" [(ngModel)]="admissionNO">
             <datalist id="admission_nos" id="browsers">
               <option value="01"></option>
               <option value="02"></option>
@@ -462,7 +462,7 @@
                       <div class="form-group" id="data_3">
                         <label class="font-noraml">Date</label>
                         <div class="input-group date">
-                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                          <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="number"
                             class="form-control" id="timestamp" name="timestamp" [value]="todayDate|date:'dd/MM/yyyy'">
                         </div>
                       </div>
@@ -470,19 +470,19 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Month</label>
-                        <input class="form-control" [(ngModel)]="activeMonthFee" type="text" id="month" name="month" disabled="">
+                        <input class="form-control" [(ngModel)]="activeMonthFee" type="number" id="month" name="month" disabled="">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Admission Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.admission_fee" type="text" id="admission_fee" name="admission_fee">
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.admission_fee" type="number" id="admission_fee" name="admission_fee">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Session Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.session_fee" type="text" id="session_fee" name="session_fee">
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.session_fee" type="number" id="session_fee" name="session_fee">
                       </div>
                     </div>
                   </div>
@@ -490,26 +490,26 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Tution Fee</label>
-                        <input class="form-control"  [(ngModel)]="stdFeeConfig.tution_fee" type="text" id="tution_fee" name="tution_fee">
+                        <input class="form-control"  [(ngModel)]="stdFeeConfig.tution_fee" type="number" id="tution_fee" name="tution_fee">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Fine</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.fine" type="text" id="fine" name="fine"
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.fine" type="number" id="fine" name="fine"
                           maxlength="5">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Re-Admission Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.re_admission_fee" type="text" id="re_admission_fee" name="re_admission_fee">
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.re_admission_fee" type="number" id="re_admission_fee" name="re_admission_fee">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Exam Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.exam_fee" type="text" id="exam_fee" name="exam_fee"
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.exam_fee" type="number" id="exam_fee" name="exam_fee"
                           maxlength="5">
                       </div>
                     </div>
@@ -518,26 +518,26 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Development Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.development_fee" type="text" id="development_fee" name="development_fee">
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.development_fee" type="number" id="development_fee" name="development_fee">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Activity Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.activity_fee" type="text" id="activity_fee" name="activity_fee">
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.activity_fee" type="number" id="activity_fee" name="activity_fee">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Computer Science Fee</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.computer_science_fee" type="text" id="computer_science_fee" name="computer_science_fee"
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.computer_science_fee" type="number" id="computer_science_fee" name="computer_science_fee"
                           maxlength="5">
                       </div>
                     </div>
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Other</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.other" type="text" id="others" name="others"
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.other" type="number" id="others" name="others"
                           maxlength="5">
                       </div>
                     </div>
@@ -546,7 +546,7 @@
                     <div class="col-sm-3">
                       <div class="form-group">
                         <label class="font-noraml">Other 1.</label>
-                        <input class="form-control" [(ngModel)]="stdFeeConfig.other1" type="text" id="adv_fee" name="adv_fee"
+                        <input class="form-control" [(ngModel)]="stdFeeConfig.other1" type="number" id="adv_fee" name="adv_fee"
                           maxlength="5">
                       </div>
                     </div>

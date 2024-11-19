@@ -16,7 +16,8 @@ export class StudentComponent {
   isAscending: any;
   enableSuccessModal: boolean = false;
   disableSuccessModal: boolean = false;
-  id:any
+  id:any=""
+  class:any =''
 
   constructor(private service: StudentServiceService) { }
 
@@ -27,7 +28,12 @@ export class StudentComponent {
     }
     this.service.fetchBookSaleDetailsByStudentClass(obj, (callback: any) => {
       if (callback.status == 200 && callback.data.length > 0) {
+        callback.data.forEach((el:any)=>{
+          this.class = el.assign_class
+          
+        })
         this.displayData = callback.data
+        
         this.copyArray = [].concat(this.displayData)
 
 
@@ -35,13 +41,9 @@ export class StudentComponent {
       } else {
         this.showModal = true
         this.showContent = false;
-
-
+        this.admissionId="";
       }
-
     })
-
-
   }
 
   getsearchedValues() {
@@ -80,8 +82,6 @@ export class StudentComponent {
       })
 
     }
-    
-
   }
 
 }

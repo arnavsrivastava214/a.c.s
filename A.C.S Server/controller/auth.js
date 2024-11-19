@@ -211,30 +211,67 @@ function createSessionTable(err, res) {
 
 
 
-
 router.post("/recoverpassword", async function (req, res) {
     let email = req.body.email;
-
     let query = "SELECT * FROM 	user WHERE email = ? ";
     const value = [email];
-
+    
     con.query(query, value, (err, result) => {
-        if (!err && result.length > 0) {
-            res.send({ message: "Login Success", status: 200 });
-        } else {
-            res.send({ message: "Email Does Not Exist !", status: 404, error:err });
-        }
+        if(result.length>0 && !err){
+        console.log(result,"beti");
+        result.forEach((el)=>{
+            
+            if (!err && result.length > 0) {
+                res.send({ message: "Password Matched", status: 200 });
+            } else {
+                res.send({ message: "Email Does Not Exist !", status: 404, error:err });
+            }
+        })
+    }else{
+        res.send({ message: "Email Does Not Exist !", status: 404, error:err });
+
+
+    }
     })
 });
+router.post("/checkpassword",  ((req,res)=>{
+    let oldpassword = req.body.oldpassword;
+    let email = req.body.email;
+
+    let query = "SELECT * FROM user WHERE email = ?";
+    const value = [email, oldpassword];
+
+    con.query(query, value, async (err,result)=>{
+        
+            if(!err && result.length>0){
+                result.forEach((el)=>{
+                    if(el.password == oldpassword){
+                    res.send({ message: "Password Matched", status: 200 });
+                    console.log(result);
+                    }else{
+                        res.send({ message: "Password Not Matched !", status: 404, error:err });
+                        
+                    }
+                })
+            }else{
+                res.send({ message: "Password Not Matched !", status: 404, error:err });
+
+
+            }
+                
+                
+            })
+        }))
 router.post("/newPassword", async function (req, res) {
     let password = req.body.password;
+    let rePassword = req.body.rePassword;
+    let lastUpdate = req.body.lastUpdate;
     let email = req.body.email;
-    let lastUpdate = req.body.lastUpdate
 
 
-    let query = "UPDATE user SET password = ?, lastUpdate = ? WHERE email = ?"
+    let query = "UPDATE user SET password = ?, rePassword = ?, lastUpdate = ? WHERE email = ?"
 
-    const values = [password, lastUpdate, email];
+    const values = [password,rePassword, lastUpdate,email];
 
     con.query(query, values, (err, result) => {
         if (err) {

@@ -15,8 +15,8 @@ export class ManageTeacherComponent {
   inputValues: any
   id: any;
   copyArray: any = [];
-  constructor(private _fromBUuilder: FormBuilder, private service: ManageTeacherServiceService) {
-    this.formText = _fromBUuilder.group({
+  constructor(private _fromBuilder: FormBuilder, private service: ManageTeacherServiceService) {
+    this.formText = _fromBuilder.group({
       name: [],
       email: [],
       address: [],

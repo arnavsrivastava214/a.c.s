@@ -9,53 +9,52 @@ import { Call } from '@angular/compiler';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent {
-  showModal:any = false;
-  stafform:any; 
-  isoTimestamp:any
-  copyArray:any = []
-  displayData:any
-  inputValues:any
-  isAscending:any
-  editModal:any = false
-  editForm:any
-  id:any
+  showModal: any = false;
+  stafform: any;
+  isoTimestamp: any
+  copyArray: any = []
+  displayData: any
+  inputValues: any
+  isAscending: any
+  editModal: any = false
+  editForm: any
+  id: any
 
-  constructor (private _fb:FormBuilder, private service:AddServiceService){
+  constructor(private _fb: FormBuilder, private service: AddServiceService) {
     this.stafform = _fb.group({
-      type:[],
-      name:[],
-      contact:[],
+      type: [],
+      name: [],
+      contact: [],
 
     })
 
     this.editForm = _fb.group({
-      type:[],
-      name:[],
-      contact:[],
+      type: [],
+      name: [],
+      contact: [],
     })
   }
 
-  ngOnInit(){
-    this.service.getAllMessage((calback:any)=>{
-      
-      this.displayData = calback.data;
+  ngOnInit() {
+    this.service.getAllMessage((callback: any) => {
 
-      
+      this.displayData = callback.data;
+      console.log(callback);
+
 
       this.copyArray = [].concat(this.displayData)
-      
+      console.log(this.copyArray);
 
 
     })
   }
-  addstaff(){
+  addstaff() {
     this.showModal = true;
   }
-  addMessage(){
-    
-    
-    this.service.insertSchoolMessage(this.stafform.value,(calback:any)=>{
-      
+  addMessage() {
+    this.service.insertSchoolMessage(this.stafform.value, (calback: any) => {
+      console.log(calback);
+
     })
     this.showModal = false;
     this.stafform.reset()
@@ -63,53 +62,35 @@ export class AddComponent {
   }
   getsearchedValues() {
     let copy: any = [].concat(this.displayData)
-
-    this.copyArray = copy.filter((e: any) => e.message_body.includes(this.inputValues));
+    this.copyArray = copy.filter((e: any) => e.name.includes(this.inputValues));
 
   }
 
-  sort(sortByValue:any){
+  sort(sortByValue: any) {
     this.isAscending = !this.isAscending;
-    if(!this.isAscending){
-      return this.copyArray.sort((a:any,b:any)=>a[sortByValue].localeCompare(b[sortByValue]));
-    }else{
-      return this.copyArray.sort((a:any,b:any)=>b[sortByValue].localeCompare(a[sortByValue]));
+    if (!this.isAscending) {
+      return this.copyArray.sort((a: any, b: any) => a[sortByValue].localeCompare(b[sortByValue]));
+    } else {
+      return this.copyArray.sort((a: any, b: any) => b[sortByValue].localeCompare(a[sortByValue]));
     }
   }
 
-  editAddedValues(obj:any){
-
+  editAddedValues(obj: any) {
     this.id = obj.id;
-    
     this.editModal = true
     this.editForm.patchValue(obj)
-    
-    
 
   }
 
-  deleteAddedValues(message:any, idx:any){
-    
-    
-    this.service.deleteMessageById(message.id, (callback:any)=>{
-      
+  deleteAddedValues(message: any, idx: any) {
+    this.service.deleteMessageById(message.id, (callback: any) => {
     })
-    this.copyArray.splice(idx,1)
-
+    this.copyArray.splice(idx, 1)
   }
-
-  editDataBase(){
-
-    this.service.editMessageContentById(this.editForm.value,this.id,(callback:any)=>{
-      
-    } )
-
-
+  editDataBase() {
+    this.service.editMessageContentById(this.editForm.value, this.id, (callback: any) => {
+    })
     this.editForm.reset();
     this.editModal = false
-
-
   }
-
-
 }

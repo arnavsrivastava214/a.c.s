@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { AbstractControl, FormBuilder, Validators } from '@angular/forms';
 import { AuthServiceService } from '../authServices/auth-service.service';
 import { AlertService } from 'src/app/shared/alert.service';
 import { NgxImageCompressService } from 'ngx-image-compress';
 import { HttpClient } from '@angular/common/http';
+import { timestamp } from 'rxjs';
 
 4
 @Component({
@@ -25,13 +26,44 @@ export class SignUpComponent {
     this.isoTimestamp = new Date().toISOString();
 
 
-    this.signUpForm = _formBuilder.group({
-      name: [],
-      email: [],
-      password: [],
-      rePassword: [],
-      timeStamp: this.isoTimestamp
-    })
+    this.signUpForm = this._formBuilder.group(
+      {
+        name: ['', [Validators.required, Validators.minLength(3)]],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
+        rePassword: ['', [Validators.required]],
+        timeStamp:this.isoTimestamp
+      },
+    );
+  }
+
+ 
+
+  // Getter methods for easy access in the template
+  get name() {
+    return this.signUpForm.get('name');
+  }
+
+  get email() {
+    return this.signUpForm.get('email');
+  }
+
+  get password() {
+    return this.signUpForm.get('password');
+  }
+
+  get rePassword() {
+    return this.signUpForm.get('rePassword');
+  }
+
+  // Handle form submission
+  onSubmit() {
+    if (this.signUpForm.valid) {
+      console.log('Form Submitted', this.signUpForm.value);
+    } else {
+      console.log('Form is invalid');
+      this.signUpForm.markAllAsTouched();
+    }
   }
 
   onFileSelected(event: any): void {
@@ -78,20 +110,26 @@ export class SignUpComponent {
 
   }
   getregisterdValue() {
+  if(this.signUpForm.value.password == this.signUpForm.value.rePassword){
     this.Service.saveSignUpData(this.signUpForm.value, this.compressedImageUrl, (callback: any) => {
       if (callback.status == 200) {
         this.alertService.success(callback.message, "Success", { displayDuration: 2000 })
         console.log(callback);
-
-
-
+        
+        
+        
       } else {
         this.alertService.error(callback.error, "Error", { displayDuration: 2000 })
-
+        
       }
-
-
+      
+      
     })
+  }
+  else{
+    this.alertService.error("your Passwords not matched !", "Error", { displayDuration: 2000 })
+ 
+   }
 
 
   }

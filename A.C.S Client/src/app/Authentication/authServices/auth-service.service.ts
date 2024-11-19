@@ -16,11 +16,15 @@ export class AuthServiceService {
     this.http.post(this.url + "signUp", { ...result, image: image }).subscribe(res => callback(res));
   }
   savedLoginData(result: any, callback: any) {
-    this.http.post(this.url + 'login', result).subscribe(res => callback(res))
+    this.http.post(this.url + 'login', result).subscribe(res => callback(res));
   }
 
   checkForgetPassword(result: any, callback: any) {
-    this.http.post(this.url + "recoverpassword", result).subscribe(res => callback(res))
+    this.http.post(this.url + "recoverpassword", result).subscribe(res => callback(res));
+  }
+
+  checkPasswordMatched(result:any , callback:any){
+    this.http.post(this.url + "checkpassword", result).subscribe(res => callback(res));
   }
   saveNewPassword(result: any, callback: any) {
     this.http.post(this.url + "newPassword", result).subscribe(res => callback(res))

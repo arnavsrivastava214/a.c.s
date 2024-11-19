@@ -15,9 +15,15 @@ export class PunchingFormatComponent {
   todayDate: any = new Date();
   activeMonthFee: any = '';
   stdFeeConfig:any={};
+  lastAdmissionNo:any;
   constructor(private service: PunchingFormatServiceService,private alert:AlertService) { }
 
+ngOnInit(){
+  setInterval(()=>{
+    this.lastAdmissionNo = JSON.parse(<any>localStorage.getItem("lastAdmissionNo"));
 
+  },1000)
+}
 
   getAdmisssonId() {
     let obj: any = {
@@ -25,10 +31,18 @@ export class PunchingFormatComponent {
     }
     this.service.fetchStudentCredBYId(obj, (callback: any) => {
       if (callback.status == 200 && callback.data.length > 0) {
-        this.showModal = true
         console.log(callback);
+        
+        callback.data.forEach((el:any)=>{
+          let lastAdmissionNo =  el.admission_number;
+          localStorage.setItem("lastAdmissionNo",JSON.stringify(lastAdmissionNo));
+          
+
+        })
+        
+        this.showModal = true
         this.stdData = callback.data[0];
-        console.log(this.stdData);
+        this.activeMonthFee = false;
 
       } else {
         this.showContent = true; 
@@ -41,6 +55,8 @@ export class PunchingFormatComponent {
     this.service.updateStdDetails(this.stdData, this.stdData.id, (res: any) => {
       if(res.status == 200){
         this.showModal = false;
+        this.stdFeeConfig = {};
+        this.stdData ={};
         this.alert.success('Details Updated Successfully');
       }
     })

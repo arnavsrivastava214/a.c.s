@@ -10,7 +10,8 @@ export class CollectionReportComponent {
   collectionParticularDate:any = true;
   collectionAdmissionWise:any = false;
   collectionBetweenTwoDates:any = false;
-
+  inputValues:any;
+  copyArray:any = [];
   particularDate:any='';
   admission_number:any='';
   startDate:any='';
@@ -46,8 +47,18 @@ export class CollectionReportComponent {
       if(res.status == 200){
         this.collectionReportData = res.data;
         console.log(res.data);
+        this.copyArray = [].concat(this.collectionReportData)
+
       } 
     })
+  }
+  getsearchedValues() {
+    let copy: any = [].concat(this.collectionReportData)
+
+    this.copyArray = copy.filter((e: any) => e.name.includes(this.inputValues));
+    console.log(this.inputValues);
+    
+
   }
 
   searchByAdmissionNumber(){

@@ -52,13 +52,13 @@
                     Search
                 </button>
 
-                <button (click)="printPage()" class=" btn btn-warning">Print </button>
             </div>
-
+            
         </div>
     </div>
 </div>
 <div *ngIf="showContent">
+    <button (click)="printPage()" class=" btn btn-warning">Print </button>
     <input type="text" class="form-control input-sm m-b-xs my-5" id="filter" placeholder="Search in table"
         fdprocessedid="pdhux" [(ngModel)]="inputValues" (input)="getsearchedValues()">
 
@@ -125,3 +125,14 @@
     </table>
 
 </div>
+
+<div id="myModal" class="modal" *ngIf="showModal">
+
+    <!-- Modal content -->
+    <div class="modal-content" style="width: 33%;">
+      <span class="close" (click)="showModal = false">&times;</span>
+      <p>Data Not Found ! </p>
+      <button class="btn btn-danger" style="width: 80px;" (click)="showModal =false">Close</button>
+    </div>
+  
+  </div>

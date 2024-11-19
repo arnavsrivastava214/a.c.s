@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { EnquiryServiceService } from './enquiry-service.service';
 import { LoginComponent } from 'src/app/Authentication/login/login.component';
 import { AlertService } from 'src/app/shared/alert.service';
@@ -19,15 +19,16 @@ export class EnquiryComponent {
     this.isoTimestamp = new Date().toISOString();
     this.session = this.service.generateSession();
 
-    this.enquiryForm = _fb.group({
-      studentName: [],
-      fname: [],
-      contactNo: [],
-      email: [],
-      session: this.session,
+      this.enquiryForm = _fb.group({
+        studentName: ['', [Validators.required, Validators.minLength(3)]],
+        fname: ['', [Validators.required, Validators.minLength(3)]], 
+        contactNo: ['', [Validators.required, Validators.pattern(/^[0-9]{10}$/)]], 
+        email: ['', [Validators.required, Validators.email]],
+        session: this.session,
       timestamp: this.isoTimestamp,
+      });
+      
 
-    })
   }
 
 
@@ -40,7 +41,7 @@ export class EnquiryComponent {
 
 
       }else{
-        this.alertService.error(callback.message, "Error",{displayDuration : 2000})
+        this.alertService.error( callback.error, "Error",{displayDuration : 2000})
         this.enquiryForm.reset();
 
 

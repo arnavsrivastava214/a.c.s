@@ -10,7 +10,7 @@ import { getLocaleFirstDayOfWeek } from '@angular/common';
 export class CertificateComponent {
   admissionId:any
   showContent:any = false
-  displayCredential:any
+  displayCredential:any;
   showModal:any = false
   constructor(private service:CertificateServiceService){}
  

@@ -107,21 +107,34 @@
                         <div class="col-md-6">
                             <div class="form_main">
                                 <h4 class="heading"><strong> Send Enquiry </strong>&nbsp;Form <span></span></h4>
-                                <div class="form">
-                                    <div >
-                                        <input type="text" required="" placeholder="Please input Student Name" value=""
-                                            name="studentName" class="txt" formControlName="studentName">
-                                        <input type="text" required="" placeholder="Please input Father Name" value=""
-                                            name="fname" class="txt" formControlName="fname">
-                                        <input type="text" required="" placeholder="Please input Contact No" value=""
-                                            name="contactNo" class="txt" formControlName="contactNo">
-                                        <input type="text" required="" placeholder="Please input Email Id" value=""
-                                            name="email" class="txt" formControlName="email">
-                                        <input type="hidden" value="1" name="add" class="txt">
+                                <div class="form-group">
+                                        <input type="text" formControlName="studentName" class="form-control" placeholder="Student Name"/>
+                                        <div *ngIf="enquiryForm.get('studentName').touched && enquiryForm.get('studentName').invalid">
+                                          <small *ngIf="enquiryForm.get('studentName').hasError('required')">Student Name is required.</small>
+                                          <small *ngIf="enquiryForm.get('studentName').hasError('minlength')">Minimum 3 characters required.</small>
+                                        </div>
+                                      
+                                        <input type="text" formControlName="fname" class="form-control my-4"  placeholder="Father Name"/>
+                                        <div *ngIf="enquiryForm.get('fname').touched && enquiryForm.get('fname').invalid">
+                                          <small *ngIf="enquiryForm.get('fname').hasError('required')">Father's Name is required.</small>
+                                          <small *ngIf="enquiryForm.get('fname').hasError('minlength')">Minimum 3 characters required.</small>
+                                        </div>
+                                      
+                                        <input type="text" formControlName="contactNo"  class="form-control my-4" placeholder="Conatct No "/>
+                                        <div *ngIf="enquiryForm.get('contactNo').touched && enquiryForm.get('contactNo').invalid">
+                                          <small *ngIf="enquiryForm.get('contactNo').hasError('required')">Contact Number is required.</small>
+                                          <small *ngIf="enquiryForm.get('contactNo').hasError('pattern')">Must be a 10-digit number.</small>
+                                        </div>
+                                      
+                                        <input type="email" formControlName="email" class="form-control my-4"  placeholder="Email"/>
+                                        <div *ngIf="enquiryForm.get('email').touched && enquiryForm.get('email').invalid">
+                                          <small *ngIf="enquiryForm.get('email').hasError('required')">Email is required.</small>
+                                          <small *ngIf="enquiryForm.get('email').hasError('email')">Enter a valid email.</small>
+                                        </div>
+                                      
+                                        <button type="submit" class="btn btn-primary" [disabled]="enquiryForm.invalid" (click)="getInputValue()">Submit</button>
+                                      
 
-                                       <button (click)="getInputValue()">Submit </button>
-
-                                    </div>
                                 </div>
                             </div>
                         </div>

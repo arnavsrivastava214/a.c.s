@@ -33,7 +33,8 @@ export class AcademicReportComponent {
 
       } else {
         this.showModal = true
-        this.showContent = true
+        this.showContent = false
+        this.getClass  = "";
       }
 
     })
@@ -57,7 +58,5 @@ export class AcademicReportComponent {
   printPage() {
     window.print();
   }
-
-
 
 }

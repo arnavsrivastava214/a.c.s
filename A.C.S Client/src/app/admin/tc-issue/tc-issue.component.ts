@@ -10,7 +10,7 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./tc-issue.component.css']
 })
 export class TcIssueComponent {
-  studentClass: any
+  studentClass: any=""
   displayData: any
   showModal: any = false;
   showContent: any = false
@@ -65,6 +65,7 @@ export class TcIssueComponent {
       } else {
         this.showModal = true
         this.showContent = false;
+        this.studentClass="";
 
       }
 

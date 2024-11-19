@@ -72,7 +72,8 @@
         </p>
 
         <input type="text" class="form-control input-sm m-b-xs" id="filter" placeholder="Search in table"
-            fdprocessedid="qt2uhp" style="display: block;">
+            fdprocessedid="qt2uhp" style="display: block;"  [(ngModel)]="inputValues"
+            (input)="getsearchedValues()">
     </div>
     <div class="row mt-5">
         <div class="col-sm-12">
@@ -90,7 +91,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let data of collectionReportData; let idx = index">
+                    <tr *ngFor="let data of copyArray; let idx = index">
                         <td>{{idx+1}}</td>
                         <td>{{data.admission_number}}</td>
                         <td>{{data.name}}</td>

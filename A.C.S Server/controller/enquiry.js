@@ -18,7 +18,7 @@ router.post("/insertenquiry", (req, res) => {
             res.send({ message: "data Saved", status: 200, data: result });
         }
         else {
-            res.send({ message: "Error", status: 400 });
+            res.send({ message: "Error", status: 400 , error:error.sqlMessage});
         }
     })
 })
